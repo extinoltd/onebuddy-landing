@@ -1,0 +1,288 @@
+export interface KBArticle {
+  slug: string;
+  title: string;
+  metaDescription: string;
+  category: string;
+  content: string[];
+}
+
+export const kbCategories = [
+  { id: 'getting-started', label: 'Getting Started', icon: 'Flash', color: '#7C3AED' },
+  { id: 'feature-guides', label: 'Feature Guides', icon: 'Category', color: '#06B6D4' },
+  { id: 'troubleshooting', label: 'Troubleshooting', icon: 'Warning2', color: '#F59E0B' },
+  { id: 'privacy-security', label: 'Privacy & Security', icon: 'ShieldTick', color: '#EC4899' },
+  { id: 'faq', label: 'FAQ', icon: 'MessageQuestion', color: '#10B981' },
+];
+
+export const kbArticles: KBArticle[] = [
+  // Getting Started
+  {
+    slug: 'how-to-install-onebuddy',
+    title: 'How to Install OneBuddy Chrome Extension',
+    metaDescription: 'Step-by-step guide to installing OneBuddy from the Chrome Web Store. Takes less than 30 seconds.',
+    category: 'getting-started',
+    content: [
+      'Installing OneBuddy takes less than 30 seconds. Visit the Chrome Web Store listing for OneBuddy and click "Add to Chrome." Chrome will display a permissions dialog — review the permissions and click "Add Extension."',
+      'Once installed, you\'ll see the OneBuddy icon in your Chrome toolbar (top-right corner). Click it to open the side panel, which is where all OneBuddy tools live.',
+      'OneBuddy opens as a Chrome side panel — a vertical panel on the right side of your browser window. This means your tools are always accessible without opening a new tab.',
+      'After installation, OneBuddy is ready to use immediately. No account creation, no sign-up, no configuration required. All features work out of the box.',
+      'To pin OneBuddy to your toolbar for quick access: click the puzzle piece icon in Chrome\'s toolbar, find OneBuddy in the list, and click the pin icon.',
+    ],
+  },
+  {
+    slug: 'how-to-set-health-reminder',
+    title: 'How to Set Your First Health Reminder',
+    metaDescription: 'Learn how to configure water, stand-up, and eye break reminders in OneBuddy. Step-by-step setup guide.',
+    category: 'getting-started',
+    content: [
+      'Open OneBuddy by clicking its icon in the Chrome toolbar. Navigate to the Health section in the side panel.',
+      'You\'ll see three reminder types: Water Reminder, Stand Up Reminder, and Eye Break (20-20-20 Rule). Each can be enabled independently.',
+      'For each reminder, choose your scheduling mode: Interval (e.g., every 30 minutes), Fixed Time (specific times of day), or Date Range (only during certain date ranges).',
+      'Set your preferred interval. Water reminders are commonly set to 30-60 minutes. Stand-up reminders work well at 45-90 minute intervals. Eye breaks follow the 20-20-20 rule (every 20 minutes).',
+      'Optionally, add website exclusions — URLs where reminders should not appear. This is useful for video conferencing sites where interruptions are unwanted.',
+      'Click Save. Your reminders are now active and will display beautiful in-page notifications at your chosen intervals.',
+    ],
+  },
+  {
+    slug: 'how-to-enable-pomodoro-timer',
+    title: 'How to Enable and Use the Pomodoro Timer',
+    metaDescription: 'Complete guide to using OneBuddy\'s Pomodoro timer with screen dim. Configure focus sessions, breaks, and tracking.',
+    category: 'getting-started',
+    content: [
+      'Open the OneBuddy side panel and navigate to the Productivity section. You\'ll find the Pomodoro Timer as one of the first tools.',
+      'Set your focus duration (default: 25 minutes) and break duration (default: 5 minutes). You can customize these from 1-120 minutes for focus and 1-30 minutes for breaks.',
+      'Click Start to begin your first Pomodoro session. The timer will count down in the side panel, and if screen dim is enabled, your active tab will darken to reduce visual distractions.',
+      'When the focus session ends, you\'ll hear an audio notification. The timer automatically switches to break mode. Use this time to stand, hydrate, or rest your eyes.',
+      'After the break, a new focus session begins automatically. The session counter tracks how many Pomodoros you\'ve completed today.',
+      'The screen dim feature is optional and can be toggled on/off. When enabled, it physically darkens your browser tab during focus sessions, creating a visual cue that you\'re in deep work mode.',
+    ],
+  },
+  {
+    slug: 'how-to-use-privacy-blur',
+    title: 'How to Use Privacy Blur to Hide Sensitive Content',
+    metaDescription: 'Learn to blur sensitive content on any webpage with OneBuddy\'s Privacy Blur. Click-to-blur, drag-to-blur, and persistent blur management.',
+    category: 'getting-started',
+    content: [
+      'Open the OneBuddy side panel and navigate to the Privacy section. Click on Privacy Blur to activate the blur tool.',
+      'To blur an element: click the "Click to Blur" button, then click any element on the page. The element will be instantly blurred with your chosen blur style.',
+      'To blur a custom area: click the "Drag to Blur" button, then click and drag on the page to create a blur rectangle over any area you want to hide.',
+      'Choose from 5 different blur styles to match your preferences and the context of what you\'re hiding.',
+      'Blurred areas are persistent — they are saved for each URL and automatically re-applied when you revisit the same page. This is particularly useful for recurring screen share scenarios.',
+      'To manage blurs: view all blurred areas for the current page in the side panel. You can remove individual blurs or toggle all blurs on/off with a single click.',
+    ],
+  },
+  // Feature Guides
+  {
+    slug: 'how-clipboard-history-works',
+    title: 'How Clipboard History Works in OneBuddy',
+    metaDescription: 'Detailed guide to OneBuddy\'s clipboard history feature. 100-item storage, search, source tracking, and privacy.',
+    category: 'feature-guides',
+    content: [
+      'OneBuddy\'s clipboard history automatically captures every text copy operation you perform in Chrome. Up to 100 items are stored, with the oldest entries dropping off as new ones are added.',
+      'Each clipboard entry includes: the copied text content, the source URL (which website you copied from), and a timestamp showing when the copy happened.',
+      'To access your clipboard history, open the OneBuddy side panel and navigate to the Clipboard section. You\'ll see a scrollable list of your recent copies.',
+      'Search through your history using the search bar at the top. Search matches against both the copied content and the source URL.',
+      'Click any entry to copy it back to your system clipboard, ready to paste anywhere. The entry moves to the top of your history.',
+      'All clipboard data is stored locally using Chrome\'s storage API. Nothing is sent to any external server. Your clipboard history is completely private.',
+    ],
+  },
+  {
+    slug: 'how-encrypted-messaging-works',
+    title: 'How End-to-End Encrypted Messaging Works',
+    metaDescription: 'Technical overview of OneBuddy\'s encrypted messaging. ECDH P-256 key exchange, AES-GCM 256-bit encryption, and zero-knowledge architecture.',
+    category: 'feature-guides',
+    content: [
+      'OneBuddy\'s encrypted messaging uses industry-standard cryptographic protocols to ensure that only the intended recipient can read your messages.',
+      'Key Exchange: When you initiate a conversation, OneBuddy uses ECDH (Elliptic Curve Diffie-Hellman) P-256 to negotiate a shared secret key with the recipient. This happens automatically without either party needing to share keys manually.',
+      'Message Encryption: Each message is encrypted using AES-GCM with a 256-bit key derived from the shared secret. AES-GCM provides both confidentiality and authenticity, ensuring messages cannot be read or tampered with in transit.',
+      'Zero-Knowledge Architecture: The relay server that routes messages between users handles only encrypted data. It has no access to encryption keys and cannot decrypt message content. Even if the server were compromised, message contents would remain protected.',
+      'Both the sender and recipient must have OneBuddy installed for encrypted messaging to work. The extension handles all cryptographic operations locally on each device.',
+    ],
+  },
+  {
+    slug: 'how-browser-lock-works',
+    title: 'How Browser Lock Protects Your Tabs',
+    metaDescription: 'Understand how OneBuddy\'s browser lock works. SHA-256 password hashing, auto-lock, and tab content protection explained.',
+    category: 'feature-guides',
+    content: [
+      'Browser Lock allows you to password-protect all your open Chrome tabs with a single click. When activated, all tab content is hidden and replaced with a lock screen.',
+      'Your password is hashed using SHA-256 before storage. The actual password is never stored — only its hash. This means even if someone accessed OneBuddy\'s storage, they couldn\'t reverse-engineer your password.',
+      'To set up Browser Lock: navigate to the Privacy section in the OneBuddy side panel, click Browser Lock, and set your password. You\'ll be asked to confirm it.',
+      'Auto-Lock: Configure the auto-lock timer to automatically lock your browser after a period of inactivity (e.g., 5, 10, or 30 minutes). This protects your tabs when you step away from your desk.',
+      'When locked, all tab content is completely hidden — not minimized or obscured, but replaced with the lock screen. Entering the correct password restores full access to all tabs.',
+      'You can customize the lock screen appearance while maintaining full security.',
+    ],
+  },
+  {
+    slug: 'how-ad-blocker-settings-work',
+    title: 'How to Configure Ad Blocker Settings',
+    metaDescription: 'Configure OneBuddy\'s ad blocker for your needs. Per-site whitelisting, YouTube ad blocking, popup blocking, and banner removal settings.',
+    category: 'feature-guides',
+    content: [
+      'OneBuddy\'s ad blocker can be configured to block specific types of ads while allowing others. Open the Privacy section in the side panel and click Ad Blocker.',
+      'Ad Types: Toggle blocking for YouTube ads, popup windows, banner advertisements, and overlay ads independently. Each toggle gives you granular control.',
+      'YouTube Ad Blocking: When enabled, OneBuddy blocks pre-roll ads, mid-roll interruptions, and display ads on YouTube. This works on both the YouTube website and embedded YouTube players.',
+      'Per-Site Whitelist: Add websites to your whitelist to allow ads on sites you want to support. Click "Manage Whitelist" to add, remove, or view your whitelisted domains.',
+      'The ad blocker works in real-time as pages load. Blocked elements are removed before they render, so you won\'t see flickering or layout shifts.',
+      'Ad blocking settings persist across browser sessions. Your whitelist and toggle preferences are saved locally and applied automatically.',
+    ],
+  },
+  // Troubleshooting
+  {
+    slug: 'extension-not-opening',
+    title: 'OneBuddy Extension Not Opening — Troubleshooting',
+    metaDescription: 'Fix issues with OneBuddy not opening. Common solutions for side panel problems, icon missing, and extension crashes.',
+    category: 'troubleshooting',
+    content: [
+      'If OneBuddy\'s side panel doesn\'t open when you click the toolbar icon, try these steps.',
+      'Step 1: Check if the extension is enabled. Go to chrome://extensions/ in your address bar. Find OneBuddy and make sure the toggle is turned on (blue).',
+      'Step 2: Restart Chrome. Close all Chrome windows and reopen the browser. Sometimes extensions need a fresh start after Chrome updates.',
+      'Step 3: Check for extension conflicts. Other side panel extensions might conflict with OneBuddy. Try disabling other extensions temporarily to identify conflicts.',
+      'Step 4: Reinstall OneBuddy. If the above steps don\'t work, remove OneBuddy from chrome://extensions/ and reinstall it from the Chrome Web Store.',
+      'Step 5: Clear Chrome cache. Go to Chrome Settings > Privacy and Security > Clear Browsing Data. Select "Cached images and files" and clear. Then restart Chrome.',
+      'If none of these steps resolve the issue, please report the problem with your Chrome version and operating system details.',
+    ],
+  },
+  {
+    slug: 'reminders-not-showing',
+    title: 'Health Reminders Not Showing — How to Fix',
+    metaDescription: 'Fix health reminders not appearing in OneBuddy. Check notification settings, scheduling, and website exclusions.',
+    category: 'troubleshooting',
+    content: [
+      'If your health reminders (water, stand up, eye break) are not appearing, follow these troubleshooting steps.',
+      'Check if reminders are enabled: Open OneBuddy\'s side panel, go to Health section, and verify that the specific reminder type is toggled on.',
+      'Check your schedule: Verify that the interval or time settings are correct. A very long interval (e.g., 300 minutes) means reminders appear infrequently.',
+      'Check website exclusions: If you\'ve added the current website to the exclusion list, reminders won\'t appear on that site. Review your exclusion list in the reminder settings.',
+      'Chrome notifications: OneBuddy uses in-page notifications (not Chrome OS notifications). The reminder appears as an overlay within the active tab. If the tab is minimized, you might miss it.',
+      'Chrome must be running: Reminders are Chrome alarm-based. If Chrome is closed or the extension is disabled, reminders won\'t fire.',
+      'After making changes, wait for one full interval cycle to verify reminders are working correctly.',
+    ],
+  },
+  {
+    slug: 'permissions-explanation',
+    title: 'Understanding OneBuddy\'s Permissions',
+    metaDescription: 'What permissions does OneBuddy need and why? Complete explanation of each Chrome extension permission OneBuddy requests.',
+    category: 'troubleshooting',
+    content: [
+      'OneBuddy requests certain Chrome permissions to provide its features. Here\'s what each permission does and why it\'s needed.',
+      'activeTab: Allows OneBuddy to interact with the current tab when you click the extension icon. Used for ad blocking, privacy blur, and screenshot capture.',
+      'storage: Stores your settings, clipboard history, notes, blur regions, and habits locally on your device. Nothing is sent externally.',
+      'alarms: Powers the Pomodoro timer, health reminders, and auto-lock timer. Chrome alarms run even when the side panel is closed.',
+      'tabs: Enables tab recording, browser lock (hiding tab content), and the bookmark manager functionality.',
+      'identity: Used only for Google Calendar integration. Enables OAuth sign-in to access your calendar. This permission is only activated when you explicitly connect your Google Calendar.',
+      'All data stays local. OneBuddy does not send any data to external servers. Permissions are used solely to provide the features described above.',
+    ],
+  },
+  {
+    slug: 'storage-data-questions',
+    title: 'Storage & Data — What Does OneBuddy Store?',
+    metaDescription: 'Learn what data OneBuddy stores, where it\'s stored, and how to manage or delete your data. Complete storage FAQ.',
+    category: 'troubleshooting',
+    content: [
+      'OneBuddy stores all data locally on your device using Chrome\'s storage API. Here\'s a breakdown of what\'s stored.',
+      'Settings: Your preferences for all features — timer durations, reminder intervals, ad blocker toggles, blur styles, and lock screen settings.',
+      'Clipboard History: Up to 100 text entries with source URLs and timestamps. Oldest entries are automatically removed as new ones are added.',
+      'Notes: Your created notes and slash shortcut definitions.',
+      'Blur Regions: The blur areas you\'ve defined for specific web pages, so they re-apply on revisit.',
+      'Habits: Your habit definitions, check-off history, and streak data.',
+      'Captures: Screenshots and recordings in the built-in gallery (up to 50 items).',
+      'No external servers: None of this data is sent to any server. OneBuddy has no backend, no analytics, and no data collection.',
+      'To delete all data: Remove OneBuddy from chrome://extensions/. All stored data is deleted when the extension is uninstalled.',
+    ],
+  },
+  // Privacy & Security
+  {
+    slug: 'what-data-is-stored',
+    title: 'What Data Does OneBuddy Store?',
+    metaDescription: 'Complete transparency on OneBuddy\'s data storage. All data stored locally, no servers, no tracking, no data selling.',
+    category: 'privacy-security',
+    content: [
+      'OneBuddy is built on a local-first architecture. All data is stored on your device using Chrome\'s built-in storage API.',
+      'Data stored: extension settings, clipboard history (up to 100 items), notes, blur regions per URL, habit data, capture gallery items, browser lock password hash.',
+      'Data NOT collected: browsing history, personal information, device identifiers, usage analytics, error reports, or any form of telemetry.',
+      'No external servers: OneBuddy has no backend server. The only external connection is Google\'s OAuth when you optionally connect Google Calendar.',
+      'No data selling: OneBuddy will never sell, share, or monetize user data in any form.',
+    ],
+  },
+  {
+    slug: 'does-onebuddy-track-users',
+    title: 'Does OneBuddy Track Its Users?',
+    metaDescription: 'No. OneBuddy does not track users, collect analytics, or send any data externally. Complete privacy commitment explained.',
+    category: 'privacy-security',
+    content: [
+      'No. OneBuddy does not track its users in any way.',
+      'No analytics: OneBuddy does not include Google Analytics, Mixpanel, Segment, or any other analytics service.',
+      'No telemetry: The extension does not send crash reports, usage data, or any form of telemetry to external servers.',
+      'No user identification: OneBuddy does not create user IDs, device fingerprints, or any form of user identification.',
+      'No external calls: The extension makes no network requests except when you explicitly connect Google Calendar (OAuth) or use encrypted messaging.',
+      'This is a core principle: OneBuddy is a privacy-first extension. Tracking users would contradict the very purpose of the privacy tools it provides.',
+    ],
+  },
+  {
+    slug: 'how-encryption-works',
+    title: 'How OneBuddy\'s Encryption Works',
+    metaDescription: 'Technical details of OneBuddy\'s encryption. ECDH P-256, AES-GCM 256-bit, SHA-256 password hashing, and zero-knowledge messaging.',
+    category: 'privacy-security',
+    content: [
+      'OneBuddy uses encryption in two features: Browser Lock (password hashing) and Encrypted Messaging (message encryption).',
+      'Browser Lock uses SHA-256 hashing for passwords. When you set a lock password, it\'s hashed with SHA-256 before storage. The original password is never stored. When unlocking, your input is hashed and compared to the stored hash.',
+      'Encrypted Messaging uses two layers of cryptography:',
+      '1. Key Exchange: ECDH (Elliptic Curve Diffie-Hellman) with the P-256 curve. This allows two parties to establish a shared secret over an insecure channel without ever transmitting the secret itself.',
+      '2. Message Encryption: AES-GCM with 256-bit keys. Each message is encrypted with a unique initialization vector (IV), providing both confidentiality and integrity. AES-GCM is the same standard used by governments and financial institutions.',
+      'Zero-Knowledge Architecture: The relay server handles only encrypted ciphertext. It has no access to encryption keys and cannot decrypt messages. Even a complete server compromise would not expose message contents.',
+    ],
+  },
+  // FAQ
+  {
+    slug: 'is-onebuddy-free',
+    title: 'Is OneBuddy Free?',
+    metaDescription: 'Yes, OneBuddy is completely free. No premium tiers, no subscriptions, no hidden costs. All features available to everyone.',
+    category: 'faq',
+    content: [
+      'Yes, OneBuddy is completely free. All features are available to every user without any payment, subscription, or premium tier.',
+      'There is no "pro" version, no feature gating, no usage limits, and no trial periods. Every tool — from the Pomodoro timer to screen recording to encrypted messaging — is fully available at no cost.',
+      'OneBuddy generates no revenue from user data. There are no ads within the extension, no sponsored recommendations, and no data monetization.',
+      'This commitment to being free is a core part of OneBuddy\'s mission: everyone deserves access to productivity, wellness, and privacy tools regardless of budget.',
+    ],
+  },
+  {
+    slug: 'does-onebuddy-work-offline',
+    title: 'Does OneBuddy Work Offline?',
+    metaDescription: 'Most OneBuddy features work offline. Pomodoro timer, notes, clipboard, habits, and more function without internet. Learn which features need connectivity.',
+    category: 'faq',
+    content: [
+      'Most OneBuddy features work fully offline since they run locally in your browser.',
+      'Works offline: Pomodoro timer, notes & shortcuts, clipboard history, habit tracker, bookmark manager, health reminders, privacy blur, browser lock, screenshots, and screen/tab recording.',
+      'Requires internet: Google Calendar sync (needs to connect to Google), encrypted messaging (needs to connect to relay server), and ad/tracker blocking (needs web pages to be loading).',
+      'OneBuddy stores all data locally using Chrome\'s storage API, so your settings, history, and preferences are available regardless of internet connectivity.',
+    ],
+  },
+  {
+    slug: 'does-onebuddy-slow-chrome',
+    title: 'Does OneBuddy Slow Down Chrome?',
+    metaDescription: 'OneBuddy is designed to be lightweight. Built on Manifest V3 with minimal resource usage. Learn about performance impact and optimization.',
+    category: 'faq',
+    content: [
+      'OneBuddy is designed to be lightweight and uses Chrome\'s efficient Manifest V3 architecture.',
+      'Manifest V3 uses service workers instead of persistent background pages, meaning OneBuddy\'s background processes only run when needed rather than consuming resources continuously.',
+      'In practice, OneBuddy actually reduces total resource usage for users who replace multiple single-purpose extensions. Running one extension instead of 8-10 separate ones decreases overall memory consumption and CPU usage.',
+      'Ad and tracker blocking further improve performance by preventing resource-heavy advertising scripts and tracking pixels from loading on web pages.',
+      'If you experience any performance issues, check chrome://extensions/ to see memory usage for each installed extension. OneBuddy is typically among the lightest despite offering the most features.',
+    ],
+  },
+  {
+    slug: 'is-onebuddy-better-than-multiple-extensions',
+    title: 'Is OneBuddy Better Than Installing Multiple Extensions?',
+    metaDescription: 'Why one all-in-one extension beats 10 single-purpose tools. Performance, security, simplicity, and integration benefits explained.',
+    category: 'faq',
+    content: [
+      'For most users, yes. Here\'s why a single all-in-one extension provides a better experience than multiple single-purpose tools.',
+      'Performance: Each Chrome extension runs in its own process, consuming RAM and CPU. Ten extensions use more resources than one that does the same work.',
+      'Security: Every extension has access to some browser data. Fewer extensions mean a smaller attack surface and fewer potential security vulnerabilities.',
+      'Simplicity: One extension to install, update, and configure. No conflicts between extensions, no duplicate functionality, no toolbar clutter.',
+      'Integration: OneBuddy\'s tools work together. Your Pomodoro timer integrates with health reminders. Your privacy blur works alongside screen capture. These integrations aren\'t possible with separate extensions.',
+      'The trade-off: specialists are better at their one thing. uBlock Origin has more advanced filter lists. Loom has cloud hosting and team features. If you need those specific capabilities, the specialist tool is the right choice.',
+      'For the 90% of users who need solid ad blocking, a good timer, clipboard history, and basic privacy tools — OneBuddy provides better overall value than installing 10 separate extensions.',
+    ],
+  },
+];
