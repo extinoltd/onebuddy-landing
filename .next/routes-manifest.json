@@ -1,1 +1,486 @@
-{"version":3,"caseSensitive":false,"basePath":"","rewrites":{"beforeFiles":[],"afterFiles":[],"fallback":[]},"redirects":[{"source":"/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/","destination":"/:file","permanent":true,"internal":true,"missing":[{"type":"header","key":"x-nextjs-data"}],"regex":"^(?:\\/((?!\\.well-known(?:\\/.*)?)(?:[^/]+\\/)*[^/]+\\.\\w+))\\/$"},{"source":"/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)","destination":"/:notfile/","permanent":true,"internal":true,"regex":"^(?:\\/((?!\\.well-known(?:\\/.*)?)(?:[^/]+\\/)*[^/\\.]+))$"}],"headers":[]}
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:file((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+)/",
+      "destination": "/:file",
+      "internal": true,
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/]+\\.\\w+))/$"
+    },
+    {
+      "source": "/:notfile((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+)",
+      "destination": "/:notfile/",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?!\\.well-known(?:/.*)?)(?:[^/]+/)*[^/\\.]+))$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/ad-blocker-extension",
+      "regex": "^/ad\\-blocker\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ad\\-blocker\\-extension(?:/)?$"
+    },
+    {
+      "page": "/alternative-to-ghostery",
+      "regex": "^/alternative\\-to\\-ghostery(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/alternative\\-to\\-ghostery(?:/)?$"
+    },
+    {
+      "page": "/alternative-to-loom",
+      "regex": "^/alternative\\-to\\-loom(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/alternative\\-to\\-loom(?:/)?$"
+    },
+    {
+      "page": "/alternative-to-marina-pomodoro",
+      "regex": "^/alternative\\-to\\-marina\\-pomodoro(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/alternative\\-to\\-marina\\-pomodoro(?:/)?$"
+    },
+    {
+      "page": "/alternative-to-stretchly",
+      "regex": "^/alternative\\-to\\-stretchly(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/alternative\\-to\\-stretchly(?:/)?$"
+    },
+    {
+      "page": "/alternative-to-ublock-origin",
+      "regex": "^/alternative\\-to\\-ublock\\-origin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/alternative\\-to\\-ublock\\-origin(?:/)?$"
+    },
+    {
+      "page": "/best-chrome-extension-for-accountants",
+      "regex": "^/best\\-chrome\\-extension\\-for\\-accountants(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/best\\-chrome\\-extension\\-for\\-accountants(?:/)?$"
+    },
+    {
+      "page": "/best-chrome-extension-for-designers",
+      "regex": "^/best\\-chrome\\-extension\\-for\\-designers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/best\\-chrome\\-extension\\-for\\-designers(?:/)?$"
+    },
+    {
+      "page": "/best-chrome-extension-for-lawyers",
+      "regex": "^/best\\-chrome\\-extension\\-for\\-lawyers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/best\\-chrome\\-extension\\-for\\-lawyers(?:/)?$"
+    },
+    {
+      "page": "/best-chrome-extension-for-marketers",
+      "regex": "^/best\\-chrome\\-extension\\-for\\-marketers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/best\\-chrome\\-extension\\-for\\-marketers(?:/)?$"
+    },
+    {
+      "page": "/best-ghostery-alternative",
+      "regex": "^/best\\-ghostery\\-alternative(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/best\\-ghostery\\-alternative(?:/)?$"
+    },
+    {
+      "page": "/best-productivity-extension-2026",
+      "regex": "^/best\\-productivity\\-extension\\-2026(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/best\\-productivity\\-extension\\-2026(?:/)?$"
+    },
+    {
+      "page": "/blog",
+      "regex": "^/blog(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog(?:/)?$"
+    },
+    {
+      "page": "/blog/best-chrome-extensions-productivity-2026",
+      "regex": "^/blog/best\\-chrome\\-extensions\\-productivity\\-2026(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/best\\-chrome\\-extensions\\-productivity\\-2026(?:/)?$"
+    },
+    {
+      "page": "/blog/best-study-tools-chrome-students",
+      "regex": "^/blog/best\\-study\\-tools\\-chrome\\-students(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/best\\-study\\-tools\\-chrome\\-students(?:/)?$"
+    },
+    {
+      "page": "/blog/clipboard-manager-why-you-need-one",
+      "regex": "^/blog/clipboard\\-manager\\-why\\-you\\-need\\-one(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/clipboard\\-manager\\-why\\-you\\-need\\-one(?:/)?$"
+    },
+    {
+      "page": "/blog/how-to-block-youtube-ads-2026",
+      "regex": "^/blog/how\\-to\\-block\\-youtube\\-ads\\-2026(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/how\\-to\\-block\\-youtube\\-ads\\-2026(?:/)?$"
+    },
+    {
+      "page": "/blog/online-privacy-guide-chrome-2026",
+      "regex": "^/blog/online\\-privacy\\-guide\\-chrome\\-2026(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/online\\-privacy\\-guide\\-chrome\\-2026(?:/)?$"
+    },
+    {
+      "page": "/blog/pomodoro-technique-beginners-guide",
+      "regex": "^/blog/pomodoro\\-technique\\-beginners\\-guide(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/pomodoro\\-technique\\-beginners\\-guide(?:/)?$"
+    },
+    {
+      "page": "/blog/remote-work-browser-setup-guide",
+      "regex": "^/blog/remote\\-work\\-browser\\-setup\\-guide(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/remote\\-work\\-browser\\-setup\\-guide(?:/)?$"
+    },
+    {
+      "page": "/blog/screen-recording-without-loom",
+      "regex": "^/blog/screen\\-recording\\-without\\-loom(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/screen\\-recording\\-without\\-loom(?:/)?$"
+    },
+    {
+      "page": "/blog/ublock-origin-vs-alternatives-2026",
+      "regex": "^/blog/ublock\\-origin\\-vs\\-alternatives\\-2026(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/ublock\\-origin\\-vs\\-alternatives\\-2026(?:/)?$"
+    },
+    {
+      "page": "/blog/why-too-many-chrome-extensions-bad",
+      "regex": "^/blog/why\\-too\\-many\\-chrome\\-extensions\\-bad(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/blog/why\\-too\\-many\\-chrome\\-extensions\\-bad(?:/)?$"
+    },
+    {
+      "page": "/bookmark-manager-extension",
+      "regex": "^/bookmark\\-manager\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/bookmark\\-manager\\-extension(?:/)?$"
+    },
+    {
+      "page": "/browser-lock-extension",
+      "regex": "^/browser\\-lock\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/browser\\-lock\\-extension(?:/)?$"
+    },
+    {
+      "page": "/clipboard-manager-extension",
+      "regex": "^/clipboard\\-manager\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/clipboard\\-manager\\-extension(?:/)?$"
+    },
+    {
+      "page": "/encrypted-messaging-extension",
+      "regex": "^/encrypted\\-messaging\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/encrypted\\-messaging\\-extension(?:/)?$"
+    },
+    {
+      "page": "/features",
+      "regex": "^/features(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/features(?:/)?$"
+    },
+    {
+      "page": "/for-content-creators",
+      "regex": "^/for\\-content\\-creators(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/for\\-content\\-creators(?:/)?$"
+    },
+    {
+      "page": "/for-developers",
+      "regex": "^/for\\-developers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/for\\-developers(?:/)?$"
+    },
+    {
+      "page": "/for-freelancers",
+      "regex": "^/for\\-freelancers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/for\\-freelancers(?:/)?$"
+    },
+    {
+      "page": "/for-knowledge-workers",
+      "regex": "^/for\\-knowledge\\-workers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/for\\-knowledge\\-workers(?:/)?$"
+    },
+    {
+      "page": "/for-privacy-focused-users",
+      "regex": "^/for\\-privacy\\-focused\\-users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/for\\-privacy\\-focused\\-users(?:/)?$"
+    },
+    {
+      "page": "/for-remote-workers",
+      "regex": "^/for\\-remote\\-workers(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/for\\-remote\\-workers(?:/)?$"
+    },
+    {
+      "page": "/for-students",
+      "regex": "^/for\\-students(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/for\\-students(?:/)?$"
+    },
+    {
+      "page": "/free-loom-alternative",
+      "regex": "^/free\\-loom\\-alternative(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/free\\-loom\\-alternative(?:/)?$"
+    },
+    {
+      "page": "/full-page-screenshot-extension",
+      "regex": "^/full\\-page\\-screenshot\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/full\\-page\\-screenshot\\-extension(?:/)?$"
+    },
+    {
+      "page": "/google-calendar-extension",
+      "regex": "^/google\\-calendar\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/google\\-calendar\\-extension(?:/)?$"
+    },
+    {
+      "page": "/habit-tracker-extension",
+      "regex": "^/habit\\-tracker\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/habit\\-tracker\\-extension(?:/)?$"
+    },
+    {
+      "page": "/health-reminder-extension",
+      "regex": "^/health\\-reminder\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/health\\-reminder\\-extension(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base",
+      "regex": "^/knowledge\\-base(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/does-onebuddy-slow-chrome",
+      "regex": "^/knowledge\\-base/does\\-onebuddy\\-slow\\-chrome(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/does\\-onebuddy\\-slow\\-chrome(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/does-onebuddy-track-users",
+      "regex": "^/knowledge\\-base/does\\-onebuddy\\-track\\-users(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/does\\-onebuddy\\-track\\-users(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/does-onebuddy-work-offline",
+      "regex": "^/knowledge\\-base/does\\-onebuddy\\-work\\-offline(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/does\\-onebuddy\\-work\\-offline(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/extension-not-opening",
+      "regex": "^/knowledge\\-base/extension\\-not\\-opening(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/extension\\-not\\-opening(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/how-ad-blocker-settings-work",
+      "regex": "^/knowledge\\-base/how\\-ad\\-blocker\\-settings\\-work(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/how\\-ad\\-blocker\\-settings\\-work(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/how-browser-lock-works",
+      "regex": "^/knowledge\\-base/how\\-browser\\-lock\\-works(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/how\\-browser\\-lock\\-works(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/how-clipboard-history-works",
+      "regex": "^/knowledge\\-base/how\\-clipboard\\-history\\-works(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/how\\-clipboard\\-history\\-works(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/how-encrypted-messaging-works",
+      "regex": "^/knowledge\\-base/how\\-encrypted\\-messaging\\-works(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/how\\-encrypted\\-messaging\\-works(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/how-encryption-works",
+      "regex": "^/knowledge\\-base/how\\-encryption\\-works(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/how\\-encryption\\-works(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/how-to-enable-pomodoro-timer",
+      "regex": "^/knowledge\\-base/how\\-to\\-enable\\-pomodoro\\-timer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/how\\-to\\-enable\\-pomodoro\\-timer(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/how-to-install-onebuddy",
+      "regex": "^/knowledge\\-base/how\\-to\\-install\\-onebuddy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/how\\-to\\-install\\-onebuddy(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/how-to-set-health-reminder",
+      "regex": "^/knowledge\\-base/how\\-to\\-set\\-health\\-reminder(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/how\\-to\\-set\\-health\\-reminder(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/how-to-use-privacy-blur",
+      "regex": "^/knowledge\\-base/how\\-to\\-use\\-privacy\\-blur(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/how\\-to\\-use\\-privacy\\-blur(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/is-onebuddy-better-than-multiple-extensions",
+      "regex": "^/knowledge\\-base/is\\-onebuddy\\-better\\-than\\-multiple\\-extensions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/is\\-onebuddy\\-better\\-than\\-multiple\\-extensions(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/is-onebuddy-free",
+      "regex": "^/knowledge\\-base/is\\-onebuddy\\-free(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/is\\-onebuddy\\-free(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/permissions-explanation",
+      "regex": "^/knowledge\\-base/permissions\\-explanation(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/permissions\\-explanation(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/reminders-not-showing",
+      "regex": "^/knowledge\\-base/reminders\\-not\\-showing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/reminders\\-not\\-showing(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/storage-data-questions",
+      "regex": "^/knowledge\\-base/storage\\-data\\-questions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/storage\\-data\\-questions(?:/)?$"
+    },
+    {
+      "page": "/knowledge-base/what-data-is-stored",
+      "regex": "^/knowledge\\-base/what\\-data\\-is\\-stored(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/knowledge\\-base/what\\-data\\-is\\-stored(?:/)?$"
+    },
+    {
+      "page": "/notes-shortcuts-extension",
+      "regex": "^/notes\\-shortcuts\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/notes\\-shortcuts\\-extension(?:/)?$"
+    },
+    {
+      "page": "/onebuddy-vs-forest",
+      "regex": "^/onebuddy\\-vs\\-forest(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/onebuddy\\-vs\\-forest(?:/)?$"
+    },
+    {
+      "page": "/onebuddy-vs-loom",
+      "regex": "^/onebuddy\\-vs\\-loom(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/onebuddy\\-vs\\-loom(?:/)?$"
+    },
+    {
+      "page": "/onebuddy-vs-momentum",
+      "regex": "^/onebuddy\\-vs\\-momentum(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/onebuddy\\-vs\\-momentum(?:/)?$"
+    },
+    {
+      "page": "/onebuddy-vs-notion-extension",
+      "regex": "^/onebuddy\\-vs\\-notion\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/onebuddy\\-vs\\-notion\\-extension(?:/)?$"
+    },
+    {
+      "page": "/onebuddy-vs-ublock",
+      "regex": "^/onebuddy\\-vs\\-ublock(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/onebuddy\\-vs\\-ublock(?:/)?$"
+    },
+    {
+      "page": "/pomodoro-timer-extension",
+      "regex": "^/pomodoro\\-timer\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/pomodoro\\-timer\\-extension(?:/)?$"
+    },
+    {
+      "page": "/privacy-blur-extension",
+      "regex": "^/privacy\\-blur\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy\\-blur\\-extension(?:/)?$"
+    },
+    {
+      "page": "/screen-recorder-extension",
+      "regex": "^/screen\\-recorder\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/screen\\-recorder\\-extension(?:/)?$"
+    },
+    {
+      "page": "/tracker-blocker-extension",
+      "regex": "^/tracker\\-blocker\\-extension(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/tracker\\-blocker\\-extension(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
