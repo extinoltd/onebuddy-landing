@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { TickCircle, CloseCircle, Chrome, ArrowDown2, ArrowRight2 } from 'iconsax-react';
 import { siteConfig } from '@/lib/site-config';
 
 export interface ComparisonVsPageProps {
   competitorName: string;
   h1: string;
+  image: string;
   intro: string;
   verdict: string;
   features: { name: string; onebuddy: boolean | string; competitor: boolean | string }[];
@@ -17,6 +19,7 @@ export interface ComparisonVsPageProps {
 export function ComparisonVsPageLayout({
   competitorName,
   h1,
+  image,
   intro,
   verdict,
   features,
@@ -41,6 +44,20 @@ export function ComparisonVsPageLayout({
           </p>
         </div>
       </section>
+
+      {/* Hero Image */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 pb-10 bg-slate-50">
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
+          <Image
+            src={image}
+            alt={h1}
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, 896px"
+          />
+        </div>
+      </div>
 
       {/* Feature Comparison Table */}
       <section className="py-20 bg-white">

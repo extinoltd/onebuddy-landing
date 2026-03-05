@@ -6,6 +6,7 @@ export interface FeaturePageData {
   badge: string;
   badgeColor: string;
   icon: string;
+  image: string;
   whatItDoes: string;
   whyBetter: string;
   featureBreakdown: { title: string; description: string }[];
@@ -21,15 +22,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'pomodoro-timer-extension',
     seoTitle: 'Free Pomodoro Timer Chrome Extension — Focus Timer with Screen Dim',
     metaDescription:
-      'Use OneBuddy\'s free Pomodoro timer Chrome extension with auto screen dimming, session tracking, and break scheduling. Replace Forest and Marinara.',
+      'Free Pomodoro timer Chrome extension with screen dimming, session tracking & break scheduling. Replace Forest and Marinara in 2026.',
     h1: 'Pomodoro Timer Chrome Extension with Screen Dim',
     badge: 'Productivity',
     badgeColor: '#7C3AED',
     icon: 'Timer1',
+    image: '/images/features/pomodoro-timer-extension.webp',
     whatItDoes:
-      'OneBuddy\'s Pomodoro Timer brings the proven Pomodoro Technique directly into your browser\'s side panel. Set custom focus and break durations, track completed sessions, and use the unique screen-dim feature that physically darkens your tab during focus periods to reinforce deep work. Sessions auto-cycle between work and break intervals, and you can view your daily session history at a glance.',
+      'OneBuddy\'s Pomodoro Timer brings the proven Pomodoro Technique directly into your browser\'s Chrome side panel, so you never have to leave your current tab. Set custom focus and break durations ranging from 1 to 120 minutes, track completed sessions with a visual daily counter, and use the unique screen-dim feature that physically darkens your active tab during focus periods to reinforce deep work. Sessions auto-cycle between work and break intervals with gentle audio cues signaling each transition, making it effortless to maintain a structured workflow. You can view your full daily session history at a glance, helping you understand your productivity patterns over time. The entire timer runs locally on your device using Chrome alarms — no internet connection or account signup required.',
     whyBetter:
-      'Unlike standalone Pomodoro extensions like Forest or Marinara, OneBuddy\'s timer lives alongside your clipboard manager, notes, health reminders, and privacy tools. You get one extension instead of five. The screen-dim feature is unique — no other Pomodoro extension physically darkens your browser to reduce distractions.',
+      'Unlike standalone Pomodoro extensions like Forest, Marinara, or Pomofocus, OneBuddy\'s timer lives alongside your clipboard manager, notes, health reminders, and privacy tools in a single Chrome side panel. You get one extension instead of five, which means less memory usage and fewer icons cluttering your extension bar. The screen-dim feature is unique — no other Pomodoro Chrome extension physically darkens your browser to reduce distractions during focus sessions. By consolidating multiple productivity tools into OneBuddy, you reduce Chrome\'s RAM consumption and keep your browser running fast. Forest charges for premium features; OneBuddy gives you everything for free with no account required.',
     featureBreakdown: [
       { title: 'Customizable Durations', description: 'Set focus sessions from 1 to 120 minutes and breaks from 1 to 30 minutes.' },
       { title: 'Screen Dim Mode', description: 'Your active tab dims during focus time, physically reducing visual distractions.' },
@@ -58,8 +60,10 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'What is the screen dim feature?', a: 'During focus sessions, your active browser tab dims to reduce visual distractions. This is a unique OneBuddy feature not found in other Pomodoro extensions.' },
       { q: 'Does the timer work offline?', a: 'Yes. The Pomodoro timer runs entirely on your device using Chrome alarms — no internet required.' },
       { q: 'Can I use the timer alongside other OneBuddy tools?', a: 'Yes. The timer works seamlessly with health reminders, clipboard history, notes, and all other OneBuddy tools in the same side panel.' },
+      { q: 'Is the Pomodoro timer extension available for Chrome in 2026?', a: 'Yes. OneBuddy\'s Pomodoro timer is actively maintained and fully compatible with Chrome in 2026, including Manifest V3 support.' },
+      { q: 'How does the screen dim feature help with focus?', a: 'The screen dim feature physically darkens your active browser tab during focus sessions, reducing visual stimulation and making it harder to get distracted by on-screen content. It\'s a unique feature not found in Forest, Marinara, or other timer extensions.' },
     ],
-    keywords: ['pomodoro timer chrome extension', 'focus timer extension', 'pomodoro technique browser', 'screen dim timer', 'free pomodoro chrome'],
+    keywords: ['pomodoro timer chrome extension', 'focus timer extension', 'pomodoro technique browser', 'screen dim timer', 'free pomodoro chrome', 'pomodoro timer chrome extension 2026', 'best free pomodoro extension', 'forest alternative chrome extension', 'pomodoro timer with screen dim free', 'chrome extension focus timer no ads'],
     relatedFeatures: [
       { label: 'Health Reminders', href: '/health-reminder-extension/' },
       { label: 'Habit Tracker', href: '/habit-tracker-extension/' },
@@ -71,15 +75,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'health-reminder-extension',
     seoTitle: 'Health Reminder Chrome Extension — Water, Stand Up & Eye Break Alerts',
     metaDescription:
-      'Stay healthy while browsing with OneBuddy\'s free health reminder extension. Water reminders, stand-up alerts, and 20-20-20 eye break rule built into Chrome.',
+      'Free health reminder Chrome extension with water, stand-up & 20-20-20 eye break alerts. Replace Stretchly and Break Timer in one tool — 2026.',
     h1: 'Health Reminder Chrome Extension — Drink Water, Stand Up & Eye Break',
     badge: 'Wellness',
     badgeColor: '#06B6D4',
     icon: 'Heart',
+    image: '/images/features/health-reminder-extension.webp',
     whatItDoes:
-      'OneBuddy\'s health reminder system keeps you physically well during long browsing sessions. Set up three types of reminders: water intake alerts, stand-up reminders, and the 20-20-20 eye break rule. Each reminder type supports three scheduling modes — interval-based, fixed-time, and date-range — plus website exclusion lists so reminders pause on specific sites.',
+      'OneBuddy\'s health reminder system keeps you physically well during long browsing sessions by delivering three types of customizable alerts right in your Chrome side panel. Set up water intake reminders to stay hydrated, stand-up alerts to combat sedentary work, and 20-20-20 eye break notifications to protect your vision from screen strain. Each reminder type supports three flexible scheduling modes — interval-based, fixed-time, and date-range — giving you full control over when and how often alerts appear. You can also configure website exclusion lists so reminders automatically pause on specific sites like video conferencing apps or streaming platforms. Beautiful in-page notifications appear directly within your browser without interrupting your OS-level workflow.',
     whyBetter:
-      'Standalone break reminder extensions like Stretchly or Break Timer only handle one type of reminder. OneBuddy gives you water, standing, and eye break reminders in one place, plus integrates with your Pomodoro timer so health breaks align with work intervals. No extra extension needed.',
+      'Standalone break reminder extensions like Stretchly or Break Timer only handle one type of reminder and add another icon to your extension bar. OneBuddy gives you water, standing, and eye break reminders in one unified Chrome side panel, plus integrates with your Pomodoro timer so health breaks align naturally with work intervals. By consolidating health reminders with 13 other tools, you save browser memory and reduce your total extension count significantly. Stretchly requires a separate desktop app; Break Timer lacks customization. OneBuddy does it all for free without requiring a separate download or account signup.',
     featureBreakdown: [
       { title: 'Water Drink Reminders', description: 'Customizable hydration alerts with beautiful in-page notifications at your chosen intervals.' },
       { title: 'Stand Up Reminders', description: 'Combat sedentary work with reminders to stand every 15 to 90 minutes.' },
@@ -107,8 +112,11 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Can I set different intervals for each reminder type?', a: 'Yes. Each reminder supports its own schedule with three modes: interval-based, fixed-time, and date-range.' },
       { q: 'Will reminders interrupt my video calls?', a: 'You can add specific websites to an exclusion list. Add your video conferencing app\'s URL to pause reminders during calls.' },
       { q: 'Does it replace Stretchly?', a: 'Yes. OneBuddy covers all of Stretchly\'s break reminder functionality plus adds water and eye break reminders, along with 10+ other tool categories.' },
+      { q: 'Is the health reminder extension free in 2026?', a: 'Yes. OneBuddy\'s health reminder extension is completely free in 2026 with no premium tiers, usage limits, or account requirements.' },
+      { q: 'Can I use health reminders with the Pomodoro timer?', a: 'Absolutely. The health reminders and Pomodoro timer work together in the same side panel, so your water and eye break alerts align with your focus and break intervals for a complete wellness-productivity system.' },
+      { q: 'What is the 20-20-20 eye break rule?', a: 'The 20-20-20 rule recommends looking at something 20 feet away for 20 seconds every 20 minutes to reduce digital eye strain. OneBuddy automates this with customizable eye break reminders.' },
     ],
-    keywords: ['health reminder chrome extension', 'break reminder extension', 'water reminder chrome', 'eye break extension', 'stand up reminder browser'],
+    keywords: ['health reminder chrome extension', 'break reminder extension', 'water reminder chrome', 'eye break extension', 'stand up reminder browser', 'health reminder chrome extension 2026', 'free break reminder extension', 'stretchly alternative chrome', '20-20-20 eye break chrome extension', 'water drink reminder browser extension free'],
     relatedFeatures: [
       { label: 'Pomodoro Timer', href: '/pomodoro-timer-extension/' },
       { label: 'Habit Tracker', href: '/habit-tracker-extension/' },
@@ -120,15 +128,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'clipboard-manager-extension',
     seoTitle: 'Clipboard Manager Chrome Extension — 100-Item History with Search',
     metaDescription:
-      'Never lose a copied snippet again. OneBuddy\'s free clipboard manager stores 100 items with search, source domain filtering, and one-click paste.',
+      'Free clipboard manager Chrome extension with 100-item history, search & source tracking. Never lose copied text again — best clipboard tool 2026.',
     h1: 'Clipboard Manager Chrome Extension — 100-Item Clipboard History',
     badge: 'Productivity',
     badgeColor: '#7C3AED',
     icon: 'ClipboardText',
+    image: '/images/features/clipboard-manager-extension.webp',
     whatItDoes:
-      'OneBuddy\'s clipboard manager automatically saves your last 100 copy operations in the side panel. Search through your history, filter by source domain, and paste any previous clipboard entry with one click. Every entry shows the source URL and timestamp, so you always know where content came from.',
+      'OneBuddy\'s clipboard manager automatically saves your last 100 copy operations directly in the Chrome side panel, creating a searchable history of everything you\'ve copied. Search through your clipboard history by keyword, filter entries by source domain, and paste any previous clipboard entry back with a single click. Every entry shows the source URL and timestamp, so you always know exactly where content came from and when it was copied. The clipboard manager works with text, URLs, and code snippets — capturing copies from any website you visit. All clipboard data is stored locally on your device using Chrome\'s storage API, ensuring your copied content remains completely private and never leaves your browser.',
     whyBetter:
-      'Most clipboard extensions are single-purpose tools that add another icon to your extension bar. OneBuddy integrates clipboard history alongside your notes, Pomodoro timer, and 10+ other tools. One extension, zero clutter.',
+      'Most clipboard extensions like Clipboard History Pro or CopyQ are single-purpose tools that add another icon to your extension bar and consume additional browser memory. OneBuddy integrates clipboard history alongside your notes, Pomodoro timer, and 10+ other tools in the Chrome side panel — one extension instead of many, zero clutter. By consolidating your clipboard manager with other daily tools, you reduce Chrome\'s memory footprint and keep your extension bar clean. Unlike standalone clipboard tools, OneBuddy pairs your clipboard history with notes and text shortcuts for a complete text workflow, all accessible without leaving your current tab.',
     featureBreakdown: [
       { title: '100-Item History', description: 'Stores your last 100 copy operations automatically — text, URLs, and code snippets.' },
       { title: 'Search & Filter', description: 'Instantly search your clipboard history or filter entries by the source domain.' },
@@ -156,8 +165,11 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Is my clipboard data sent to any server?', a: 'No. All clipboard data is stored locally on your device using Chrome\'s storage API. Nothing is sent externally.' },
       { q: 'Can I search my clipboard history?', a: 'Yes. Use the search bar to find specific text, or filter by the source domain where content was copied.' },
       { q: 'Does it work with images?', a: 'Currently, OneBuddy\'s clipboard manager focuses on text content — strings, URLs, and code snippets.' },
+      { q: 'Is the clipboard manager free in 2026?', a: 'Yes. OneBuddy\'s clipboard manager is completely free in 2026 with no usage limits, premium tiers, or account requirements.' },
+      { q: 'How does OneBuddy\'s clipboard manager compare to Clipboard History Pro?', a: 'OneBuddy offers similar 100-item clipboard history with search and filtering, but also includes 13 other tools like notes, Pomodoro timer, and screen recording — all in one extension. Clipboard History Pro is a single-purpose tool that adds to your extension count.' },
+      { q: 'Does the clipboard manager track where I copied content from?', a: 'Yes. Every clipboard entry shows the source domain and timestamp, making it easy to trace where text, URLs, or code snippets originated.' },
     ],
-    keywords: ['clipboard manager chrome extension', 'clipboard history chrome', 'copy paste manager extension', 'clipboard extension free'],
+    keywords: ['clipboard manager chrome extension', 'clipboard history chrome', 'copy paste manager extension', 'clipboard extension free', 'clipboard manager chrome extension 2026', 'free clipboard history extension', 'best clipboard manager chrome', 'clipboard history pro alternative', 'copy paste history chrome extension free', 'clipboard tracker browser extension'],
     relatedFeatures: [
       { label: 'Notes & Shortcuts', href: '/notes-shortcuts-extension/' },
       { label: 'Pomodoro Timer', href: '/pomodoro-timer-extension/' },
@@ -169,15 +181,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'notes-shortcuts-extension',
     seoTitle: 'Notes & Text Shortcuts Chrome Extension — Slash Commands in Any Field',
     metaDescription:
-      'Create notes and trigger instant text expansion in any text field with OneBuddy\'s free slash shortcuts. Like TextExpander built into your browser.',
+      'Free notes & text shortcuts Chrome extension with slash commands for any text field. Replace TextExpander for free — best text expansion tool 2026.',
     h1: 'Notes & Slash Shortcuts Chrome Extension',
     badge: 'Productivity',
     badgeColor: '#7C3AED',
     icon: 'DocumentText',
+    image: '/images/features/notes-shortcuts-extension.webp',
     whatItDoes:
-      'OneBuddy\'s Notes tool lets you create, organize, and access notes directly in the side panel. The Slash Shortcuts feature goes further — define custom shortcuts that expand into full text snippets in any text field on any website. Type a slash command and your template auto-completes instantly.',
+      'OneBuddy\'s Notes tool lets you create, organize, and access notes directly in the Chrome side panel, keeping important information always one click away without switching tabs. The Slash Shortcuts feature goes further — define custom shortcuts that expand into full text snippets in any text field on any website. Type a slash command like /greet or /sig and your predefined template auto-completes instantly, saving hours of repetitive typing. Shortcuts work universally across Gmail, Slack, Google Docs, LinkedIn, and every other web-based text field. All notes and shortcuts are stored locally on your device for fast access and complete privacy.',
     whyBetter:
-      'TextExpander costs $3.33/month and requires a separate app. Browser-only notes extensions lack text expansion. OneBuddy combines both features for free, integrated with your clipboard, timer, and privacy tools.',
+      'TextExpander costs $3.33/month and requires a separate desktop app. Auto Text Expander for Chrome is a single-purpose tool. Browser-only notes extensions lack text expansion entirely. OneBuddy combines both notes and slash shortcuts for free, integrated with your clipboard manager, Pomodoro timer, and privacy tools in one Chrome side panel. By replacing TextExpander and a standalone notes extension, you eliminate two extra tools and save both money and browser memory. OneBuddy\'s unified approach means your notes, clipboard history, and text shortcuts all work together seamlessly.',
     featureBreakdown: [
       { title: 'Side Panel Notes', description: 'Create and organize notes directly in OneBuddy\'s side panel — always one click away.' },
       { title: 'Slash Shortcuts', description: 'Define custom /shortcuts that auto-expand into full text templates in any text field.' },
@@ -204,8 +217,11 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Does it work in Google Docs and Gmail?', a: 'Yes. Slash shortcuts work in any web-based text field including Gmail, Google Docs, Slack, and more.' },
       { q: 'Is there a limit to how many shortcuts I can create?', a: 'You can create as many shortcuts and notes as needed within Chrome\'s local storage limits.' },
       { q: 'Can I export my notes?', a: 'Notes are stored locally in Chrome\'s storage. You can copy note content to your clipboard for export.' },
+      { q: 'Is the notes and shortcuts extension free in 2026?', a: 'Yes. OneBuddy\'s notes and slash shortcuts feature is completely free in 2026 with no subscription, premium tiers, or usage limits.' },
+      { q: 'How does OneBuddy compare to TextExpander?', a: 'TextExpander costs $3.33/month and requires a separate desktop app. OneBuddy provides similar slash-command text expansion for free, directly in your browser, plus includes notes, clipboard history, and 10+ additional tools.' },
+      { q: 'Can I use slash shortcuts in Gmail and Google Docs?', a: 'Yes. Slash shortcuts work in any web-based text field including Gmail, Google Docs, Slack, LinkedIn, Twitter, and all other websites.' },
     ],
-    keywords: ['notes chrome extension', 'text shortcuts extension', 'text expansion chrome', 'slash commands browser', 'free textexpander alternative'],
+    keywords: ['notes chrome extension', 'text shortcuts extension', 'text expansion chrome', 'slash commands browser', 'free textexpander alternative', 'notes chrome extension 2026', 'text expansion chrome extension free', 'slash shortcuts browser extension', 'best free text expander chrome', 'quick notes side panel chrome extension'],
     relatedFeatures: [
       { label: 'Clipboard Manager', href: '/clipboard-manager-extension/' },
       { label: 'Pomodoro Timer', href: '/pomodoro-timer-extension/' },
@@ -217,15 +233,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'habit-tracker-extension',
     seoTitle: 'Habit Tracker Chrome Extension — Daily Routines with Streak Tracking',
     metaDescription:
-      'Build daily habits with OneBuddy\'s free habit tracker. One-tap check-offs, streak tracking, and progress visualization right in your browser.',
+      'Free habit tracker Chrome extension with streak tracking, one-tap check-offs & progress visualization. Build daily routines in your browser — 2026.',
     h1: 'Habit Tracker Chrome Extension — Build Daily Routines',
     badge: 'Productivity',
     badgeColor: '#7C3AED',
     icon: 'TaskSquare',
+    image: '/images/features/habit-tracker-extension.webp',
     whatItDoes:
-      'OneBuddy\'s Habit Tracker helps you build and maintain daily routines without leaving your browser. Create habits, check them off with one tap, and watch your streaks grow. Progress visualization shows your consistency over time, motivating you to maintain your routines.',
+      'OneBuddy\'s Habit Tracker helps you build and maintain daily routines without leaving your browser, living directly in the Chrome side panel for effortless access. Create unlimited custom habits — exercise, reading, meditation, learning, or anything else — and check them off with a single tap each day. The streak tracking system visually counts consecutive days of completion, creating accountability that motivates you to keep going. Progress visualization shows your habit completion history at a glance, helping you identify patterns and maintain consistency over time. No account signup is needed — all habit data is stored locally on your device for instant performance and complete privacy.',
     whyBetter:
-      'Standalone habit tracking apps require you to open a separate tool. OneBuddy puts habit tracking in your browser side panel where you already spend hours, making it effortless to check off habits throughout the day.',
+      'Standalone habit tracking apps like Habitica or Streaks require you to open a separate tool or phone app, breaking your workflow and adding friction. OneBuddy puts habit tracking directly in your Chrome side panel where you already spend hours, making it effortless to check off habits throughout the day. Combined with the Pomodoro timer and health reminders in the same extension, you get a complete daily routine system without installing multiple tools. This consolidation reduces your Chrome extension count and saves browser memory. Unlike premium habit apps that charge monthly subscriptions, OneBuddy\'s habit tracker is completely free with no limits.',
     featureBreakdown: [
       { title: 'One-Tap Check-Off', description: 'Mark habits complete with a single click — no friction, no extra steps.' },
       { title: 'Streak Tracking', description: 'Visual streak counter motivates consistency day after day.' },
@@ -252,8 +269,11 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Does it sync across devices?', a: 'Habit data is stored locally on your device. Each Chrome installation maintains its own habit data.' },
       { q: 'Can I see my streak history?', a: 'Yes. The habit tracker shows your current streak and overall progress visualization.' },
       { q: 'Is there a premium version?', a: 'No. The habit tracker, like all OneBuddy features, is completely free.' },
+      { q: 'Is the habit tracker Chrome extension free in 2026?', a: 'Yes. OneBuddy\'s habit tracker is completely free in 2026 with no premium tiers, usage limits, or account registration required.' },
+      { q: 'How does OneBuddy\'s habit tracker compare to Habitica?', a: 'Habitica is a gamified habit app that requires a separate platform and account. OneBuddy\'s habit tracker lives in your Chrome side panel for zero-friction daily check-offs, and it\'s bundled with 13 other productivity and privacy tools — all for free.' },
+      { q: 'Can I track multiple habits at once?', a: 'Yes. Create as many habits as you need and track them all simultaneously with individual streak counters and progress visualization for each one.' },
     ],
-    keywords: ['habit tracker chrome extension', 'daily habit browser extension', 'streak tracker chrome', 'routine tracker extension', 'free habit tracker browser'],
+    keywords: ['habit tracker chrome extension', 'daily habit browser extension', 'streak tracker chrome', 'routine tracker extension', 'free habit tracker browser', 'habit tracker chrome extension 2026', 'best free habit tracker chrome', 'daily routine tracker browser extension', 'streak tracking chrome extension free', 'habitica alternative chrome extension'],
     relatedFeatures: [
       { label: 'Pomodoro Timer', href: '/pomodoro-timer-extension/' },
       { label: 'Health Reminders', href: '/health-reminder-extension/' },
@@ -265,15 +285,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'google-calendar-extension',
     seoTitle: 'Google Calendar Chrome Extension — View Events in Side Panel',
     metaDescription:
-      'View your Google Calendar events directly in Chrome\'s side panel with OneBuddy. OAuth-powered sync, event notifications, and upcoming event view — all free.',
+      'Free Google Calendar Chrome extension with side panel event view, OAuth sync & meeting notifications. See your schedule without switching tabs — 2026.',
     h1: 'Google Calendar Chrome Extension — Events in Your Side Panel',
     badge: 'Productivity',
     badgeColor: '#7C3AED',
     icon: 'Calendar',
+    image: '/images/features/google-calendar-extension.webp',
     whatItDoes:
-      'OneBuddy integrates with Google Calendar through secure OAuth authentication. View your upcoming events, get Chrome alarm notifications before meetings, and manage your schedule without switching tabs. The calendar view lives in the side panel alongside your other productivity tools.',
+      'OneBuddy integrates with Google Calendar through secure OAuth 2.0 authentication, bringing your schedule directly into the Chrome side panel. View today\'s and upcoming events at a glance without opening a new tab or switching windows. Chrome alarm-based notifications alert you before meetings so you never miss an appointment, even when you\'re deep in a work session. The calendar view updates periodically to keep your event list current, and it uses Google\'s official OAuth flow so your credentials are never stored by OneBuddy. Your calendar sits alongside your Pomodoro timer, notes, and habits for a complete productivity command center.',
     whyBetter:
-      'Dedicated calendar extensions only show your schedule. OneBuddy shows your calendar alongside your Pomodoro timer, notes, habits, and clipboard — creating a complete productivity command center in your side panel.',
+      'Dedicated Google Calendar extensions like Checker Plus or Google Calendar by Google only show your schedule and add yet another extension to your browser. OneBuddy shows your calendar alongside your Pomodoro timer, notes, habits, clipboard manager, and 10+ other tools — creating a complete productivity command center in a single Chrome side panel. By consolidating your calendar viewer with other daily-use tools, you reduce your extension count, save browser memory, and declutter your toolbar. The secure OAuth 2.0 integration means your data stays safe, and everything is free with no premium tiers.',
     featureBreakdown: [
       { title: 'OAuth-Powered Sync', description: 'Secure Google OAuth connection syncs your calendar events in real-time.' },
       { title: 'Upcoming Events View', description: 'See today\'s and upcoming events directly in the side panel.' },
@@ -300,8 +321,11 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Will I get notifications for upcoming events?', a: 'Yes. OneBuddy uses Chrome alarms to send notifications before your events, so you never miss a meeting.' },
       { q: 'Can I create or edit events from OneBuddy?', a: 'Currently, OneBuddy provides a read-only view of your upcoming events with notifications. Event creation and editing happen in Google Calendar.' },
       { q: 'Is the calendar sync real-time?', a: 'OneBuddy periodically syncs with Google Calendar to keep your event list current.' },
+      { q: 'Is the Google Calendar extension free in 2026?', a: 'Yes. OneBuddy\'s Google Calendar integration is completely free in 2026 with no premium tiers or usage limits.' },
+      { q: 'How does OneBuddy compare to Checker Plus for Google Calendar?', a: 'Checker Plus is a single-purpose calendar extension. OneBuddy provides the same calendar side panel view plus includes 13 other tools — Pomodoro timer, notes, clipboard manager, ad blocker, and more — all in one extension.' },
+      { q: 'Is the OAuth connection to Google Calendar secure?', a: 'Yes. OneBuddy uses Google\'s official OAuth 2.0 flow. Your password is never shared with or stored by OneBuddy — only a secure, revocable access token is used.' },
     ],
-    keywords: ['google calendar chrome extension', 'calendar sidebar extension', 'calendar side panel chrome', 'google calendar widget browser'],
+    keywords: ['google calendar chrome extension', 'calendar sidebar extension', 'calendar side panel chrome', 'google calendar widget browser', 'google calendar chrome extension 2026', 'free google calendar sidebar chrome', 'calendar notification chrome extension', 'google calendar side panel extension free', 'checker plus alternative chrome', 'view google calendar in chrome sidebar'],
     relatedFeatures: [
       { label: 'Pomodoro Timer', href: '/pomodoro-timer-extension/' },
       { label: 'Habit Tracker', href: '/habit-tracker-extension/' },
@@ -313,15 +337,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'bookmark-manager-extension',
     seoTitle: 'Bookmark Manager Chrome Extension — Side Panel with Folder Navigation',
     metaDescription:
-      'Navigate, search, and organize your bookmarks from Chrome\'s side panel with OneBuddy. Breadcrumb folder navigation and instant search — free.',
+      'Free bookmark manager Chrome extension with side panel access, breadcrumb navigation & instant search. Organize bookmarks faster — best tool 2026.',
     h1: 'Bookmark Manager Chrome Extension — Organize from the Side Panel',
     badge: 'Productivity',
     badgeColor: '#7C3AED',
     icon: 'Bookmark2',
+    image: '/images/features/bookmark-manager-extension.webp',
     whatItDoes:
-      'OneBuddy\'s Bookmark Manager brings your entire bookmark library into the side panel. Navigate folders with breadcrumb navigation, search across all bookmarks instantly, and open any bookmark without leaving your current workflow. It\'s your bookmark bar, supercharged.',
+      'OneBuddy\'s Bookmark Manager brings your entire Chrome bookmark library into the side panel for quick, seamless access without opening a new tab. Navigate your folder hierarchy with intuitive breadcrumb navigation that makes even deeply nested bookmark structures easy to browse. The instant search feature scans across all folders and subfolders, letting you find any bookmark in seconds regardless of where it\'s saved. Open any bookmark in a new tab with a single click, keeping your current workflow completely uninterrupted. It reads your existing Chrome bookmarks natively — no import or sync step required.',
     whyBetter:
-      'Chrome\'s built-in bookmark manager opens in a full tab and interrupts your workflow. OneBuddy keeps bookmarks accessible in the side panel, searchable, and organized — alongside your other productivity tools.',
+      'Chrome\'s built-in bookmark manager opens in a full tab and completely interrupts your workflow. Standalone bookmark extensions like Raindrop.io or Bookmark Sidebar add yet another extension to your browser. OneBuddy keeps bookmarks accessible in the Chrome side panel, searchable, and organized — alongside your notes, clipboard history, Pomodoro timer, and 10+ other tools. By bundling bookmark management into OneBuddy, you reduce your total extension count and free up browser memory. The breadcrumb navigation is faster and more intuitive than Chrome\'s default flat list, especially for users with hundreds of organized bookmarks.',
     featureBreakdown: [
       { title: 'Side Panel Access', description: 'Browse bookmarks without opening a new tab or full-page manager.' },
       { title: 'Breadcrumb Navigation', description: 'Navigate bookmark folder hierarchies with clear breadcrumb trails.' },
@@ -347,8 +372,12 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Does OneBuddy modify my existing bookmarks?', a: 'No. OneBuddy provides a read and navigate interface for your existing Chrome bookmarks. Your bookmark structure remains unchanged.' },
       { q: 'Can I search across all bookmark folders?', a: 'Yes. The search function scans across all folders and subfolders in your bookmark library.' },
       { q: 'Does it replace Chrome\'s bookmark manager?', a: 'It provides a more convenient side panel interface for browsing and searching bookmarks. Chrome\'s built-in manager remains available for advanced editing.' },
+      { q: 'Is the bookmark manager extension free in 2026?', a: 'Yes. OneBuddy\'s bookmark manager is completely free in 2026 with no premium features, usage limits, or account requirements.' },
+      { q: 'How does OneBuddy compare to Raindrop.io for bookmarks?', a: 'Raindrop.io is a dedicated bookmark service requiring an account and subscription for premium features. OneBuddy provides fast side panel bookmark access with search and folder navigation, plus includes 13 other tools — all free and local.' },
+      { q: 'Can I search across all my bookmark folders at once?', a: 'Yes. OneBuddy\'s bookmark search scans across all folders and subfolders in your entire Chrome bookmark library, returning instant results regardless of folder depth.' },
+      { q: 'Does OneBuddy modify or move my existing bookmarks?', a: 'No. OneBuddy provides a read-only browsing and search interface for your existing Chrome bookmarks. Your bookmark structure and organization remain completely unchanged.' },
     ],
-    keywords: ['bookmark manager chrome extension', 'bookmark organizer extension', 'bookmark search chrome', 'bookmark sidebar extension'],
+    keywords: ['bookmark manager chrome extension', 'bookmark organizer extension', 'bookmark search chrome', 'bookmark sidebar extension', 'bookmark manager chrome extension 2026', 'free bookmark organizer chrome', 'bookmark side panel chrome extension', 'best bookmark manager chrome free', 'raindrop alternative chrome extension', 'chrome bookmark search extension free'],
     relatedFeatures: [
       { label: 'Notes & Shortcuts', href: '/notes-shortcuts-extension/' },
       { label: 'Clipboard Manager', href: '/clipboard-manager-extension/' },
@@ -359,15 +388,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'ad-blocker-extension',
     seoTitle: 'Free Ad Blocker Chrome Extension — Block YouTube Ads, Popups & Banners',
     metaDescription:
-      'Block YouTube ads, popups, banners, and overlays with OneBuddy\'s free ad blocker. Per-site whitelisting and surgical control over what gets blocked.',
+      'Free ad blocker Chrome extension — block YouTube ads, popups & banners with per-site whitelisting. Best uBlock Origin alternative in 2026.',
     h1: 'Ad Blocker Chrome Extension — YouTube Ads, Popups & Banners',
     badge: 'Privacy',
     badgeColor: '#EC4899',
     icon: 'Forbidden2',
+    image: '/images/features/ad-blocker-extension.webp',
     whatItDoes:
-      'OneBuddy\'s ad blocker removes YouTube video ads, website popups, banner advertisements, and intrusive overlays. Control blocking on a per-site basis with whitelisting, and choose exactly which types of ads to block. No complex filter lists to manage — just toggle the controls you need.',
+      'OneBuddy\'s ad blocker removes YouTube video ads (pre-roll, mid-roll, and display), website popups, banner advertisements, and intrusive overlays across all websites you visit. Control blocking on a per-site basis with whitelisting, allowing you to support your favorite creators while blocking ads everywhere else. Choose exactly which types of ads to block — YouTube ads, popups, banners, or overlays — with simple toggle controls in the Chrome side panel. No complex filter lists to manage or configure, unlike traditional ad blockers. The ad blocker works immediately after installation with sensible defaults, and pages load noticeably faster with fewer ad scripts downloading and rendering.',
     whyBetter:
-      'uBlock Origin requires managing filter lists and offers only ad blocking. OneBuddy gives you the same core ad-blocking capabilities with a simpler interface, plus adds tracker blocking, privacy blur, screen recording, and 10+ other tools. One extension replaces five.',
+      'uBlock Origin and AdBlock Plus require managing complex filter lists and offer only ad blocking as a single feature. OneBuddy gives you the same core ad-blocking capabilities with a dramatically simpler toggle-based interface, plus adds tracker blocking, privacy blur, browser lock, screen recording, and 10+ other tools. One extension replaces five, reducing your Chrome memory usage and extension bar clutter. AdBlock Plus shows "acceptable ads" by default; OneBuddy blocks everything with no compromises. By combining your ad blocker with privacy and productivity tools, you get a cleaner, faster, more private browsing experience from a single installation.',
     featureBreakdown: [
       { title: 'YouTube Ad Blocking', description: 'Block pre-roll, mid-roll, and display ads on YouTube for uninterrupted viewing.' },
       { title: 'Popup Blocking', description: 'Prevent annoying popup windows and overlay ads across all websites.' },
@@ -395,8 +425,11 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Can I whitelist specific websites?', a: 'Yes. The per-site whitelist lets you support creators or access sites that require ad viewing.' },
       { q: 'How is it different from uBlock Origin?', a: 'OneBuddy provides simpler ad-blocking controls without filter list management, plus includes 10+ additional tools like Pomodoro timer, health reminders, and screen recording.' },
       { q: 'Does ad blocking slow down my browser?', a: 'No — blocking ads actually speeds up page loads by preventing ad content from downloading and rendering.' },
+      { q: 'Is the ad blocker extension free in 2026?', a: 'Yes. OneBuddy\'s ad blocker is completely free in 2026 with no premium tiers, "acceptable ads" programs, or usage limits.' },
+      { q: 'How does OneBuddy compare to AdBlock Plus?', a: 'AdBlock Plus shows "acceptable ads" by default and is a single-purpose extension. OneBuddy blocks all ads with no compromise, plus includes tracker blocking, privacy blur, screen recording, and 10+ other tools in one extension.' },
+      { q: 'Can I block YouTube ads with OneBuddy?', a: 'Yes. OneBuddy blocks pre-roll, mid-roll, and display ads on YouTube so you can watch videos without interruptions. No special configuration needed.' },
     ],
-    keywords: ['ad blocker chrome extension', 'youtube ad blocker free', 'popup blocker chrome', 'best free ad blocker', 'ublock origin alternative'],
+    keywords: ['ad blocker chrome extension', 'youtube ad blocker free', 'popup blocker chrome', 'best free ad blocker', 'ublock origin alternative', 'ad blocker chrome extension 2026', 'free youtube ad blocker chrome', 'block ads chrome extension free', 'adblock plus alternative 2026', 'best ad blocker chrome extension no filter lists'],
     relatedFeatures: [
       { label: 'Tracker Blocker', href: '/tracker-blocker-extension/' },
       { label: 'Privacy Blur', href: '/privacy-blur-extension/' },
@@ -408,15 +441,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'tracker-blocker-extension',
     seoTitle: 'Tracker Blocker Chrome Extension — Block Facebook Pixel, Google Analytics',
     metaDescription:
-      'Block Facebook Pixel, TikTok Pixel, Google Analytics, and other web trackers with OneBuddy\'s free tracker blocker. Per-tracker stats show what\'s blocked.',
+      'Free tracker blocker Chrome extension — block Facebook Pixel, TikTok Pixel & Google Analytics. See per-tracker stats. Best Ghostery alternative 2026.',
     h1: 'Tracker Blocker Chrome Extension — Stop Online Tracking',
     badge: 'Privacy',
     badgeColor: '#EC4899',
     icon: 'ShieldSlash',
+    image: '/images/features/tracker-blocker-extension.webp',
     whatItDoes:
-      'OneBuddy\'s tracker blocker identifies and blocks popular tracking scripts including Facebook Pixel, TikTok Pixel, Google Analytics, and other data collection tools embedded in websites. Per-tracker statistics show you exactly which trackers were blocked and how often, giving you transparency into how websites track your browsing.',
+      'OneBuddy\'s tracker blocker identifies and blocks popular tracking scripts including Facebook Pixel, TikTok Pixel, Google Analytics, and other data collection tools silently embedded in the websites you visit. Trackers are intercepted in real-time as pages load, preventing them from executing before they can collect any data about your browsing behavior. Per-tracker statistics in the Chrome side panel show you exactly which trackers were blocked on each website and how many times, giving you full transparency into the hidden surveillance happening across the web. You can selectively control which trackers to block and which to allow on a per-site basis, ensuring essential website functionality is never broken.',
     whyBetter:
-      'Ghostery and Privacy Badger focus solely on tracker blocking. OneBuddy adds tracker blocking to a full suite of privacy tools (ad blocking, privacy blur, browser lock) plus productivity and wellness features. One installation replaces multiple privacy extensions.',
+      'Ghostery and Privacy Badger focus solely on tracker blocking and each add a separate extension to your browser. OneBuddy adds tracker blocking to a full suite of privacy tools including ad blocking, privacy blur, browser lock, and encrypted messaging — plus productivity and wellness features. One installation replaces multiple privacy extensions, reducing your Chrome memory usage and keeping your extension bar clean. Unlike Ghostery, which has a freemium model with paid features, OneBuddy\'s tracker blocking is completely free with full per-tracker statistics and per-site controls. Privacy Badger uses heuristic learning which can miss known trackers; OneBuddy blocks them definitively.',
     featureBreakdown: [
       { title: 'Facebook Pixel Blocking', description: 'Prevent Facebook from tracking your browsing across websites.' },
       { title: 'TikTok Pixel Blocking', description: 'Stop TikTok\'s tracking pixel from collecting your browsing data.' },
@@ -444,8 +478,11 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Can I see which trackers were blocked?', a: 'Yes. Per-tracker statistics show exactly which trackers were blocked on each website and how often.' },
       { q: 'Will blocking trackers break websites?', a: 'Rarely. Most trackers are analytics and advertising scripts that don\'t affect core website functionality. If a site doesn\'t work, you can whitelist it.' },
       { q: 'How is this different from Ghostery?', a: 'OneBuddy provides similar tracker-blocking capabilities plus adds ad blocking, privacy blur, browser lock, and 10+ productivity tools in one extension.' },
+      { q: 'Is the tracker blocker Chrome extension free in 2026?', a: 'Yes. OneBuddy\'s tracker blocker is completely free in 2026 with no premium tiers, usage limits, or data collection.' },
+      { q: 'Does OneBuddy block Facebook Pixel tracking?', a: 'Yes. OneBuddy specifically identifies and blocks Facebook Pixel, preventing Facebook from tracking your browsing activity across websites that embed their tracking code.' },
+      { q: 'How does the tracker blocker compare to Privacy Badger?', a: 'Privacy Badger uses heuristic learning to detect trackers over time. OneBuddy blocks known trackers like Facebook Pixel, TikTok Pixel, and Google Analytics immediately, plus shows per-tracker statistics and includes 13 other tools.' },
     ],
-    keywords: ['tracker blocker chrome extension', 'block facebook pixel chrome', 'privacy extension chrome', 'block google analytics extension', 'anti-tracking browser extension'],
+    keywords: ['tracker blocker chrome extension', 'block facebook pixel chrome', 'privacy extension chrome', 'block google analytics extension', 'anti-tracking browser extension', 'tracker blocker chrome extension 2026', 'free tracker blocker chrome', 'ghostery alternative chrome extension', 'block tiktok pixel chrome', 'privacy badger alternative 2026 free'],
     relatedFeatures: [
       { label: 'Ad Blocker', href: '/ad-blocker-extension/' },
       { label: 'Privacy Blur', href: '/privacy-blur-extension/' },
@@ -457,15 +494,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'privacy-blur-extension',
     seoTitle: 'Privacy Blur Chrome Extension — Blur Sensitive Content on Screen',
     metaDescription:
-      'Blur sensitive content on any webpage with OneBuddy\'s free privacy blur tool. 5 blur styles, persistent blurs, and drag-to-blur for screen sharing.',
+      'Free privacy blur Chrome extension — blur sensitive content on any webpage. 5 blur styles, persistent blurs & drag-to-blur for screen sharing. 2026.',
     h1: 'Privacy Blur Chrome Extension — Hide Sensitive Content',
     badge: 'Privacy',
     badgeColor: '#EC4899',
     icon: 'EyeSlash',
+    image: '/images/features/privacy-blur-extension.webp',
     whatItDoes:
-      'OneBuddy\'s Privacy Blur lets you click or drag to blur any element on any webpage. Choose from 5 blur styles to hide sensitive content before screen sharing, presentations, or simply for personal privacy. Blurred areas are persistent — they re-apply automatically when you revisit the page.',
+      'OneBuddy\'s Privacy Blur lets you click or drag to blur any element on any webpage directly from the Chrome side panel controls. Choose from 5 distinct blur styles to hide sensitive content before screen sharing, presentations, recordings, or simply for personal privacy while browsing. Click any HTML element to blur it instantly, or drag to create a custom blur rectangle over any area of the page. Blurred areas are persistent — they are saved per-page and automatically re-apply when you revisit the same URL, saving you from manually re-blurring content every time. Toggle all blurs on or off with a single click, and manage blur regions on a per-site basis.',
     whyBetter:
-      'No other Chrome extension offers persistent, multi-style privacy blur that re-applies on page revisits. Standalone blur tools are single-purpose. OneBuddy combines privacy blur with ad blocking, tracker blocking, browser lock, and complete productivity tools.',
+      'No other Chrome extension offers persistent, multi-style privacy blur that automatically re-applies on page revisits — this feature is unique to OneBuddy. Standalone blur tools like Blur or Page Eraser are single-purpose extensions that add to your browser\'s memory footprint and extension count. OneBuddy combines privacy blur with ad blocking, tracker blocking, browser lock, encrypted messaging, and complete productivity tools in one extension. By consolidating your privacy blur tool with 13 other features, you get a cleaner extension bar and lower Chrome RAM usage. The 5 blur styles and per-site management give you more control than any competing tool.',
     featureBreakdown: [
       { title: 'Click-to-Blur', description: 'Click any element on a page to instantly blur it — text, images, or entire sections.' },
       { title: 'Drag-to-Blur', description: 'Drag to create a blur rectangle over any area of the page.' },
@@ -493,8 +531,11 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Do blurs persist across browser sessions?', a: 'Yes. Blurred areas are saved per-page and automatically re-apply when you revisit the same URL.' },
       { q: 'Can I temporarily remove all blurs?', a: 'Yes. Toggle all blurs on/off with a single click in the OneBuddy side panel.' },
       { q: 'Is this available in any other extension?', a: 'Persistent, multi-style privacy blur with per-page management is unique to OneBuddy.' },
+      { q: 'Is the privacy blur extension free in 2026?', a: 'Yes. OneBuddy\'s privacy blur feature is completely free in 2026 with no usage limits, premium tiers, or watermarks on blurred content.' },
+      { q: 'Can I use privacy blur during screen sharing on Zoom or Google Meet?', a: 'Yes. Apply blurs to sensitive content before starting your screen share on Zoom, Google Meet, Microsoft Teams, or any platform. The blurs persist visually on the page so shared viewers see only the blurred version.' },
+      { q: 'How many blur styles does OneBuddy offer?', a: 'OneBuddy offers 5 distinct blur styles so you can choose the level and aesthetic of content obfuscation that best fits your needs and context.' },
     ],
-    keywords: ['privacy blur chrome extension', 'blur screen content extension', 'hide sensitive data chrome', 'screen sharing privacy tool', 'blur webpage elements'],
+    keywords: ['privacy blur chrome extension', 'blur screen content extension', 'hide sensitive data chrome', 'screen sharing privacy tool', 'blur webpage elements', 'privacy blur chrome extension 2026', 'free blur extension chrome', 'blur sensitive content browser', 'screen sharing blur tool free', 'hide personal data chrome extension 2026'],
     relatedFeatures: [
       { label: 'Browser Lock', href: '/browser-lock-extension/' },
       { label: 'Screen Recorder', href: '/screen-recorder-extension/' },
@@ -506,15 +547,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'browser-lock-extension',
     seoTitle: 'Browser Lock Chrome Extension — Password Protect Your Tabs',
     metaDescription:
-      'Lock all Chrome tabs with a password using OneBuddy\'s free browser lock. SHA-256 encryption, auto-lock on inactivity, and custom lock screen.',
+      'Free browser lock Chrome extension — password protect all tabs with SHA-256 encryption, auto-lock & custom lock screen. Best tab locker 2026.',
     h1: 'Browser Lock Chrome Extension — Password Protect Your Browser',
     badge: 'Privacy',
     badgeColor: '#EC4899',
     icon: 'Lock1',
+    image: '/images/features/browser-lock-extension.webp',
     whatItDoes:
-      'OneBuddy\'s Browser Lock lets you password-protect all open Chrome tabs with a single click. Your password is hashed using SHA-256 encryption and stored securely. Set auto-lock to trigger after a period of inactivity, and customize the lock screen appearance. When locked, all tab content is hidden until the correct password is entered.',
+      'OneBuddy\'s Browser Lock lets you password-protect all open Chrome tabs with a single click from the Chrome side panel. Your password is hashed using SHA-256 encryption and stored securely — it is never saved in plain text anywhere. Set auto-lock to trigger automatically after a configurable period of inactivity, ensuring your browser stays protected even if you forget to lock it manually. Customize the lock screen appearance to match your preference while maintaining full security. When locked, all tab content is completely hidden and replaced with the lock screen — not just minimized or obscured — and content is restored only after the correct password is entered.',
     whyBetter:
-      'Standalone browser lock extensions do one thing and add to your extension count. OneBuddy includes browser lock as part of a complete privacy suite with ad blocking, tracker blocking, privacy blur, and encrypted messaging — plus productivity and wellness tools.',
+      'Standalone browser lock extensions like LockPW or Tab Lock do one thing and add to your already-crowded extension bar. OneBuddy includes browser lock as part of a complete privacy suite with ad blocking, tracker blocking, privacy blur, and encrypted messaging — plus productivity and wellness tools. By consolidating your browser lock with 13 other features, you save Chrome memory and reduce extension clutter. Unlike LockPW, which is a single-purpose tool, OneBuddy\'s browser lock integrates with privacy blur so you can both blur sensitive content and lock your tabs for layered protection. Everything is free with SHA-256 password security.',
     featureBreakdown: [
       { title: 'One-Click Lock', description: 'Lock all tabs instantly with a single click from the side panel.' },
       { title: 'SHA-256 Password Hashing', description: 'Your password is hashed with SHA-256 — never stored in plain text.' },
@@ -542,8 +584,11 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Can I set it to auto-lock?', a: 'Yes. Configure auto-lock to trigger after your chosen inactivity period.' },
       { q: 'What happens when the browser is locked?', a: 'All tab content is completely hidden and replaced with the lock screen. Content is restored only after entering the correct password.' },
       { q: 'Can I customize the lock screen?', a: 'Yes. The lock screen appearance is customizable while maintaining full security.' },
+      { q: 'Is the browser lock extension free in 2026?', a: 'Yes. OneBuddy\'s browser lock is completely free in 2026 with SHA-256 encryption, auto-lock, and custom lock screen — no premium tiers or subscriptions.' },
+      { q: 'How does OneBuddy\'s browser lock compare to LockPW?', a: 'LockPW is a single-purpose browser lock extension. OneBuddy provides the same tab-locking security with SHA-256 encryption plus includes 13 other tools like ad blocking, privacy blur, screen recording, and more — all in one extension.' },
+      { q: 'Does browser lock protect all open tabs?', a: 'Yes. When you activate browser lock, all open Chrome tabs are completely hidden behind the lock screen. No tab content is visible until the correct password is entered.' },
     ],
-    keywords: ['browser lock chrome extension', 'password protect chrome tabs', 'lock browser extension', 'tab lock chrome', 'chrome security extension'],
+    keywords: ['browser lock chrome extension', 'password protect chrome tabs', 'lock browser extension', 'tab lock chrome', 'chrome security extension', 'browser lock chrome extension 2026', 'free browser lock chrome', 'password protect browser tabs free', 'lockpw alternative chrome extension', 'auto lock chrome tabs extension 2026'],
     relatedFeatures: [
       { label: 'Privacy Blur', href: '/privacy-blur-extension/' },
       { label: 'Encrypted Messaging', href: '/encrypted-messaging-extension/' },
@@ -555,15 +600,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'screen-recorder-extension',
     seoTitle: 'Free Screen Recorder Chrome Extension — No Time Limit, No Watermark',
     metaDescription:
-      'Record your screen and tabs for free with OneBuddy. No time limits, no watermarks, 1080p/30fps, tab audio capture. The best free Loom alternative.',
+      'Free screen recorder Chrome extension — no time limits, no watermarks, 1080p/30fps with tab audio. Best free Loom alternative in 2026.',
     h1: 'Screen Recorder Chrome Extension — Free, No Limits',
     badge: 'Capture',
     badgeColor: '#F59E0B',
     icon: 'MonitorRecorder',
+    image: '/images/features/screen-recorder-extension.webp',
     whatItDoes:
-      'OneBuddy includes a complete screen recording suite: record your full display at 1920x1080 / 30fps, or record individual tabs with audio via Chrome\'s Tab Capture API. Pause and resume recordings, see elapsed time, and manage all captures in a built-in gallery. No time limits, no watermarks, no subscription.',
+      'OneBuddy includes a complete screen recording suite accessible directly from the Chrome side panel: record your full display at 1920x1080 / 30fps, or record individual tabs with audio via Chrome\'s Tab Capture API. Pause and resume recordings at any point without starting over, and see elapsed recording time displayed during capture for precise timing. All recordings are stored in a built-in thumbnail gallery where you can preview, download, or delete captures with ease. There are no time limits on any recording, no watermarks added to your output, and no subscription or account required. OneBuddy\'s screen recorder is completely free and works immediately after installation.',
     whyBetter:
-      'Loom limits free recordings to 5 minutes and adds branding. OneBuddy gives you unlimited recordings with no watermark, plus adds screenshots, full-page capture, and a built-in gallery — alongside productivity and privacy tools. All free.',
+      'Loom limits free recordings to 5 minutes and adds branding watermarks. Screencastify caps free recordings at 5 minutes with a watermark. OneBuddy gives you unlimited recordings with no watermark and no time cap, plus adds full-page screenshots, visible tab capture, and a built-in gallery — alongside productivity and privacy tools. All free. By combining screen recording with screenshots and 12 other tools in one Chrome extension, you eliminate the need for Loom, Screencastify, and a separate screenshot tool, saving significant browser memory and reducing extension clutter.',
     featureBreakdown: [
       { title: 'Full Screen Recording', description: 'Record your entire display at 1920x1080 / 30fps with no time limits.' },
       { title: 'Tab Recording with Audio', description: 'Record individual tabs with tab audio using Chrome\'s Tab Capture API.' },
@@ -592,8 +638,10 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'Can I record tab audio?', a: 'Yes. Tab recording uses Chrome\'s Tab Capture API which includes tab audio.' },
       { q: 'Where are recordings stored?', a: 'Recordings are stored locally in OneBuddy\'s built-in gallery. You can preview, download, or delete them anytime.' },
       { q: 'How is this different from Loom?', a: 'Loom limits free recordings to 5 minutes and requires a subscription for more. OneBuddy is completely free with no limits, plus includes 10+ other tools.' },
+      { q: 'Is the screen recorder extension free in 2026?', a: 'Yes. OneBuddy\'s screen recorder is completely free in 2026 with no time limits, no watermarks, no premium tiers, and no account required.' },
+      { q: 'How does OneBuddy compare to Screencastify?', a: 'Screencastify limits free recordings to 5 minutes and adds watermarks. OneBuddy has no time limits and no watermarks, plus includes full-page screenshots, privacy blur, and 10+ other tools in one free extension.' },
     ],
-    keywords: ['screen recorder chrome extension free', 'free loom alternative', 'tab recording chrome', 'screen capture extension', 'no watermark screen recorder'],
+    keywords: ['screen recorder chrome extension free', 'free loom alternative', 'tab recording chrome', 'screen capture extension', 'no watermark screen recorder', 'screen recorder chrome extension 2026', 'free screen recorder no watermark chrome', 'screencastify alternative free 2026', 'record browser tab with audio free', 'best free screen recorder chrome extension'],
     relatedFeatures: [
       { label: 'Full Page Screenshot', href: '/full-page-screenshot-extension/' },
       { label: 'Privacy Blur', href: '/privacy-blur-extension/' },
@@ -605,15 +653,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'full-page-screenshot-extension',
     seoTitle: 'Full Page Screenshot Chrome Extension — Scroll Capture & Visible Tab',
     metaDescription:
-      'Capture full-page scrolling screenshots and visible tab snapshots with OneBuddy. Free, no permissions popup, instant PNG capture with built-in gallery.',
+      'Free full-page screenshot Chrome extension with scroll capture & visible tab snapshots. No permissions popup, PNG output, built-in gallery — 2026.',
     h1: 'Full Page Screenshot Chrome Extension — Capture Any Page',
     badge: 'Capture',
     badgeColor: '#F59E0B',
     icon: 'Scan',
+    image: '/images/features/full-page-screenshot-extension.webp',
     whatItDoes:
-      'OneBuddy\'s screenshot tools capture both the visible tab viewport and full-page scrolling screenshots. Visible tab capture is instant — one click, PNG saved. Full-page capture uses automated scroll-and-stitch technology to capture entire pages regardless of length. All captures are stored in a built-in gallery with up to 50 items.',
+      'OneBuddy\'s screenshot tools, accessible from the Chrome side panel, capture both the visible tab viewport and full-page scrolling screenshots with a single click. Visible tab capture is instant — one click produces a high-quality PNG with no permissions popup or extra steps. Full-page capture uses automated scroll-and-stitch technology to capture entire web pages regardless of their length, producing a single continuous image of the complete page content. All captures are stored in a built-in thumbnail gallery holding up to 50 items, where you can preview, copy to clipboard, download, or delete screenshots. No account signup or internet connection is required — everything runs locally in your browser.',
     whyBetter:
-      'Dedicated screenshot extensions like Awesome Screenshot or Nimbus only handle screen capture. OneBuddy gives you screenshots AND screen recording, plus an integrated gallery, all alongside productivity and privacy tools.',
+      'Dedicated screenshot extensions like Awesome Screenshot or Nimbus Screenshot only handle screen capture and add yet another extension to your browser. OneBuddy gives you both full-page screenshots AND full screen recording with tab audio, plus an integrated gallery for managing all captures — alongside productivity and privacy tools. By consolidating screenshot and recording tools into one Chrome extension, you eliminate the need for Awesome Screenshot, Nimbus, and a separate screen recorder, significantly reducing Chrome\'s memory footprint and extension count. OneBuddy\'s screenshot feature requires no extra permissions popup, unlike many competing tools that request broad browser access.',
     featureBreakdown: [
       { title: 'Visible Tab Capture', description: 'Instant one-click PNG capture of the current viewport — no permissions popup.' },
       { title: 'Full Page Scrolling Capture', description: 'Automated scroll-and-stitch captures entire pages, regardless of length.' },
@@ -640,8 +689,11 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'What format are screenshots saved in?', a: 'Screenshots are saved as high-quality PNG images.' },
       { q: 'How many screenshots can I store?', a: 'The built-in gallery stores up to 50 captures with preview, copy, download, and delete actions.' },
       { q: 'Does it require extra permissions?', a: 'No. Tab capture uses Chrome\'s built-in API without additional permission prompts.' },
+      { q: 'Is the screenshot extension free in 2026?', a: 'Yes. OneBuddy\'s full-page screenshot tool is completely free in 2026 with no watermarks, usage limits, or premium features locked behind a paywall.' },
+      { q: 'How does OneBuddy compare to Awesome Screenshot?', a: 'Awesome Screenshot is a single-purpose tool. OneBuddy provides the same full-page scroll capture plus screen recording, a built-in gallery, and 12 other productivity and privacy tools — all in one free extension.' },
+      { q: 'Can I copy a screenshot directly to my clipboard?', a: 'Yes. The built-in gallery lets you copy any capture directly to your clipboard for instant pasting into documents, emails, or design tools.' },
     ],
-    keywords: ['full page screenshot chrome extension', 'scroll capture chrome', 'screenshot extension free', 'webpage capture chrome', 'full page capture extension'],
+    keywords: ['full page screenshot chrome extension', 'scroll capture chrome', 'screenshot extension free', 'webpage capture chrome', 'full page capture extension', 'full page screenshot chrome extension 2026', 'free screenshot extension chrome', 'scroll capture chrome extension free', 'awesome screenshot alternative 2026', 'capture entire webpage chrome extension free'],
     relatedFeatures: [
       { label: 'Screen Recorder', href: '/screen-recorder-extension/' },
       { label: 'Privacy Blur', href: '/privacy-blur-extension/' },
@@ -653,15 +705,16 @@ export const featurePagesData: FeaturePageData[] = [
     slug: 'encrypted-messaging-extension',
     seoTitle: 'Encrypted Messaging Chrome Extension — E2E Encrypted Browser Chat',
     metaDescription:
-      'Send end-to-end encrypted messages directly in your browser with OneBuddy. ECDH P-256 + AES-GCM 256-bit encryption. Zero-knowledge architecture.',
+      'Free encrypted messaging Chrome extension with E2E ECDH P-256 + AES-GCM 256-bit encryption. Zero-knowledge browser chat — no separate app needed. 2026.',
     h1: 'End-to-End Encrypted Messaging Chrome Extension',
     badge: 'Privacy',
     badgeColor: '#EC4899',
     icon: 'MessageText1',
+    image: '/images/features/encrypted-messaging-extension.webp',
     whatItDoes:
-      'OneBuddy includes a truly private messaging feature using ECDH P-256 key exchange and AES-GCM 256-bit encryption. Messages are encrypted on your device before transmission and can only be decrypted by the intended recipient. Zero-knowledge architecture means not even the relay server can read your messages.',
+      'OneBuddy includes a truly private messaging feature built directly into the Chrome side panel, using ECDH P-256 key exchange and AES-GCM 256-bit encryption — the same cryptographic standards used by governments and financial institutions. Messages are encrypted on your device before transmission and can only be decrypted by the intended recipient\'s browser. Zero-knowledge architecture means not even OneBuddy\'s relay server can read your messages — it only handles encrypted data it has no ability to decrypt. No separate messaging app installation is required; both parties simply need the OneBuddy extension. The system collects no message logs, no metadata, and performs no user tracking.',
     whyBetter:
-      'No other Chrome extension combines encrypted messaging with productivity and privacy tools. You get private messaging alongside ad blocking, screen recording, and 10+ other tools — all in one extension. No separate app installation required.',
+      'No other Chrome extension combines end-to-end encrypted messaging with productivity and privacy tools. Signal and Telegram require separate desktop apps; WhatsApp Web requires a phone connection. OneBuddy gives you browser-native encrypted messaging with ECDH P-256 and AES-GCM 256-bit encryption alongside ad blocking, screen recording, privacy blur, and 10+ other tools — all in one extension. By consolidating encrypted chat with your other daily tools, you reduce your software footprint and keep everything accessible in the Chrome side panel. The zero-knowledge architecture ensures complete privacy with no message logs or metadata collection.',
     featureBreakdown: [
       { title: 'ECDH P-256 Key Exchange', description: 'Industry-standard elliptic curve Diffie-Hellman key exchange for secure key negotiation.' },
       { title: 'AES-GCM 256-bit Encryption', description: 'Messages encrypted with AES-GCM 256-bit — the same standard used by governments and banks.' },
@@ -687,9 +740,12 @@ export const featurePagesData: FeaturePageData[] = [
       { q: 'How is the encryption implemented?', a: 'OneBuddy uses ECDH P-256 for key exchange and AES-GCM 256-bit for message encryption — industry-standard cryptographic algorithms.' },
       { q: 'Can the server read my messages?', a: 'No. Zero-knowledge architecture means messages are encrypted on your device before transmission. The relay server only handles encrypted data it cannot decrypt.' },
       { q: 'Do both parties need OneBuddy?', a: 'Yes. Both the sender and recipient need OneBuddy installed for end-to-end encrypted messaging.' },
-      { q: 'Are messages stored?', a: 'Messages are handled with privacy-first design. The system is built around zero-knowledge principles.' },
+      { q: 'Are messages stored?', a: 'Messages are handled with privacy-first design. The system is built around zero-knowledge principles with no message logs or metadata collection.' },
+      { q: 'Is the encrypted messaging extension free in 2026?', a: 'Yes. OneBuddy\'s encrypted messaging is completely free in 2026 with full ECDH P-256 + AES-GCM 256-bit encryption, zero-knowledge architecture, and no premium tiers.' },
+      { q: 'How does OneBuddy\'s encrypted messaging compare to Signal?', a: 'Signal requires a separate desktop app and phone number. OneBuddy provides browser-native encrypted messaging with industry-standard cryptography directly in your Chrome side panel — no separate app or phone number needed. Plus you get 13 other tools.' },
+      { q: 'What encryption standard does OneBuddy use for messaging?', a: 'OneBuddy uses ECDH P-256 for key exchange and AES-GCM with 256-bit keys for message encryption. These are industry-standard cryptographic algorithms used by governments, banks, and security-focused organizations worldwide.' },
     ],
-    keywords: ['encrypted messaging chrome extension', 'e2e encrypted browser chat', 'private messaging extension', 'secure chat chrome', 'zero knowledge messaging browser'],
+    keywords: ['encrypted messaging chrome extension', 'e2e encrypted browser chat', 'private messaging extension', 'secure chat chrome', 'zero knowledge messaging browser', 'encrypted messaging chrome extension 2026', 'free encrypted chat chrome', 'end to end encrypted browser messaging', 'signal alternative chrome extension', 'secure private messaging browser extension free'],
     relatedFeatures: [
       { label: 'Browser Lock', href: '/browser-lock-extension/' },
       { label: 'Privacy Blur', href: '/privacy-blur-extension/' },

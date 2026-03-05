@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Chrome, ArrowRight2, Calendar, Clock } from 'iconsax-react';
 import { blogPosts, blogCategories } from '@/lib/blog-data';
 import { siteConfig } from '@/lib/site-config';
@@ -58,6 +59,15 @@ export default function BlogPage() {
                 key={post.slug}
                 className="group rounded-2xl border border-slate-200 bg-white hover:border-primary/30 hover:shadow-lg transition-all overflow-hidden"
               >
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <div className="p-6">
                   <span className="inline-flex px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-4">
                     {post.category}

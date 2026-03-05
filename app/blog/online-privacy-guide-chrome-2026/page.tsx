@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Chrome, ArrowLeft, ArrowRight2 } from 'iconsax-react';
 import { blogPosts } from '@/lib/blog-data';
 import { siteConfig } from '@/lib/site-config';
@@ -32,6 +33,18 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 -mt-2 pb-8 bg-slate-50">
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, 768px"
+          />
+        </div>
+      </div>
       <article className="py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-slate max-w-none">
           {post.content.map((paragraph, i) => (

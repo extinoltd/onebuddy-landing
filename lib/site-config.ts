@@ -17,6 +17,7 @@ export const navLinks = [
   { label: 'Compare', href: '/#comparison' },
   { label: 'Blog', href: '/blog/' },
   { label: 'Knowledge Base', href: '/knowledge-base/' },
+  { label: '❤️ Support', href: '/#support' },
 ];
 
 export const footerLinks = {

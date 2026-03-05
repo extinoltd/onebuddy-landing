@@ -44,6 +44,7 @@ import { FloatingCTA } from '@/components/FloatingCTA';
 import { featureClusters, problemExtensions } from '@/lib/features-data';
 import { FAQSection } from '@/components/FAQ';
 import { ComparisonTable } from '@/components/ComparisonTable';
+import { SupportSection } from '@/components/SupportSection';
 
 const iconMap: Record<string, any> = {
   Timer1, DocumentText, ClipboardText, TaskSquare, Calendar, Bookmark2,
@@ -386,6 +387,9 @@ export default function HomePage() {
 
       {/* ==================== FAQ ==================== */}
       <FAQSection />
+
+      {/* ==================== SUPPORT / DONATE ==================== */}
+      <SupportSection />
 
       {/* ==================== FINAL CTA ==================== */}
       <section className="py-24 bg-slate-900 relative overflow-hidden">

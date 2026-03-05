@@ -44,6 +44,10 @@ const faqs = [
     q: 'How is OneBuddy different from uBlock Origin or Ghostery?',
     a: 'uBlock Origin and Ghostery focus solely on ad/tracker blocking. OneBuddy includes ad blocking AND tracker blocking, plus a complete productivity suite (Pomodoro, notes, clipboard), health reminders, screen capture, and privacy tools like blur and browser lock.',
   },
+  {
+    q: 'Is OneBuddy still free? Why is there a support tier?',
+    a: 'Yes, OneBuddy is and always will be 100% free with every feature available to everyone. The support tiers are completely optional — they exist to let users who love the product help fund continued development and new extensions. Supporters get early access and discounts as a thank-you, not as a paywall.',
+  },
 ];
 
 export function FAQSection() {

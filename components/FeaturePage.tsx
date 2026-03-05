@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   TickCircle, Chrome, ArrowDown2, Star1, ArrowRight2,
   Timer1, DocumentText, ClipboardText, TaskSquare, Calendar, Bookmark2,
@@ -19,6 +20,7 @@ export interface FeaturePageProps {
   badge: string;
   badgeColor: string;
   icon: string;
+  image: string;
   h1: string;
   whatItDoes: string;
   whyBetter: string;
@@ -33,6 +35,7 @@ export function FeaturePageLayout({
   badge,
   badgeColor,
   icon,
+  image,
   h1,
   whatItDoes,
   whyBetter,
@@ -79,6 +82,20 @@ export function FeaturePageLayout({
           </div>
         </div>
       </section>
+
+      {/* Hero Image */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 pb-10 bg-slate-50">
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg">
+          <Image
+            src={image}
+            alt={h1}
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, 896px"
+          />
+        </div>
+      </div>
 
       {/* What It Does */}
       <section className="py-16 bg-white border-y border-slate-100">
