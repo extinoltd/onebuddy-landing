@@ -230,20 +230,7 @@ export default function UninstallPage() {
                   style={{ animation: 'uninstallFadeInUp 0.5s ease backwards' }}
                 >
                   <div className="mb-5" style={{ animation: 'uninstallBounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)' }}>
-                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                      <circle cx="40" cy="40" r="36" fill="url(#sadGrad)" opacity="0.12" />
-                      <circle cx="40" cy="40" r="28" fill="url(#sadGrad)" opacity="0.2" />
-                      <circle cx="40" cy="40" r="20" fill="url(#sadGrad)" />
-                      <circle cx="32" cy="36" r="2.5" fill="white" />
-                      <circle cx="48" cy="36" r="2.5" fill="white" />
-                      <path d="M32 50c2-3 5-5 8-5s6 2 8 5" stroke="white" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-                      <defs>
-                        <linearGradient id="sadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#f87171" />
-                          <stop offset="100%" stopColor="#ef4444" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
+                    <img src="/new/sad.png" alt="We're sad to see you go" style={{ width: 100, height: 100, borderRadius: '50%', objectFit: 'cover', margin: '0 auto' }} />
                   </div>
                   <h1
                     className="font-extrabold tracking-tight mb-3"
@@ -406,18 +393,7 @@ export default function UninstallPage() {
               /* Success State */
               <div className="text-center" style={{ animation: 'uninstallFadeInUp 0.5s ease', paddingTop: 40 }}>
                 <div className="mb-5" style={{ animation: 'uninstallBounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)' }}>
-                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                    <circle cx="40" cy="40" r="36" fill="url(#thankGrad)" opacity="0.12" />
-                    <circle cx="40" cy="40" r="28" fill="url(#thankGrad)" opacity="0.2" />
-                    <circle cx="40" cy="40" r="20" fill="url(#thankGrad)" />
-                    <polyline points="28,40 36,48 52,32" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                    <defs>
-                      <linearGradient id="thankGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#22c55e" />
-                        <stop offset="100%" stopColor="#16a34a" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
+                  <img src="/hero.gif" alt="Thank you" style={{ width: 160, height: 100, borderRadius: 16, objectFit: 'cover', margin: '0 auto' }} />
                 </div>
                 <h1
                   className="font-extrabold tracking-tight mb-3"
