@@ -3,6 +3,7 @@ export interface Feature {
   description: string;
   icon: string;
   badge?: string;
+  image?: string;
 }
 
 export interface FeatureCluster {
@@ -34,36 +35,42 @@ export const featureClusters: FeatureCluster[] = [
           'Focus sessions with auto screen-dimming, session tracking, and break scheduling. A complete replacement for Marinara or Forest extensions.',
         icon: 'Timer1',
         badge: 'Popular',
+        image: '/new/focus timer.png',
       },
       {
         title: 'Notes with Slash Shortcuts',
         description:
           'Create notes and trigger instant autocomplete in any text field with custom shortcuts. Like TextExpander built into your browser.',
         icon: 'DocumentText',
+        image: '/new/note.png',
       },
       {
         title: 'Clipboard History (100 Items)',
         description:
           'Never lose a copied snippet. Search, filter by source domain, and reuse anything from your last 100 copy operations.',
         icon: 'ClipboardText',
+        image: '/new/clipboard.png',
       },
       {
         title: 'Habit Tracker',
         description:
           'Build daily routines with one-tap check-offs, streak tracking, and progress visualization right in your browser.',
         icon: 'TaskSquare',
+        image: '/new/habbit.png',
       },
       {
         title: 'Google Calendar Integration',
         description:
           'OAuth-powered calendar sync with event notifications. View upcoming events without leaving your browser.',
         icon: 'Calendar',
+        image: '/new/calander.png',
       },
       {
         title: 'Bookmark Manager',
         description:
           'Navigate, search, and organize your entire bookmark library from the side panel with breadcrumb folder navigation.',
         icon: 'Bookmark2',
+        image: '/new/bookmark.png',
       },
     ],
     comparison:
@@ -85,6 +92,7 @@ export const featureClusters: FeatureCluster[] = [
           'Customizable interval reminders to stay hydrated throughout the day with beautiful in-page notifications.',
         icon: 'Drop',
         badge: 'Health',
+        image: '/new/remiders.png',
       },
       {
         title: 'Stand Up Reminder',
@@ -97,12 +105,14 @@ export const featureClusters: FeatureCluster[] = [
         description:
           'Protect your eyes with the 20-20-20 rule: every 20 minutes, look at something 20 feet away for 20 seconds.',
         icon: 'Eye',
+        image: '/new/eye care.png',
       },
       {
         title: 'Custom Schedules',
         description:
           'Three scheduling modes — interval-based, fixed-time, and date-range — with website exclusion lists.',
         icon: 'Clock',
+        image: '/new/setting.png',
       },
     ],
     comparison:
@@ -124,30 +134,27 @@ export const featureClusters: FeatureCluster[] = [
           'Block YouTube ads, popups, banners, and overlays with per-site whitelisting. Surgical control over what gets blocked.',
         icon: 'Forbidden2',
         badge: 'Essential',
+        image: '/new/ad block.png',
       },
       {
         title: 'Tracker Blocker',
         description:
           'Block Facebook Pixel, TikTok Pixel, Google Analytics, and other trackers. Per-tracker stats show exactly what\'s blocked.',
         icon: 'ShieldSlash',
+        image: '/new/block tracker.png',
       },
       {
         title: 'Privacy Blur (Persistent)',
         description:
           'Click-to-blur or drag-to-blur any element with 5 blur styles. Blurred areas persist and re-apply on revisit.',
         icon: 'EyeSlash',
+        image: '/new/privet.png',
       },
       {
         title: 'Browser Lock with Password',
         description:
           'Lock all tabs with SHA-256 hashed password protection, auto-lock on inactivity, and a custom lock screen.',
         icon: 'Lock1',
-      },
-      {
-        title: 'End-to-End Encrypted Messaging',
-        description:
-          'ECDH P-256 + AES-GCM 256-bit encryption for truly private browser messaging. Zero-knowledge architecture.',
-        icon: 'MessageText1',
       },
     ],
     comparison:
@@ -168,6 +175,7 @@ export const featureClusters: FeatureCluster[] = [
         description:
           'Instant PNG capture of the current viewport with one click. No permissions popups.',
         icon: 'Gallery',
+        image: '/new/screenshot.png',
       },
       {
         title: 'Full Page Capture',
@@ -181,6 +189,7 @@ export const featureClusters: FeatureCluster[] = [
           'Record your active tab with audio via Chrome Tab Capture API. Perfect for walkthroughs and tutorials.',
         icon: 'VideoPlay',
         badge: 'Pro',
+        image: '/new/videos.png',
       },
       {
         title: 'Screen Recording',

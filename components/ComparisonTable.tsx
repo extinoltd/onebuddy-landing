@@ -10,7 +10,6 @@ const features = [
   'Clipboard History',
   'Bookmark Manager',
   'Habit Tracker',
-  'E2E Encrypted Messaging',
   'Ad Blocker',
   'Tracker Blocker',
   'Privacy Blur',
@@ -30,27 +29,27 @@ interface Competitor {
 const competitors: Competitor[] = [
   {
     name: 'OneBuddy',
-    checks: Array(18).fill(true),
+    checks: Array(17).fill(true),
   },
   {
     name: 'Stretchly',
-    checks: [true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, true],
+    checks: [true, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, true],
   },
   {
     name: 'Forest',
-    checks: [false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false],
+    checks: [false, true, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false],
   },
   {
     name: 'uBlock Origin',
-    checks: [false, false, false, false, false, false, false, false, false, true, true, false, false, false, false, true, false, true],
+    checks: [false, false, false, false, false, false, false, false, true, true, false, false, false, false, true, false, true],
   },
   {
     name: 'Ghostery',
-    checks: [false, false, false, false, false, false, false, false, false, true, true, false, false, false, false, true, false, false],
+    checks: [false, false, false, false, false, false, false, false, true, true, false, false, false, false, true, false, false],
   },
   {
     name: 'Loom',
-    checks: [false, false, false, false, false, false, false, false, false, false, false, false, true, true, false, false, false, false],
+    checks: [false, false, false, false, false, false, false, false, false, false, false, true, true, false, false, false, false],
   },
 ];
 

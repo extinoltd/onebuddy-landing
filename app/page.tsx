@@ -35,7 +35,6 @@ import {
   Profile2User,
   NotificationBing,
   Activity,
-  Layer,
   TrendDown,
   Element3,
 } from 'iconsax-react';
@@ -131,19 +130,15 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Side Panel Mockup */}
-          <div className="mt-16 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden p-1">
-              <div className="bg-slate-50 rounded-xl aspect-[16/10] flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <Layer size={40} color="currentColor" variant="Bold" className="text-primary" />
-                  </div>
-                  <p className="text-slate-500 font-medium">Side Panel UI Preview</p>
-                  <p className="text-slate-400 text-sm mt-1">All your tools in one elegant panel</p>
-                </div>
-              </div>
-            </div>
+          {/* Hero Mascot */}
+          <div className="mt-16 flex justify-center animate-fade-up" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
+            <img
+              src="/new/goodmorning.png"
+              alt="OneBuddy mascot"
+              className="w-40 h-40 sm:w-48 sm:h-48 drop-shadow-xl"
+              width={192}
+              height={192}
+            />
           </div>
         </div>
       </section>
@@ -180,6 +175,13 @@ export default function HomePage() {
               <TrendDown size={14} color="currentColor" variant="Bold" />
               The Problem
             </div>
+            <img
+              src="/new/sad.png"
+              alt="Overwhelmed by too many extensions"
+              className="w-24 h-24 mx-auto mb-4 drop-shadow-md"
+              width={96}
+              height={96}
+            />
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-5">
               Tired of Managing{' '}
               <span className="text-red-500">Too Many Extensions?</span>
@@ -302,12 +304,23 @@ export default function HomePage() {
                             {feature.badge}
                           </span>
                         )}
-                        <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
-                          style={{ backgroundColor: cluster.colorLight, color: cluster.color }}
-                        >
-                          <FeatureIcon size={20} color="currentColor" variant="Bold" />
-                        </div>
+                        {feature.image ? (
+                          <img
+                            src={feature.image}
+                            alt={feature.title}
+                            className="w-14 h-14 rounded-full object-cover mb-4 shadow-sm"
+                            width={56}
+                            height={56}
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div
+                            className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
+                            style={{ backgroundColor: cluster.colorLight, color: cluster.color }}
+                          >
+                            <FeatureIcon size={20} color="currentColor" variant="Bold" />
+                          </div>
+                        )}
                         <h4 className="font-bold text-lg mb-2 text-slate-900">{feature.title}</h4>
                         <p className="text-slate-500 text-sm leading-relaxed">
                           {feature.description}
