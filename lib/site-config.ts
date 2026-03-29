@@ -1,23 +1,30 @@
 export const siteConfig = {
   name: 'OneBuddy',
-  tagline: 'One Extension. Everything You Need.',
+  tagline: 'One Extension Replaces 10.',
   description:
-    'Productivity, Health Reminders, Focus Timer, Privacy Tools & Screen Capture — All Inside One Chrome Side Panel. Replace 10+ extensions with OneBuddy.',
+    'Pomodoro Timer, Ad Blocker, Screen Recorder, Health Reminders, Privacy Tools & Clipboard Manager — all inside one Chrome side panel. Try everything free for 30 days.',
   url: 'https://onebuddy.io',
   extensionUrl:
     'https://chromewebstore.google.com/detail/kcclkkcbbfgcpknpnanhbpiffidjifgm',
   ogImage: '/og-image.jpg',
   twitterHandle: '@onebuddyio',
   creator: 'OneBuddy Team',
+  pricing: {
+    monthly: '£2.99',
+    yearly: '£29.99',
+    yearlyMonthly: '£2.50',
+    lifetime: '£49.99',
+    trialDays: 30,
+    currency: 'GBP',
+  },
 };
 
 export const navLinks = [
   { label: 'Features', href: '/features/' },
-  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'Pricing', href: '/#pricing' },
   { label: 'Compare', href: '/#comparison' },
   { label: 'Blog', href: '/blog/' },
   { label: 'Knowledge Base', href: '/knowledge-base/' },
-  { label: '❤️ Support', href: '/#support' },
 ];
 
 export const footerLinks = {
@@ -63,10 +70,10 @@ export const footerLinks = {
 };
 
 export const trustBadges = [
-  { label: '100% Free', icon: 'Gift' },
+  { label: '30-Day Free Trial', icon: 'Gift' },
   { label: 'No Data Selling', icon: 'ShieldCheck' },
   { label: 'Local-First Storage', icon: 'HardDrive' },
   { label: '40+ Languages', icon: 'Globe' },
   { label: 'Manifest V3', icon: 'CheckCircle' },
-  { label: 'Lightweight & Fast', icon: 'Zap' },
+  { label: 'Cancel Anytime', icon: 'Zap' },
 ];

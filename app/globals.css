@@ -81,3 +81,80 @@ body {
   background-image: radial-gradient(circle, #E2E8F0 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* ===== HERO CTA BUTTON ===== */
+.hero-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 22px;
+  border: solid 2px #f2f3f2;
+  background: linear-gradient(180deg, #fff, #fdfdfd);
+  position: relative;
+  box-shadow: 0px 2px 6px #b9b9b925;
+  transition: all 0.4s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-cta-btn::after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 126%;
+  right: -10px;
+  background-image: conic-gradient(
+    from 293deg at 50% 50%,
+    #8B5CF6 0%,
+    #A78BFA 15%,
+    #EC4899 40%,
+    #06B6D4 65%,
+    #8B5CF6 100%
+  );
+  border-radius: 22px;
+  filter: blur(26px);
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
+.hero-cta-btn:hover::after {
+  width: 108%;
+  border-color: #fff;
+}
+
+.hero-cta-btn:active::after {
+  opacity: 0.3;
+  transform: scale(0.99);
+}
+
+.hero-cta-text {
+  font-size: 1.1rem;
+  padding: 0px 24px;
+  font-weight: bold;
+  background: -webkit-linear-gradient(#6D28D9, #1e1b4b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background-image: conic-gradient(
+    from 293deg at 50% 50%,
+    #8B5CF6 0%,
+    #A78BFA 15%,
+    #EC4899 40%,
+    #06B6D4 65%,
+    #8B5CF6 100%
+  );
+  box-shadow:
+    inset 4px 2px 4px #c4b5fd,
+    inset -1px -3px 3px #a78bfac4;
+}

@@ -28,7 +28,7 @@ export function FloatingCTA() {
           className="flex items-center gap-2 font-semibold text-sm whitespace-nowrap"
         >
           <Chrome size={16} color="currentColor" variant="Bold" />
-          Add to Chrome — Free
+          Start Free Trial
         </a>
         <button
           onClick={() => setDismissed(true)}

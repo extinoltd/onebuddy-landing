@@ -4,6 +4,7 @@ export interface Feature {
   icon: string;
   badge?: string;
   image?: string;
+  tier?: 'free' | 'pro';
 }
 
 export interface FeatureCluster {
@@ -11,6 +12,8 @@ export interface FeatureCluster {
   seoTitle: string;
   seoDescription: string;
   label: string;
+  tagline?: string;
+  costComparison?: string;
   color: string;
   colorLight: string;
   icon: string;
@@ -28,49 +31,57 @@ export const featureClusters: FeatureCluster[] = [
     color: '#7C3AED',
     colorLight: '#EDE9FE',
     icon: 'Flash',
+    tagline: 'Get More Done Without The Burnout',
+    costComparison: '~£15/month',
     features: [
       {
         title: 'Pomodoro Timer with Screen Dim',
         description:
-          'Focus sessions with auto screen-dimming, session tracking, and break scheduling. A complete replacement for Marinara or Forest extensions.',
+          'Custom focus sessions that automatically dim distractions. Track your productivity streaks and see how you improve over time.',
         icon: 'Timer1',
         badge: 'Popular',
         image: '/new/focus timer.png',
+        tier: 'free',
       },
       {
         title: 'Notes with Slash Shortcuts',
         description:
-          'Create notes and trigger instant autocomplete in any text field with custom shortcuts. Like TextExpander built into your browser.',
+          'Quick notes that live right in your browser. Slash commands for formatting.',
         icon: 'DocumentText',
         image: '/new/note.png',
+        tier: 'free',
       },
       {
         title: 'Clipboard History (100 Items)',
         description:
-          'Never lose a copied snippet. Search, filter by source domain, and reuse anything from your last 100 copy operations.',
+          'Never lose a copied link, code snippet, or text again. Search and reuse your last 100 copies.',
         icon: 'ClipboardText',
         image: '/new/clipboard.png',
+        tier: 'pro',
       },
       {
         title: 'Habit Tracker',
         description:
-          'Build daily routines with one-tap check-offs, streak tracking, and progress visualization right in your browser.',
+          'Build daily routines with streak tracking. See your consistency grow day by day.',
         icon: 'TaskSquare',
         image: '/new/habbit.png',
+        tier: 'pro',
       },
       {
         title: 'Google Calendar Integration',
         description:
-          'OAuth-powered calendar sync with event notifications. View upcoming events without leaving your browser.',
+          'Meeting notifications right in your side panel. Never miss a call again.',
         icon: 'Calendar',
         image: '/new/calander.png',
+        tier: 'pro',
       },
       {
         title: 'Bookmark Manager',
         description:
-          'Navigate, search, and organize your entire bookmark library from the side panel with breadcrumb folder navigation.',
+          'Organize your bookmarks with folders, search, and quick access from the side panel.',
         icon: 'Bookmark2',
         image: '/new/bookmark.png',
+        tier: 'pro',
       },
     ],
     comparison:
@@ -82,6 +93,8 @@ export const featureClusters: FeatureCluster[] = [
     seoDescription:
       'Stay healthy while browsing with customizable water, standing, and eye break reminders. Replaces Stretchly and Break Timer extensions.',
     label: 'Health & Wellness',
+    tagline: 'Your Browser Shouldn\'t Hurt Your Body',
+    costComparison: '~£3/month',
     color: '#06B6D4',
     colorLight: '#ECFEFF',
     icon: 'Heart',
@@ -89,30 +102,34 @@ export const featureClusters: FeatureCluster[] = [
       {
         title: 'Drink Water Reminder',
         description:
-          'Customizable interval reminders to stay hydrated throughout the day with beautiful in-page notifications.',
+          'Customizable hydration notifications. Your body needs 8 glasses a day; most of us forget after 2.',
         icon: 'Drop',
         badge: 'Health',
         image: '/new/remiders.png',
+        tier: 'free',
       },
       {
         title: 'Stand Up Reminder',
         description:
-          'Combat sedentary work with scheduled standing reminders. Set intervals from 15 to 90 minutes.',
+          'Gentle nudges to move every 15-90 minutes. Customize your schedule.',
         icon: 'Activity',
+        tier: 'free',
       },
       {
         title: 'Eye Break (20-20-20 Rule)',
         description:
-          'Protect your eyes with the 20-20-20 rule: every 20 minutes, look at something 20 feet away for 20 seconds.',
+          'Every 20 minutes, look at something 20 feet away for 20 seconds. OneBuddy reminds you automatically.',
         icon: 'Eye',
         image: '/new/eye care.png',
+        tier: 'free',
       },
       {
         title: 'Custom Schedules',
         description:
-          'Three scheduling modes — interval-based, fixed-time, and date-range — with website exclusion lists.',
+          'Three scheduling modes with website exclusions. Set different reminders for work hours vs. personal time.',
         icon: 'Clock',
         image: '/new/setting.png',
+        tier: 'pro',
       },
     ],
     comparison:
@@ -124,6 +141,8 @@ export const featureClusters: FeatureCluster[] = [
     seoDescription:
       'Block ads, prevent trackers, blur sensitive content, and lock your browser with a password. A comprehensive privacy suite replacing uBlock Origin + Ghostery.',
     label: 'Privacy & Security',
+    tagline: 'Your Data Stays on YOUR Device. Period.',
+    costComparison: '~£5/month',
     color: '#EC4899',
     colorLight: '#FDF2F8',
     icon: 'ShieldTick',
@@ -131,30 +150,42 @@ export const featureClusters: FeatureCluster[] = [
       {
         title: 'Ad Blocker',
         description:
-          'Block YouTube ads, popups, banners, and overlays with per-site whitelisting. Surgical control over what gets blocked.',
+          'Block popups, banners, and overlays. Whitelist sites you want to support.',
         icon: 'Forbidden2',
         badge: 'Essential',
         image: '/new/ad block.png',
+        tier: 'free',
+      },
+      {
+        title: 'Ad Blocker PRO',
+        description:
+          'YouTube ad blocking, per-site whitelist, popup & banner blocking with advanced controls.',
+        icon: 'Forbidden2',
+        image: '/new/ad block.png',
+        tier: 'pro',
       },
       {
         title: 'Tracker Blocker',
         description:
-          'Block Facebook Pixel, TikTok Pixel, Google Analytics, and other trackers. Per-tracker stats show exactly what\'s blocked.',
+          'Block Facebook Pixel, TikTok tracking, Google Analytics, and 200+ known trackers. See exactly what\'s being blocked.',
         icon: 'ShieldSlash',
         image: '/new/block tracker.png',
+        tier: 'pro',
       },
       {
         title: 'Privacy Blur (Persistent)',
         description:
-          'Click-to-blur or drag-to-blur any element with 5 blur styles. Blurred areas persist and re-apply on revisit.',
+          'Click any element to blur it. 5 blur styles. Changes persist across page reloads. Perfect for screenshots and screen sharing.',
         icon: 'EyeSlash',
         image: '/new/privet.png',
+        tier: 'pro',
       },
       {
         title: 'Browser Lock with Password',
         description:
-          'Lock all tabs with SHA-256 hashed password protection, auto-lock on inactivity, and a custom lock screen.',
+          'SHA-256 encrypted password protection. Auto-lock when you step away. Nobody touches your tabs.',
         icon: 'Lock1',
+        tier: 'pro',
       },
     ],
     comparison:
@@ -166,6 +197,8 @@ export const featureClusters: FeatureCluster[] = [
     seoDescription:
       'Capture screenshots, full-page scrolling images, tab recordings, and screen recordings. Built-in gallery replaces Loom and Nimbus.',
     label: 'Screen Capture',
+    tagline: 'Record, Capture, Create — Without Paying Loom £150/Year',
+    costComparison: '~£12.50/month (Loom Pro)',
     color: '#F59E0B',
     colorLight: '#FFFBEB',
     icon: 'Camera',
@@ -173,35 +206,40 @@ export const featureClusters: FeatureCluster[] = [
       {
         title: 'Visible Tab Screenshot',
         description:
-          'Instant PNG capture of the current viewport with one click. No permissions popups.',
+          'One-click capture of your current tab. Instant PNG.',
         icon: 'Gallery',
         image: '/new/screenshot.png',
+        tier: 'free',
       },
       {
         title: 'Full Page Capture',
         description:
-          'Automated scroll-and-stitch technology for complete page screenshots, regardless of page length.',
+          'Scroll-and-stitch technology captures entire web pages, even ones that scroll for miles.',
         icon: 'Scan',
+        tier: 'pro',
       },
       {
         title: 'Tab Recording',
         description:
-          'Record your active tab with audio via Chrome Tab Capture API. Perfect for walkthroughs and tutorials.',
+          'Record your tab with audio. Perfect for tutorials, bug reports, and presentations.',
         icon: 'VideoPlay',
         badge: 'Pro',
         image: '/new/videos.png',
+        tier: 'pro',
       },
       {
         title: 'Screen Recording',
         description:
-          'Full display recording at 1920x1080 / 30fps. Pause, resume, and time display included.',
+          'Full HD 1920x1080 @ 30fps. Pause and resume. No watermarks. No time limits.',
         icon: 'MonitorRecorder',
+        tier: 'pro',
       },
       {
         title: 'Built-in Gallery',
         description:
-          'Thumbnail grid gallery for up to 50 captures with preview, copy, download, and delete actions.',
+          'All your captures organized in a thumbnail grid. No cloud upload needed. Your content stays yours.',
         icon: 'Category',
+        tier: 'pro',
       },
     ],
     comparison:

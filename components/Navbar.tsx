@@ -61,7 +61,7 @@ export function Navbar() {
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-dark text-white text-sm font-semibold rounded-full transition-colors"
             >
               <Chrome size={16} color="currentColor" variant="Bold" />
-              Add to Chrome — Free
+              Start Free Trial
             </a>
           </div>
 
@@ -99,7 +99,7 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
               >
                 <Chrome size={16} color="currentColor" variant="Bold" />
-                Add to Chrome — Free
+                Start Free Trial
               </a>
             </div>
           </div>
