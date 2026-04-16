@@ -5,7 +5,7 @@ export const siteConfig = {
     'Pomodoro Timer, Ad Blocker, Screen Recorder, Health Reminders, Privacy Tools & Clipboard Manager — all inside one Chrome side panel. Try everything free for 30 days.',
   url: 'https://onebuddy.io',
   extensionUrl:
-    'https://chromewebstore.google.com/detail/kcclkkcbbfgcpknpnanhbpiffidjifgm',
+    'https://chromewebstore.google.com/detail/onebuddy-pomodoro-timer-a/mkndpneoekgcfpfhapkjdphpdkeofoml',
   ogImage: '/og-image.jpg',
   twitterHandle: '@onebuddyio',
   creator: 'OneBuddy Team',
