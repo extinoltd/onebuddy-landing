@@ -7,7 +7,7 @@ export const siteConfig = {
   extensionUrl:
     'https://chromewebstore.google.com/detail/onebuddy-pomodoro-timer-a/mkndpneoekgcfpfhapkjdphpdkeofoml',
   /** Direct download (or waitlist) link for the Mac app. Empty shows "Coming soon" on /mac/. */
-  macDownloadUrl: '',
+  macDownloadUrl: 'https://onebuddy.io/mac/downloads/OneBuddy-1.0.2.dmg',
   ogImage: '/og-image.jpg',
   twitterHandle: '@onebuddyio',
   creator: 'OneBuddy Team',
