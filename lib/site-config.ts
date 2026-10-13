@@ -6,6 +6,8 @@ export const siteConfig = {
   url: 'https://onebuddy.io',
   extensionUrl:
     'https://chromewebstore.google.com/detail/onebuddy-pomodoro-timer-a/mkndpneoekgcfpfhapkjdphpdkeofoml',
+  /** Direct download (or waitlist) link for the Mac app. Empty shows "Coming soon" on /mac/. */
+  macDownloadUrl: '',
   ogImage: '/og-image.jpg',
   twitterHandle: '@onebuddyio',
   creator: 'OneBuddy Team',
@@ -21,6 +23,7 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: 'Features', href: '/features/' },
+  { label: 'Mac App', href: '/mac/' },
   { label: 'Pricing', href: '/#pricing' },
   { label: 'Compare', href: '/#comparison' },
   { label: 'Blog', href: '/blog/' },
@@ -30,6 +33,7 @@ export const navLinks = [
 export const footerLinks = {
   product: [
     { label: 'All Features', href: '/features/' },
+    { label: 'OneBuddy for Mac', href: '/mac/' },
     { label: 'Comparison', href: '/#comparison' },
     { label: 'Blog', href: '/blog/' },
     { label: 'Knowledge Base', href: '/knowledge-base/' },
