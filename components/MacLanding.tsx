@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
+import { MacBook3D } from './MacBook3D';
 import { Code1, ColorSwatch, Teacher, Edit2, LampCharge, Home2, type Icon } from 'iconsax-react';
 import { siteConfig } from '@/lib/site-config';
 
@@ -80,38 +81,6 @@ function DownloadLink({ big }: { big?: boolean }) {
     : <a className={`link ${big ? 'big' : ''}`} href="#start">Coming soon to Mac <span aria-hidden>›</span></a>;
 }
 
-/** The product on a studio display. While its section scrolls past, the screen settles from big to framed. */
-function Monitor() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setProgress(1); return; }
-    const onScroll = () => {
-      const el = ref.current; if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const span = rect.height - window.innerHeight;
-      setProgress(Math.min(1, Math.max(0, -rect.top / Math.max(span, 1))));
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-  const ease = 1 - Math.pow(1 - progress, 3);
-  return (
-    <section className="monitor-track" ref={ref} aria-label="OneBuddy on a Mac">
-      <div className="monitor-sticky">
-        <div className="monitor" style={{ transform: `scale(${1.32 - 0.32 * ease})` }}>
-          <div className="bezel">
-            <img src={`${IMG}/ui/desktop-home.webp`} alt="OneBuddy for Mac: the main window with tasks, the clipboard and a running timer in the notch" width={1440} height={900} />
-          </div>
-          <div className="neck" style={{ opacity: ease }} />
-          <div className="foot" style={{ opacity: ease }} />
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* -------------------------------------------------------------------- page */
 
 export function MacLanding() {
@@ -132,7 +101,7 @@ export function MacLanding() {
         <p className="fine rv">Free for a month · macOS 14 or later · Apple Silicon and Intel</p>
       </section>
 
-      <Monitor />
+      <MacBook3D image={`${IMG}/ui/desktop-home.webp`} alt="OneBuddy for Mac on a MacBook Pro: the main window with tasks, the clipboard and a running timer in the notch" />
 
       {/* Statement */}
       <section className="statement">

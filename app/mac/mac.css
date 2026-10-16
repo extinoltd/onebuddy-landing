@@ -38,14 +38,11 @@
 .mac2 .byline svg { width: 20px; height: 20px; }
 .mac2 .hero h1 { font-size: clamp(46px, 8.4vw, 104px); line-height: 1; letter-spacing: -0.05em; font-weight: 700; margin: 14px 0 26px; }
 
-/* monitor */
-.mac2 .monitor-track { height: 190vh; padding: 0; }
-.mac2 .monitor-sticky { position: sticky; top: 0; height: 100vh; display: grid; place-items: center; overflow: hidden; }
-.mac2 .monitor { width: min(1040px, 90vw); transform-origin: center 40%; will-change: transform; }
-.mac2 .bezel { background: #0b0b0d; border-radius: 22px; padding: 14px; box-shadow: 0 0 0 2px #2c2c30, 0 60px 120px -30px rgba(0, 0, 0, .45); }
-.mac2 .bezel img { border-radius: 9px; width: 100%; }
-.mac2 .neck { width: 24%; height: 110px; margin: 0 auto; background: linear-gradient(90deg, #c9c9ce, #ececf0 45%, #d4d4d9); clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%); }
-.mac2 .foot { width: 34%; height: 14px; margin: 0 auto; border-radius: 0 0 10px 10px; background: linear-gradient(90deg, #bdbdc3, #e8e8ec 50%, #c4c4ca); box-shadow: 0 18px 30px -12px rgba(0, 0, 0, .35); }
+/* 3D MacBook: starts full screen, pulls back to the laptop */
+.mac2 .mb3d-track { height: 320vh; padding: 0; }
+.mac2 .mb3d-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+.mac2 .mb3d-canvas, .mac2 .mb3d-canvas canvas { width: 100%; height: 100%; display: block; }
+.mac2 .mb3d-fallback { width: 100%; height: 100%; object-fit: cover; }
 
 /* statement */
 .mac2 .statement { text-align: center; padding: 60px 20px 150px; }
@@ -153,7 +150,7 @@
   .mac2 .features .wide { grid-template-columns: 1fr; padding: 32px; }
   .mac2 .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .mac2 .people, .mac2 .plans, .mac2 .privacy { grid-template-columns: 1fr; }
-  .mac2 .monitor-track { height: 120vh; }
+  .mac2 .mb3d-track { height: 240vh; }
   .mac2 .card { padding: 26px; border-radius: 26px; }
   .mac2 .step { padding: 30px 26px; }
   .mac2 .step h3 { font-size: 27px; }
