@@ -10,14 +10,13 @@ import type * as THREE_NS from 'three';
  * lights up with OneBuddy, then the camera flies into the screen until it fills
  * the whole window. Pointer: the laptop turns gently towards the cursor.
  *
- * Model: "mac-draco.glb" from the Poimandres examples (MIT). It is a Touch Bar
- * MacBook Pro, so the touch bar is swapped for a function-key row and a notch
- * is added to the display. Falls back to a flat image without WebGL or with
+ * Model: "macbook-pro.glb", converted from macbookpro.fbx and Draco-compressed.
+ * Falls back to a flat image without WebGL or with
  * reduced motion.
  */
 
 const FOV = 30;
-const LID_CLOSED = 1.575, LID_OPEN = -0.425; // rotation of the lid hinge, from the original model
+const LID_CLOSED = 0, LID_OPEN = -1.925; // rotation of the lid about its hinge, as in the model file
 const smooth = (a: number, b: number, x: number) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
@@ -44,8 +43,7 @@ export function MacBook3D({ image, alt }: { image: string; alt: string }) {
       const { GLTFLoader } = await import('three/examples/jsm/loaders/GLTFLoader.js');
       const { DRACOLoader } = await import('three/examples/jsm/loaders/DRACOLoader.js');
       const { RoomEnvironment } = await import('three/examples/jsm/environments/RoomEnvironment.js');
-      const { RoundedBoxGeometry } = await import('three/examples/jsm/geometries/RoundedBoxGeometry.js');
-      if (disposed || !holder.current) return;
+            if (disposed || !holder.current) return;
 
       let renderer: THREE_NS.WebGLRenderer;
       try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' }); }
@@ -66,109 +64,122 @@ export function MacBook3D({ image, alt }: { image: string; alt: string }) {
       const draco = new DRACOLoader(); draco.setDecoderPath('/draco/');
       const loader = new GLTFLoader(); loader.setDRACOLoader(draco);
       const [gltf, screenTex] = await Promise.all([
-        loader.loadAsync('/models/mac-draco.glb'),
+        loader.loadAsync('/models/macbook-pro.glb'),
         new THREE.TextureLoader().loadAsync(image),
       ]);
       if (disposed) return;
 
       const laptop = new THREE.Group(); scene.add(laptop);
       const model = gltf.scene; laptop.add(model);
-      model.position.z = -3.4; // centre the base on the origin so the laptop turns about its middle
-      const lid = model.getObjectByName('screenflip')!;
-      const screenMesh = model.getObjectByName('screen')!;
-      const touchbar = model.getObjectByName('touchbar');
+      model.scale.setScalar(0.03); // millimetres to scene units: about 9 wide
+      const lid = model.getObjectByName('Cube016')!;
+      const logo = model.getObjectByName('Curve');
+      if (logo) logo.visible = false; // keep the lid plain: no Apple logo on our page
 
-      // Polished silver aluminium, satin black keys and bezel.
       const aluminium = new THREE.MeshPhysicalMaterial({ color: 0xc4c8ce, metalness: 1, roughness: 0.3, clearcoat: 0.3, clearcoatRoughness: 0.25, envMapIntensity: 1.25 });
       const keysMat = new THREE.MeshPhysicalMaterial({ color: 0x0c0c0e, metalness: 0.2, roughness: 0.55, clearcoat: 0.2 });
+      const legendMat = new THREE.MeshStandardMaterial({ color: 0x9a9ca0, roughness: 0.6 });
+      const darkMat = new THREE.MeshStandardMaterial({ color: 0x0b0b0d, metalness: 0.3, roughness: 0.6 });
+      const grilleMat = new THREE.MeshStandardMaterial({ color: 0x1c1d20, metalness: 0.5, roughness: 0.5 });
       const bezelMat = new THREE.MeshPhysicalMaterial({ color: 0x030304, metalness: 0, roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.04 });
-      const trackpadMat = new THREE.MeshPhysicalMaterial({ color: 0xc9ccd1, metalness: 1, roughness: 0.42, envMapIntensity: 1.1 });
 
-      screenTex.colorSpace = THREE.SRGBColorSpace;
-      screenTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
-      const screenMat = new THREE.MeshBasicMaterial({ map: screenTex, toneMapped: false, color: 0x000000 });
+      const screenMat = new THREE.MeshBasicMaterial({ toneMapped: false, color: 0x000000 });
 
+      // Material names come from the FBX file.
+      const byName: Record<string, THREE_NS.Material> = {
+        'Material.003': aluminium, // body, lid
+        'Material.004': keysMat,
+        'Material.002': legendMat, // key legends
+        'Material.009': grilleMat, // speaker grilles
+        'Material.016': darkMat, 'Material.013': darkMat, 'Material.011': darkMat, 'Material.014': darkMat, 'Material.006': darkMat,
+        'Material.010': aluminium,
+        'Material.007': bezelMat, 'Material.008': bezelMat,
+      };
       let screenPart: THREE_NS.Mesh | null = null;
       model.traverse((o) => {
         const mesh = o as THREE_NS.Mesh;
         if (!mesh.isMesh) return;
         const name = (mesh.material as THREE_NS.Material).name;
-        if (name === 'aluminium') mesh.material = aluminium;
-        else if (name === 'keys') mesh.material = keysMat;
-        else if (name.startsWith('matte')) mesh.material = bezelMat;
-        else if (name === 'trackpad') mesh.material = trackpadMat;
-        else if (name.startsWith('screen')) { mesh.material = screenMat; screenPart = mesh; }
+        if (name === 'Material.005') { mesh.material = screenMat; screenPart = mesh; }
+        else mesh.material = byName[name] ?? aluminium;
       });
       if (!screenPart) throw new Error('screen mesh not found');
       const screen = screenPart as THREE_NS.Mesh;
 
-      // The model's screen has no texture coordinates: map the picture onto it from above,
-      // cropped at the sides so its 16:10 shape fits the display without stretching.
-      const geo = screen.geometry; geo.computeBoundingBox();
-      const bb = geo.boundingBox!;
-      const sw = bb.max.x - bb.min.x, sh = bb.max.z - bb.min.z;
-      const pos = geo.attributes.position;
-      const uv = new Float32Array(pos.count * 2);
-      const crop = (sw / sh) / 1.6;
+      // Map the picture onto the display, measured with the lid open and facing us,
+      // cropped at the sides so its 16:10 shape is not stretched.
+      lid.rotation.x = LID_OPEN; laptop.updateMatrixWorld(true);
+      const geo = screen.geometry, pos = geo.attributes.position, v = new THREE.Vector3();
+      let top = new THREE.Vector3(0, -Infinity, 0), bottom = new THREE.Vector3(0, Infinity, 0);
+      let minX = Infinity, maxX = -Infinity;
       for (let i = 0; i < pos.count; i++) {
-        uv[i * 2] = 0.5 + ((pos.getX(i) - bb.min.x) / sw - 0.5) * crop;
-        uv[i * 2 + 1] = (bb.max.z - pos.getZ(i)) / sh;
+        v.fromBufferAttribute(pos, i).applyMatrix4(screen.matrixWorld);
+        if (v.y > top.y) top = v.clone();
+        if (v.y < bottom.y) bottom = v.clone();
+        minX = Math.min(minX, v.x); maxX = Math.max(maxX, v.x);
+      }
+      const screenUp = new THREE.Vector3(0, top.y - bottom.y, top.z - bottom.z).normalize();
+      const screenNormal = new THREE.Vector3(1, 0, 0).cross(screenUp).normalize();
+      const sw = maxX - minX;
+      const upMin = bottom.dot(screenUp), sh = top.dot(screenUp) - upMin;
+      const screenCenter = new THREE.Vector3((minX + maxX) / 2, 0, 0)
+        .addScaledVector(screenUp, upMin + sh / 2)
+        .addScaledVector(screenNormal, bottom.dot(screenNormal));
+      const uv = new Float32Array(pos.count * 2);
+      for (let i = 0; i < pos.count; i++) {
+        v.fromBufferAttribute(pos, i).applyMatrix4(screen.matrixWorld);
+        uv[i * 2] = (v.x - minX) / sw;
+        uv[i * 2 + 1] = (v.dot(screenUp) - upMin) / sh;
       }
       geo.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
 
-      // A notch at the top centre of the display (about 3.2 cm wide on a real MacBook Pro).
-      const nw = sw * 0.108, nh = sh * 0.032, nr = nh * 0.4;
-      const shape = new THREE.Shape();
-      shape.moveTo(-nw / 2, 0); shape.lineTo(nw / 2, 0); shape.lineTo(nw / 2, -nh + nr);
-      shape.quadraticCurveTo(nw / 2, -nh, nw / 2 - nr, -nh); shape.lineTo(-nw / 2 + nr, -nh);
-      shape.quadraticCurveTo(-nw / 2, -nh, -nw / 2, -nh + nr); shape.closePath();
-      const notchGeo = new THREE.ShapeGeometry(shape); notchGeo.rotateX(-Math.PI / 2);
-      const notch = new THREE.Mesh(notchGeo, new THREE.MeshBasicMaterial({ color: 0x000000 }));
-      notch.position.set(0, bb.max.y + 0.003, bb.min.z);
-      screen.add(notch);
-
-      // Swap the touch bar for a row of function keys, as on today's MacBook Pro.
-      if (touchbar) {
-        touchbar.visible = false;
-        const row = new THREE.Group();
-        const keyGeo = new RoundedBoxGeometry(0.42, 0.05, 0.2, 2, 0.04);
-        for (let i = 0; i < 14; i++) {
-          const k = new THREE.Mesh(keyGeo, keysMat);
-          k.position.set(-3.38 + i * 0.52, 0, 0);
-          row.add(k);
-        }
-        row.position.copy(touchbar.position);
-        (touchbar.parent as THREE_NS.Object3D).add(row);
-      }
+      // The model's glass covers the whole lid, so paint the black border, the
+      // display with rounded top corners and the notch into the texture itself.
+      const bezel = sw * 0.012; // about 3.5 mm
+      const dispW = sw - bezel * 2, dispH = sh - bezel * 2;
+      const cw = 2560, ch = Math.round(cw * sh / sw), k = cw / sw;
+      const cnv = document.createElement('canvas'); cnv.width = cw; cnv.height = ch;
+      const g = cnv.getContext('2d')!;
+      g.fillStyle = '#000'; g.fillRect(0, 0, cw, ch);
+      const dx = bezel * k, dy = bezel * k, dw = dispW * k, dh = dispH * k, r = dw * 0.012;
+      g.save(); g.beginPath();
+      g.moveTo(dx, dy + dh); g.lineTo(dx, dy + r); g.quadraticCurveTo(dx, dy, dx + r, dy);
+      g.lineTo(dx + dw - r, dy); g.quadraticCurveTo(dx + dw, dy, dx + dw, dy + r); g.lineTo(dx + dw, dy + dh); g.closePath(); g.clip();
+      const img = screenTex.image as HTMLImageElement, ia = img.width / img.height, da = dw / dh;
+      const iw = ia > da ? dh * ia : dw, ih = ia > da ? dh : dw / ia; // cover
+      g.drawImage(img, dx + (dw - iw) / 2, dy + (dh - ih) / 2, iw, ih);
+      g.restore();
+      const nw = dw * 0.105, nh = dh * 0.034, nr = nh * 0.45; // notch
+      g.fillStyle = '#000'; g.beginPath();
+      g.moveTo(cw / 2 - nw / 2, 0); g.lineTo(cw / 2 - nw / 2, dy + nh - nr); g.quadraticCurveTo(cw / 2 - nw / 2, dy + nh, cw / 2 - nw / 2 + nr, dy + nh);
+      g.lineTo(cw / 2 + nw / 2 - nr, dy + nh); g.quadraticCurveTo(cw / 2 + nw / 2, dy + nh, cw / 2 + nw / 2, dy + nh - nr); g.lineTo(cw / 2 + nw / 2, 0); g.fill();
+      const tex = new THREE.CanvasTexture(cnv);
+      tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      screenMat.map = tex; screenMat.needsUpdate = true;
+      screenTex.dispose();
+      lid.rotation.x = LID_CLOSED;
 
       // Soft contact shadow.
       const shadow = new THREE.Mesh(new THREE.PlaneGeometry(16, 11), new THREE.MeshBasicMaterial({ map: shadowTexture(THREE), transparent: true, depthWrite: false }));
-      shadow.rotation.x = -Math.PI / 2; shadow.position.set(0, -0.16, 0.3); laptop.add(shadow);
-
-      // Where the open screen sits, so the camera can end square on to it.
-      lid.rotation.x = LID_OPEN; laptop.rotation.set(0, 0, 0); laptop.updateMatrixWorld(true);
-      const screenCenter = new THREE.Vector3(0, bb.max.y, (bb.min.z + bb.max.z) / 2).applyMatrix4(screen.matrixWorld);
-      const screenNormal = new THREE.Vector3(0, 1, 0).transformDirection(screen.matrixWorld);
-      const screenUp = new THREE.Vector3(0, 0, -1).transformDirection(screen.matrixWorld);
-      lid.rotation.x = LID_CLOSED;
+      shadow.rotation.x = -Math.PI / 2; shadow.position.set(0, 0.004, 0.3); laptop.add(shadow);
 
       // --- camera
       const camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 200);
       const tan = Math.tan(THREE.MathUtils.degToRad(FOV / 2));
-      const overview = new THREE.Vector3(), overviewTarget = new THREE.Vector3(0, 2.1, -0.8), fullPos = new THREE.Vector3();
+      const overview = new THREE.Vector3(), overviewTarget = new THREE.Vector3(0, 2.5, -0.8), fullPos = new THREE.Vector3();
       const closedView = new THREE.Vector3(), closedTarget = new THREE.Vector3(0, 0.2, 0.2);
       const resize = () => {
         const el = holder.current; if (!el) return;
         const w = el.clientWidth, h = el.clientHeight;
         renderer.setSize(w, h, false);
         camera.aspect = w / h; camera.updateProjectionMatrix();
-        const d = Math.max(13 / 2 / (tan * camera.aspect), 11.5 / 2 / tan);
+        const d = Math.max(13.5 / 2 / (tan * camera.aspect), 12.5 / 2 / tan);
         overview.set(0, overviewTarget.y + d * 0.3, overviewTarget.z + d * 0.95);
         // closed: a little closer and higher, looking down on the lid
         const dc = Math.max(12 / 2 / (tan * camera.aspect), 9 / 2 / tan);
         closedView.set(0, closedTarget.y + dc * 0.55, closedTarget.z + dc * 0.84);
         // full screen: the display covers the whole window
-        const dCover = Math.min((sh / 2) / tan, (sw * crop / 2) / (tan * camera.aspect));
+        const dCover = Math.min((dispH / 2) / tan, (dispW / 2) / (tan * camera.aspect));
         fullPos.copy(screenCenter).addScaledVector(screenNormal, dCover * 0.985);
       };
       resize();
