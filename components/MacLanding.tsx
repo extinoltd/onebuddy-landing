@@ -53,12 +53,12 @@ const plans = [
 ];
 
 const privacy = [
-  ['Speech stays on your Mac', 'Dictation runs on a speech model stored on your Mac. Your voice is not uploaded.'],
-  ['Trash, not delete', 'The cleaner moves files to the Trash. Change your mind and put them back.'],
-  ['Passwords skipped', 'Items that password managers mark as secret never enter your clipboard history.'],
-  ['Keys in the Keychain', 'Integration tokens are kept in your Mac’s Keychain and only sent to their own service.'],
-  ['No ads, no tracking', 'There is no analytics or advertising code in the app.'],
-  ['Your own iCloud', 'Clipboard sync is off until you switch it on, and then it uses your own iCloud Drive.'],
+  ['speech', 'Speech stays on your Mac', 'Dictation runs on a speech model stored on your Mac. Your voice is not uploaded.'],
+  ['keep', 'Trash, not delete', 'The cleaner moves files to the Trash. Change your mind and put them back.'],
+  ['lock', 'Passwords skipped', 'Items that password managers mark as secret never enter your clipboard history.'],
+  ['settings', 'Keys in the Keychain', 'Integration tokens are kept in your Mac’s Keychain and only sent to their own service.'],
+  ['tag', 'No ads, no tracking', 'There is no analytics or advertising code in the app.'],
+  ['device', 'Your own iCloud', 'Clipboard sync is off until you switch it on, and then it uses your own iCloud Drive.'],
 ];
 
 const faqs = [
@@ -256,7 +256,7 @@ export function MacLanding() {
           <p className="label rv">Local first</p>
           <h2 className="title rv">It runs on your Mac.<br /><span className="grad">So do your files.</span></h2>
           <div className="privacy">
-            {privacy.map(([title, body]) => <div className="rv" key={title}><h3>{title}</h3><p>{body}</p></div>)}
+            {privacy.map(([icon, title, body]) => <div className="rv" key={title}><img className="glass-icon" src={`/images/icons/${icon}.webp`} alt="" width={64} height={64} loading="lazy" /><h3>{title}</h3><p>{body}</p></div>)}
           </div>
         </div>
       </section>

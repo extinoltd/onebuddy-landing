@@ -172,6 +172,10 @@
 
 .mac2 .suites { grid-template-columns: 1fr 1fr; margin-top: 22px; }
 .mac2 .suite-head { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+.mac2 .glass-icon { display: block; width: 64px; height: 64px; margin: 0 0 14px -6px; filter: drop-shadow(0 12px 18px rgba(79, 70, 229, .28)); transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
+.mac2 .rv:hover > .glass-icon, .mac2 .suite:hover .glass-icon { transform: translateY(-6px) rotate(-6deg) scale(1.06); }
+.mac2 .suite-head .glass-icon { width: 84px; height: 84px; margin: -6px 0 -6px -10px; flex: none; }
+.mac2 .mini-steps .glass-icon { width: 72px; height: 72px; }
 .mac2 .suite-icon { width: 64px; height: 64px; flex: none; border-radius: 18px; display: grid; place-items: center; box-shadow: 0 14px 28px -12px rgba(59, 130, 246, .5); }
 .mac2 .suite-head h3 { margin: 0; }
 .mac2 .suite-head .tag { margin: 4px 0 0; font-size: 15px; }

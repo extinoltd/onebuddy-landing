@@ -8,6 +8,7 @@ import { featureClusters } from '@/lib/features-data';
 import { ComparisonTable } from './ComparisonTable';
 
 const MAC = '/images/mac';
+const ICON = '/images/icons'; // 3D glass icons from IconScout (Glassmorphism UI pack, Muhamad Rafly)
 
 /* ------------------------------------------------------------------ data */
 
@@ -18,19 +19,14 @@ const extStats: { value: string; sup?: string; label: string }[] = [
   { value: '40', sup: '+', label: 'languages' },
 ];
 
-const suiteLook: Record<string, { tint: string; icon: string }> = {
-  productivity: { tint: 'linear-gradient(135deg,#3B82F6,#8B5CF6)', icon: '/new/focus timer.png' },
-  health: { tint: 'linear-gradient(135deg,#10B981,#22D3EE)', icon: '/new/remiders.png' },
-  privacy: { tint: 'linear-gradient(135deg,#8B5CF6,#D946EF)', icon: '/new/privet.png' },
-  capture: { tint: 'linear-gradient(135deg,#F87171,#F59E0B)', icon: '/new/videos.png' },
-};
+const suiteIcon: Record<string, string> = { productivity: 'focus', health: 'health', privacy: 'lock', capture: 'capture' };
 
 const extIcons = ['focus timer', 'ad block', 'clipboard', 'screenshot', 'videos', 'remiders', 'note', 'privet'];
 
 const extSteps = [
-  { title: 'Add to Chrome', body: 'One click from the Chrome Web Store. No sign-up and no email to start.' },
-  { title: 'Pick your tools', body: 'Turn on what you need and skip the rest. Change it whenever you like.' },
-  { title: 'Work from the side panel', body: 'Timer, notes, clipboard, blockers and capture, one click away on every tab.' },
+  { icon: 'bolt', title: 'Add to Chrome', body: 'One click from the Chrome Web Store. No sign-up and no email to start.' },
+  { icon: 'settings', title: 'Pick your tools', body: 'Turn on what you need and skip the rest. Change it whenever you like.' },
+  { icon: 'panel', title: 'Work from the side panel', body: 'Timer, notes, clipboard, blockers and capture, one click away on every tab.' },
 ];
 
 const macReplaces = [
@@ -60,12 +56,12 @@ const quotes = [
 ];
 
 const privacy = [
-  ['Stored on your device', 'Notes, clips, captures and settings stay in your browser and on your Mac. There is no OneBuddy server holding them.'],
-  ['No data selling', 'We earn from subscriptions, not from what you browse. There is no advertising code in either product.'],
-  ['Speech stays on your Mac', 'Mac dictation runs on a speech model stored on your Mac. Your voice is not uploaded.'],
-  ['Trash, not delete', 'The Mac cleaner moves files to the Trash, so you can always put them back.'],
-  ['Manifest V3', 'The extension is built on Chrome’s current, stricter extension platform and asks only for what it uses.'],
-  ['Keys in the Keychain', 'Mac integration tokens live in your Keychain and are only sent to their own service.'],
+  ['device', 'Stored on your device', 'Notes, clips, captures and settings stay in your browser and on your Mac. There is no OneBuddy server holding them.'],
+  ['tag', 'No data selling', 'We earn from subscriptions, not from what you browse. There is no advertising code in either product.'],
+  ['speech', 'Speech stays on your Mac', 'Mac dictation runs on a speech model stored on your Mac. Your voice is not uploaded.'],
+  ['keep', 'Trash, not delete', 'The Mac cleaner moves files to the Trash, so you can always put them back.'],
+  ['badge', 'Manifest V3', 'The extension is built on Chrome’s current, stricter extension platform and asks only for what it uses.'],
+  ['lock', 'Keys in the Keychain', 'Mac integration tokens live in your Keychain and are only sent to their own service.'],
 ];
 
 const faqs = [
@@ -177,11 +173,10 @@ export function HomeLanding() {
 
           <div className="bento suites">
             {featureClusters.map((cluster) => {
-              const look = suiteLook[cluster.id] ?? suiteLook.productivity;
               return (
                 <article className="card suite rv" key={cluster.id} id={cluster.id}>
                   <div className="suite-head">
-                    <span className="suite-icon" style={{ background: look.tint }}><img src={look.icon} alt="" width={44} height={44} /></span>
+                    <img className="glass-icon" src={`${ICON}/${suiteIcon[cluster.id] ?? 'focus'}.webp`} alt="" width={84} height={84} loading="lazy" />
                     <div><h3>{cluster.label}</h3>{cluster.tagline && <p className="tag">{cluster.tagline}</p>}</div>
                   </div>
                   <ul>
@@ -189,7 +184,7 @@ export function HomeLanding() {
                       <li key={f.title}><span>{f.title}</span>{f.tier && <em className={f.tier}>{f.tier === 'free' ? 'Free' : 'Pro'}</em>}</li>
                     ))}
                   </ul>
-                  {cluster.costComparison && <p className="fine">Instead of paying about {cluster.costComparison} for separate extensions.</p>}
+                  {cluster.costComparison && <p className="fine">Instead of paying about {cluster.costComparison.replace(/^~/, '')} for separate extensions.</p>}
                 </article>
               );
             })}
@@ -197,7 +192,7 @@ export function HomeLanding() {
 
           <div className="mini-steps">
             {extSteps.map((s, i) => (
-              <div className="rv" key={s.title}><p className="label blue">Step {i + 1}</p><h3>{s.title}</h3><p>{s.body}</p></div>
+              <div className="rv" key={s.title}><img className="glass-icon" src={`${ICON}/${s.icon}.webp`} alt="" width={72} height={72} loading="lazy" /><p className="label blue">Step {i + 1}</p><h3>{s.title}</h3><p>{s.body}</p></div>
             ))}
           </div>
         </div>
@@ -305,7 +300,7 @@ export function HomeLanding() {
           <p className="label rv">Local first</p>
           <h2 className="title rv">Your data stays<br /><span className="grad">on your device.</span></h2>
           <div className="privacy">
-            {privacy.map(([title, body]) => <div className="rv" key={title}><h3>{title}</h3><p>{body}</p></div>)}
+            {privacy.map(([icon, title, body]) => <div className="rv" key={title}><img className="glass-icon" src={`${ICON}/${icon}.webp`} alt="" width={64} height={64} loading="lazy" /><h3>{title}</h3><p>{body}</p></div>)}
           </div>
         </div>
       </section>
