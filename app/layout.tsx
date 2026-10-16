@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 
 import { siteConfig } from '@/lib/site-config';
 import './globals.css';
+import './mac/mac.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -97,7 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body className="font-sans antialiased bg-white text-slate-900">
+      <body className="font-sans antialiased bg-white text-[#1d1d1f]">
         <Navbar />
         <main>{children}</main>
         <Footer />

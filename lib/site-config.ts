@@ -22,12 +22,13 @@ export const siteConfig = {
 };
 
 export const navLinks = [
+  { label: 'Chrome', href: '/#extension' },
+  { label: 'Mac', href: '/mac/' },
   { label: 'Features', href: '/features/' },
-  { label: 'Mac App', href: '/mac/' },
   { label: 'Pricing', href: '/#pricing' },
   { label: 'Compare', href: '/#comparison' },
   { label: 'Blog', href: '/blog/' },
-  { label: 'Knowledge Base', href: '/knowledge-base/' },
+  { label: 'Help', href: '/knowledge-base/' },
 ];
 
 export const footerLinks = {

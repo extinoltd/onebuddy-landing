@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { MacLanding } from '@/components/MacLanding';
 import { siteConfig } from '@/lib/site-config';
-import './mac.css';
 
 
 const title = "OneBuddy for Mac — Your Mac's Buddy Lives in the Notch";

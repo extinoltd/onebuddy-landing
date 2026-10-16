@@ -1,150 +1,60 @@
 import Link from 'next/link';
 import { siteConfig, footerLinks } from '@/lib/site-config';
 
-export function Footer() {
+type FooterLink = { label: string; href: string };
+
+function Column({ title, links }: { title: string; links: FooterLink[] }) {
   return (
-    <footer className="bg-slate-900 text-slate-400 pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 mb-16">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 mb-5">
-              <img
-                src="/logo.png"
-                alt="OneBuddy"
-                className="w-9 h-9 rounded-xl"
-                width={36}
-                height={36}
-              />
-              <span className="font-extrabold text-xl text-white">
-                One<span className="text-primary-light">Buddy</span>
-              </span>
-            </Link>
-            <p className="text-sm leading-relaxed max-w-xs mb-6">
-              One extension to replace them all. Productivity, health reminders, privacy
-              tools & screen capture in a single Chrome side panel.
-            </p>
-            <a
-              href={siteConfig.extensionUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary-light text-sm font-semibold rounded-full transition-colors"
-            >
-              Add to Chrome — Free
-            </a>
-          </div>
+    <div>
+      <h4 className="font-semibold text-[#1d1d1f] text-xs mb-3">{title}</h4>
+      <ul className="space-y-2.5">
+        {links.map((link) => (
+          <li key={link.href}>
+            {link.href.startsWith('http') ? (
+              <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-xs hover:text-[#1d1d1f] hover:underline">{link.label}</a>
+            ) : (
+              <Link href={link.href} className="text-xs hover:text-[#1d1d1f] hover:underline">{link.label}</Link>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
-          {/* Product */}
-          <div>
-            <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-5">
-              Product
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.product.map((link) => (
-                <li key={link.href}>
-                  {link.href.startsWith('http') ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="text-sm hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Features */}
-          <div>
-            <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-5">
-              Features
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.features.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Alternatives */}
-          <div>
-            <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-5">
-              Alternatives
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.alternatives.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Use Cases & Legal */}
-          <div className="col-span-2 md:col-span-1">
-            <h4 className="font-semibold text-white text-sm uppercase tracking-wider mb-5">
-              Use Cases
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.useCases.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <h4 className="font-semibold text-white text-sm uppercase tracking-wider mt-8 mb-5">
-              Legal
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+export function Footer() {
+  const get: FooterLink[] = [
+    { label: 'Add to Chrome', href: siteConfig.extensionUrl },
+    { label: 'Download for Mac', href: siteConfig.macDownloadUrl || '/mac/' },
+    { label: 'Pricing', href: '/#pricing' },
+  ];
+  return (
+    <footer className="bg-[#f5f5f7] text-[#6e6e73] pt-14 pb-8">
+      <div className="max-w-[1120px] mx-auto px-5">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-10 border-b border-black/10">
+          <Link href="/" className="flex items-center gap-2.5">
+            <img src="/logo.png" alt="OneBuddy" className="w-9 h-9 rounded-xl" width={36} height={36} />
+            <span className="font-semibold text-lg text-[#1d1d1f] tracking-tight">OneBuddy</span>
+          </Link>
+          <p className="text-sm max-w-md">
+            One buddy for your browser and your Mac: focus, clipboard, privacy and capture in Chrome; tasks, a launcher,
+            dictation and a cleaner behind the notch.
+          </p>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-          <p>&copy; {new Date().getFullYear()} OneBuddy. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-              All systems operational
-            </span>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 py-10">
+          <Column title="Get OneBuddy" links={get} />
+          <Column title="Product" links={footerLinks.product.filter((l) => !l.href.startsWith('http'))} />
+          <Column title="Features" links={footerLinks.features} />
+          <Column title="Alternatives" links={footerLinks.alternatives} />
+          <Column title="Use cases" links={footerLinks.useCases} />
+          <Column title="Compare" links={footerLinks.comparisons} />
+        </div>
+
+        <div className="border-t border-black/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
+          <p>Copyright &copy; {new Date().getFullYear()} OneBuddy. All rights reserved.</p>
+          <div className="flex items-center gap-5">
+            {footerLinks.legal.map((l) => <Link key={l.href} href={l.href} className="hover:text-[#1d1d1f] hover:underline">{l.label}</Link>)}
           </div>
         </div>
       </div>

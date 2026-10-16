@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #7C3AED;
-  --color-primary-light: #8B5CF6;
-  --color-primary-dark: #6D28D9;
+  --color-primary: #2563EB;
+  --color-primary-light: #3B82F6;
+  --color-primary-dark: #1D4ED8;
   --color-accent-cyan: #06B6D4;
   --color-accent-pink: #EC4899;
   --color-accent-amber: #F59E0B;
-  --color-surface: #F8FAFC;
+  --color-surface: #F5F5F7;
   --color-surface-dark: #0F172A;
-  --color-muted: #64748B;
+  --color-muted: #6E6E73;
 
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 
@@ -36,27 +36,32 @@ html {
 
 body {
   font-family: var(--font-sans);
+  color: #1D1D1F;
 }
 
-/* ===== ACCENT TEXT (replaces gradient-text) ===== */
+/* ===== ACCENT TEXT ===== */
 .text-accent {
-  color: #7C3AED;
+  background: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 45%, #D946EF 70%, #F87171 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* ===== FEATURE CARD ===== */
 .feature-card {
-  background: white;
-  border-radius: 16px;
-  border: 1px solid #E2E8F0;
+  background: #F5F5F7;
+  border-radius: 28px;
+  border: 0;
   padding: 2rem;
-  transition: all 0.25s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
-  border-color: #CBD5E1;
-  box-shadow: 0 8px 30px -8px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
+  box-shadow: 0 24px 50px -24px rgba(15, 23, 42, 0.25);
+  transform: translateY(-3px);
 }
+
+.bg-slate-50 .feature-card, .bg-surface .feature-card { background: #fff; }
 
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
@@ -76,11 +81,24 @@ body {
   background: #94A3B8;
 }
 
-/* ===== DOT PATTERN BG ===== */
-.dot-pattern {
-  background-image: radial-gradient(circle, #E2E8F0 1px, transparent 1px);
-  background-size: 24px 24px;
-}
+/* ===== DOT PATTERN BG (retired: the site is plain white and light grey now) ===== */
+.dot-pattern { background: none; }
+
+/* ===== SITE-WIDE LOOK =====
+   The pages built with Tailwind utilities follow the same quiet, Apple-like style as the
+   home and Mac pages: light grey bands, big tight headlines, soft rounded cards, blue links. */
+main .bg-slate-50, main .bg-surface { background-color: #F5F5F7; }
+main h1, main h2 { letter-spacing: -0.04em; }
+main h1.font-extrabold, main h2.font-extrabold, main h3.font-extrabold { font-weight: 700; }
+main h1 { line-height: 1.04; }
+main .text-slate-600, main .text-slate-500 { color: #6E6E73; }
+main .text-slate-900, main .text-slate-800 { color: #1D1D1F; }
+main .rounded-2xl { border-radius: 28px; }
+main .rounded-xl { border-radius: 18px; }
+main .border-slate-200, main .border-slate-100 { border-color: rgba(0, 0, 0, 0.06); }
+main .shadow-sm { box-shadow: none; }
+main section.bg-slate-900 { background: #000; }
+main .prose { --tw-prose-body: #3a3a3c; --tw-prose-headings: #1d1d1f; --tw-prose-links: #2563EB; }
 
 /* ===== HERO CTA BUTTON ===== */
 .hero-cta-btn {
@@ -106,11 +124,11 @@ body {
   right: -10px;
   background-image: conic-gradient(
     from 293deg at 50% 50%,
-    #8B5CF6 0%,
-    #A78BFA 15%,
-    #EC4899 40%,
-    #06B6D4 65%,
-    #8B5CF6 100%
+    #3B82F6 0%,
+    #8B5CF6 25%,
+    #D946EF 50%,
+    #F87171 75%,
+    #3B82F6 100%
   );
   border-radius: 22px;
   filter: blur(26px);
@@ -132,7 +150,7 @@ body {
   font-size: 1.1rem;
   padding: 0px 24px;
   font-weight: bold;
-  background: -webkit-linear-gradient(#6D28D9, #1e1b4b);
+  background: -webkit-linear-gradient(#1D4ED8, #0f172a);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -148,11 +166,11 @@ body {
   border-radius: 14px;
   background-image: conic-gradient(
     from 293deg at 50% 50%,
-    #8B5CF6 0%,
-    #A78BFA 15%,
-    #EC4899 40%,
-    #06B6D4 65%,
-    #8B5CF6 100%
+    #3B82F6 0%,
+    #8B5CF6 25%,
+    #D946EF 50%,
+    #F87171 75%,
+    #3B82F6 100%
   );
   box-shadow:
     inset 4px 2px 4px #c4b5fd,

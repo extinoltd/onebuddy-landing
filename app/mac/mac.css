@@ -1,4 +1,4 @@
-/* OneBuddy for Mac page. Light, quiet and product-first: big tight headlines,
+/* OneBuddy pages (home and Mac). Light, quiet and product-first: big tight headlines,
    gradient statements, rounded bento cards. Scoped under .mac2. */
 .mac2 {
   --ink: #1d1d1f; --muted: #6e6e73; --line: rgba(0, 0, 0, .08); --alt: #f5f5f7; --link: #2563EB;
@@ -150,6 +150,78 @@
 .mac2 .final { text-align: center; padding: 140px 20px 160px; }
 .mac2 .final img { margin: 0 auto 24px; border-radius: 22px; }
 .mac2 .final h2 { font-size: clamp(46px, 8vw, 100px); letter-spacing: -0.05em; line-height: 1; font-weight: 700; margin: 0 0 30px; }
+
+/* ---------------- home: both products ---------------- */
+.mac2 .hero-lead { margin: 0 auto 34px; }
+.mac2 .trust { display: flex; flex-wrap: wrap; gap: 10px 26px; justify-content: center; color: var(--muted); font-size: 14px; margin: 26px 0 0; }
+.mac2 .trust > span { display: inline-flex; align-items: center; gap: 6px; }
+.mac2 .trust b { color: var(--ink); }
+.mac2 .stars { display: inline-flex; gap: 1px; }
+.mac2 .label.light { color: rgba(255, 255, 255, .9); display: inline-flex; align-items: center; gap: 8px; }
+.mac2 .products-sec { padding: 30px 0 40px; }
+.mac2 .products { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.mac2 .product { min-height: 640px; display: flex; flex-direction: column; color: #fff; padding: 44px 40px 0; }
+.mac2 .product h3 { font-size: clamp(34px, 3.8vw, 52px); color: #fff; }
+.mac2 .product > p { color: rgba(255, 255, 255, .86); font-size: 17px; max-width: 440px; }
+.mac2 .product .link { color: #fff; }
+.mac2 .links.left { justify-content: flex-start; gap: 26px; }
+.mac2 .night { background: radial-gradient(120% 90% at 80% 0%, #3B2A8C 0%, #141429 55%, #07070f 100%) !important; }
+.mac2 .icon-grid { margin-top: auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 30px 0 40px; }
+.mac2 .icon-grid img { width: 100%; max-width: 92px; margin: 0 auto; filter: drop-shadow(0 14px 22px rgba(60, 0, 60, .35)); animation: mac2-bob 4.5s ease-in-out infinite; }
+.mac2 .product-shot { margin-top: auto; width: 112%; max-width: none; border-radius: 16px 16px 0 0; box-shadow: 0 -10px 60px rgba(124, 92, 255, .35); transform: translateY(6px); }
+
+.mac2 .suites { grid-template-columns: 1fr 1fr; margin-top: 22px; }
+.mac2 .suite-head { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+.mac2 .suite-icon { width: 64px; height: 64px; flex: none; border-radius: 18px; display: grid; place-items: center; box-shadow: 0 14px 28px -12px rgba(59, 130, 246, .5); }
+.mac2 .suite-head h3 { margin: 0; }
+.mac2 .suite-head .tag { margin: 4px 0 0; font-size: 15px; }
+.mac2 .suite ul { list-style: none; padding: 0; margin: 0; }
+.mac2 .suite li { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); font-size: 16px; font-weight: 500; }
+.mac2 .suite li em { font-style: normal; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+.mac2 .suite li em.free { background: #DCFCE7; color: #15803D; }
+.mac2 .suite li em.pro { background: #DBEAFE; color: #1D4ED8; }
+.mac2 .suite .fine { margin: 14px 0 0; }
+
+.mac2 .mini-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: 70px; }
+.mac2 .mini-steps h3 { font-size: 24px; letter-spacing: -0.02em; margin: 0 0 8px; }
+.mac2 .mini-steps p:last-child { color: var(--muted); margin: 0; line-height: 1.55; }
+
+.mac2 .replace { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; text-align: left; }
+.mac2 .replace > div { background: #fff; border-radius: 30px; padding: 30px; }
+.mac2 .replace .label { display: flex; align-items: center; gap: 8px; }
+.mac2 .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.mac2 .chips span { padding: 9px 16px; border-radius: 999px; background: var(--alt); font-weight: 600; font-size: 15px; text-decoration: line-through; text-decoration-color: rgba(239, 68, 68, .7); text-decoration-thickness: 2px; }
+.mac2 .app-row { display: flex; flex-wrap: wrap; gap: 14px; }
+.mac2 .app-row img { width: 52px; height: 52px; border-radius: 22%; }
+.mac2 .app-row img.mark { padding: 11px; background: #FF6363; }
+.mac2 .savings { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
+.mac2 .savings > div { background: #fff; border-radius: 30px; padding: 30px; display: flex; flex-direction: column; gap: 4px; }
+.mac2 .savings small { color: var(--muted); font-size: 14px; }
+.mac2 .savings b { font-size: 56px; letter-spacing: -0.04em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.mac2 .savings b.was { background: none; color: #9CA3AF; text-decoration: line-through; text-decoration-thickness: 3px; }
+
+.mac2 .plans-title { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 24px; letter-spacing: -0.02em; margin: 0 0 24px; }
+.mac2 .plans-title small { color: var(--muted); font-size: 15px; font-weight: 500; }
+.mac2 .plans4 { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1120px; }
+.mac2 .plans4 .price { font-size: 42px; }
+
+.mac2 .quotes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.mac2 .quotes figure { margin: 0; display: flex; flex-direction: column; gap: 16px; }
+.mac2 .quotes blockquote { margin: 0; font-size: 16px; line-height: 1.55; }
+.mac2 .quotes figcaption { margin-top: auto; display: flex; flex-direction: column; font-size: 14px; }
+.mac2 .quotes figcaption span { color: var(--muted); }
+
+.seo-links { padding: 70px 0; background: #fff; border-top: 1px solid rgba(0, 0, 0, .06); }
+
+/* the comparison table, restyled to match */
+.mac2 + #comparison, .home #comparison { background: #fff; }
+
+@media (max-width: 900px) {
+  .mac2 .products, .mac2 .suites, .mac2 .mini-steps, .mac2 .replace, .mac2 .savings { grid-template-columns: 1fr; }
+  .mac2 .product { min-height: 0; padding: 32px 26px 0; }
+  .mac2 .plans4, .mac2 .quotes { grid-template-columns: 1fr; }
+  .mac2 .icon-grid { padding-bottom: 28px; }
+}
 
 @media (max-width: 900px) {
   .mac2 section { padding: 84px 0; }
