@@ -42,6 +42,9 @@
 .mac2 .mb3d-track { height: 320vh; padding: 0; }
 .mac2 .mb3d-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
 .mac2 .mb3d-canvas, .mac2 .mb3d-canvas canvas { width: 100%; height: 100%; display: block; }
+.mac2 .mb3d-canvas { position: relative; --glow: 0; }
+.mac2 .mb3d-canvas canvas { position: relative; z-index: 1; }
+.mac2 .mb3d-canvas::before { content: ""; position: absolute; left: 50%; top: 40%; width: min(1400px, 130vw); aspect-ratio: 1.9; transform: translate(-50%, -50%) scale(calc(.85 + var(--glow) * .15)); border-radius: 50%; background: radial-gradient(closest-side, rgba(124, 92, 255, .75), rgba(76, 140, 255, .5) 50%, rgba(255, 140, 220, .2) 75%, transparent); filter: blur(24px); opacity: var(--glow); pointer-events: none; }
 .mac2 .mb3d-fallback { width: 100%; height: 100%; object-fit: cover; }
 
 /* statement */
