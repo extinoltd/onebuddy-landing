@@ -34,7 +34,12 @@ const macReplaces = [
   { name: 'Magnet', icon: 'magnet.png' }, { name: 'iStat Menus', icon: 'istat-menus.png' }, { name: 'Session', icon: 'session.png' },
   { name: 'Wispr Flow', icon: 'wispr-flow.png' },
 ];
-const extReplaces = ['Loom', 'Momentum', 'Forest', 'Ghostery', 'uBlock Origin', 'Raindrop', 'Stretchly', 'Clipboard History'];
+// Logos from each product's own website.
+const extReplaces = [
+  { name: 'Loom', icon: 'loom' }, { name: 'Momentum', icon: 'momentum' }, { name: 'Forest', icon: 'forest' },
+  { name: 'Ghostery', icon: 'ghostery' }, { name: 'uBlock Origin', icon: 'ublock-origin' }, { name: 'Raindrop', icon: 'raindrop' },
+  { name: 'Stretchly', icon: 'stretchly' }, { name: 'Clipboard History', icon: 'clipboard-history' },
+];
 
 const extPlans = [
   { name: 'Free', price: '£0', period: 'forever', note: 'The basics, for good', items: ['Pomodoro timer', 'Notes', 'Health reminders', 'Tab screenshots', 'Basic ad blocking'] },
@@ -245,7 +250,7 @@ export function HomeLanding() {
           <div className="replace rv">
             <div>
               <p className="label"><Chrome size={18} color="currentColor" variant="Bold" /> In Chrome</p>
-              <div className="chips">{extReplaces.map((n) => <span key={n}>{n}</span>)}</div>
+              <div className="chips">{extReplaces.map((e) => <span key={e.name}><img src={`/images/extensions/${e.icon}.webp`} alt="" width={22} height={22} loading="lazy" />{e.name}</span>)}</div>
             </div>
             <div>
               <p className="label"><Apple size={18} color="currentColor" variant="Bold" /> On your Mac</p>

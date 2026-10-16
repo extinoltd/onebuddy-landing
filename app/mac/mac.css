@@ -194,7 +194,8 @@
 .mac2 .replace > div { background: #fff; border-radius: 30px; padding: 30px; }
 .mac2 .replace .label { display: flex; align-items: center; gap: 8px; }
 .mac2 .chips { display: flex; flex-wrap: wrap; gap: 10px; }
-.mac2 .chips span { padding: 9px 16px; border-radius: 999px; background: var(--alt); font-weight: 600; font-size: 15px; text-decoration: line-through; text-decoration-color: rgba(239, 68, 68, .7); text-decoration-thickness: 2px; }
+.mac2 .chips span img { width: 22px; height: 22px; border-radius: 6px; flex: none; }
+.mac2 .chips span { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px 7px 8px; border-radius: 999px; background: var(--alt); font-weight: 600; font-size: 15px; text-decoration: line-through; text-decoration-color: rgba(239, 68, 68, .7); text-decoration-thickness: 2px; }
 .mac2 .app-row { display: flex; flex-wrap: wrap; gap: 14px; }
 .mac2 .app-row img { width: 52px; height: 52px; border-radius: 22%; }
 .mac2 .app-row img.mark { padding: 11px; background: #FF6363; }
