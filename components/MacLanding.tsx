@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Code1, ColorSwatch, Teacher, Edit2, LampCharge, Home2, type Icon } from 'iconsax-react';
 import { siteConfig } from '@/lib/site-config';
 
 const IMG = '/images/mac';
@@ -35,13 +36,13 @@ const steps: { title: string; body: string; keys?: string }[] = [
   { title: 'Start focus', body: 'Pick today’s task and press Start focus. The app steps aside, a slim task list stays at the edge of the screen, and the timer lives in the notch.' },
 ];
 
-const personas: [string, string, string][] = [
-  ['💻', 'Developers', 'Claude Code and Codex usage in the notch, a launcher for everything, and a cleaner for Xcode, package caches and AI app leftovers.'],
-  ['🎨', 'Designers', 'Colours, images and snippets in a visual shelf, pinboards for brand assets, windows side by side.'],
-  ['🎓', 'Students', 'A Pomodoro timer that stays out of the way, boards for every subject, dictation for notes.'],
-  ['✍️', 'Writers', 'Talk and it types in any app, with your snippets and research one shortcut away.'],
-  ['🚀', 'Founders', 'Tasks from Todoist, Asana, Linear and GitHub on one board, and Claude able to add and finish them.'],
-  ['🏡', 'Everyone', 'A tidier Mac: free space safely, watch battery health, see music and your calendar at a glance.'],
+const personas: { icon: Icon; tint: string; title: string; body: string }[] = [
+  { icon: Code1, tint: 'linear-gradient(135deg,#3B82F6,#6366F1)', title: 'Developers', body: 'Claude Code and Codex usage in the notch, a launcher for everything, and a cleaner for Xcode, package caches and AI app leftovers.' },
+  { icon: ColorSwatch, tint: 'linear-gradient(135deg,#F472B6,#D946EF)', title: 'Designers', body: 'Colours, images and snippets in a visual shelf, pinboards for brand assets, windows side by side.' },
+  { icon: Teacher, tint: 'linear-gradient(135deg,#F59E0B,#F87171)', title: 'Students', body: 'A Pomodoro timer that stays out of the way, boards for every subject, dictation for notes.' },
+  { icon: Edit2, tint: 'linear-gradient(135deg,#10B981,#0EA5E9)', title: 'Writers', body: 'Talk and it types in any app, with your snippets and research one shortcut away.' },
+  { icon: LampCharge, tint: 'linear-gradient(135deg,#8B5CF6,#3B82F6)', title: 'Founders', body: 'Tasks from Todoist, Asana, Linear and GitHub on one board, and Claude able to add and finish them.' },
+  { icon: Home2, tint: 'linear-gradient(135deg,#22D3EE,#34D399)', title: 'Everyone', body: 'A tidier Mac: free space safely, watch battery health, see music and your calendar at a glance.' },
 ];
 
 const plans = [
@@ -253,7 +254,7 @@ export function MacLanding() {
           <p className="label rv">Built for how you work</p>
           <h2 className="title rv">One buddy, whatever<br />your day looks like.</h2>
           <div className="people">
-            {personas.map(([icon, title, body]) => <article className="card rv" key={title}><span aria-hidden>{icon}</span><h3>{title}</h3><p>{body}</p></article>)}
+            {personas.map(({ icon: PersonaIcon, tint, title, body }) => <article className="card rv" key={title}><span className="picon" style={{ background: tint }} aria-hidden><PersonaIcon size={28} color="#fff" variant="Bold" /></span><h3>{title}</h3><p>{body}</p></article>)}
           </div>
         </div>
       </section>
