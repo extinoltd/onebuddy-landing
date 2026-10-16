@@ -225,20 +225,20 @@ const rows: Row[] = [
     body: 'Move the pointer to the notch and it opens into a panel with seven tabs. Leave, and it folds back. When something is running it stays visible beside the notch, so you never have to open anything to see it.',
     points: ['Home: music controls, your next events and the task you are on', 'Tasks, clipboard, AI usage, system stats, Pomodoro and timers', 'Closed, it shows a running timer, the song playing or the volume as you change it', 'Works on Macs without a notch too, as a small pill at the top'],
     demo: <Carousel notch ratio="1320 / 544" slides={[
-      { label: 'Home', file: 'notch-home.png', alt: 'OneBuddy notch Home tab with now playing, calendar and focus' },
-      { label: 'Tasks', file: 'notch-tasks.png', alt: 'OneBuddy notch Tasks tab' },
-      { label: 'AI usage', file: 'notch-ai.png', alt: 'OneBuddy notch AI usage tab with Claude Code and Codex tokens' },
-      { label: 'System', file: 'notch-system.png', alt: 'OneBuddy notch System tab with CPU, memory, disk and network' },
-      { label: 'Pomodoro', file: 'notch-pomodoro.png', alt: 'OneBuddy notch Pomodoro tab' },
-      { label: 'Timer', file: 'notch-timer.png', alt: 'OneBuddy notch Timer tab with stopwatch, timer and reminders' },
+      { label: 'Home', file: 'notch-home.webp', alt: 'OneBuddy notch Home tab with now playing, calendar and focus' },
+      { label: 'Tasks', file: 'notch-tasks.webp', alt: 'OneBuddy notch Tasks tab' },
+      { label: 'AI usage', file: 'notch-ai.webp', alt: 'OneBuddy notch AI usage tab with Claude Code and Codex tokens' },
+      { label: 'System', file: 'notch-system.webp', alt: 'OneBuddy notch System tab with CPU, memory, disk and network' },
+      { label: 'Pomodoro', file: 'notch-pomodoro.webp', alt: 'OneBuddy notch Pomodoro tab' },
+      { label: 'Timer', file: 'notch-timer.webp', alt: 'OneBuddy notch Timer tab with stopwatch, timer and reminders' },
     ]} />,
   },
   {
     id: 'tasks', eyebrow: 'Tasks and focus', title: <>Plan it. Start it. <span className="gradient-text">Watch the clock in the notch.</span></>,
     body: 'Keep as many boards as you like, each with Backlog, Today and Done. Press Start focus and the app gets out of the way, leaving a slim task list floating at the side of your screen.',
     points: ['Drag tasks between columns and boards; add estimates', 'The running task shows its timer beside the notch', 'Finish a task and Buddy celebrates with confetti (or your own GIF)', 'Pull in the tasks assigned to you from Todoist, Asana, ClickUp, Trello, Notion, Linear and GitHub'],
-    demo: <div className="frame shot-frame"><img className="on" src={`${IMG}/tasks.png`} alt="OneBuddy task boards with Backlog, Today and Done columns" loading="lazy" /></div>,
-    buddy: 'buddy-todo.png',
+    demo: <div className="frame shot-frame"><img className="on" src={`${IMG}/tasks.webp`} alt="OneBuddy task boards with Backlog, Today and Done columns" loading="lazy" /></div>,
+    buddy: 'buddy-todo.webp',
   },
   {
     id: 'pomodoro', eyebrow: 'Pomodoro', title: <>Twenty-five minutes, <span className="gradient-text">no tab to babysit.</span></>,
@@ -246,8 +246,8 @@ const rows: Row[] = [
     points: ['The countdown sits next to the notch while you work', 'Four dots show where you are in the round', 'Change the lengths, or pick 25 / 5 or 50 / 10', 'Start or pause it from the launcher'],
     demo: (
       <div className="stack">
-        <div className="frame notch-frame" style={{ aspectRatio: '1320 / 544' }}><img className="on" src={`${IMG}/notch-pomodoro.png`} alt="OneBuddy Pomodoro timer in the notch" loading="lazy" /></div>
-        <div className="frame strip"><img className="on" src={`${IMG}/notch-countdown.png`} alt="Pomodoro countdown shown beside the notch" loading="lazy" /></div>
+        <div className="frame notch-frame" style={{ aspectRatio: '1320 / 544' }}><img className="on" src={`${IMG}/notch-pomodoro.webp`} alt="OneBuddy Pomodoro timer in the notch" loading="lazy" /></div>
+        <div className="frame strip"><img className="on" src={`${IMG}/notch-countdown.webp`} alt="Pomodoro countdown shown beside the notch" loading="lazy" /></div>
         <p className="demo-note">Open, and closed: the countdown stays beside the notch.</p>
       </div>
     ),
@@ -255,9 +255,9 @@ const rows: Row[] = [
   {
     id: 'clipboard', eyebrow: 'Clipboard', title: <>Copy once. <span className="gradient-text">Find it for good.</span></>,
     body: 'Everything you copy is kept and searchable: text, links, images, files and colours. Press the shortcut in any app and a shelf slides up from the bottom of the screen.',
-    points: ['Arrow keys to move, Return to paste, ⌘1–9 to paste straight away', 'Pinboards for the things you reuse, each with its own emoji or icon', 'Edit a clip before pasting it', 'Items from password managers are never recorded', 'Bring your history over from another clipboard app'],
+    points: ['Arrow keys to move, Return to paste, ⌘1–9 to paste straight away', 'Pinboards for the things you reuse, each with its own emoji or icon', 'Edit a clip before pasting it', 'Sync clips and pinboards between your Macs through your own iCloud Drive', 'Items from password managers are never recorded', 'Bring your history over from another clipboard app'],
     demo: <ClipboardDemo />,
-    buddy: 'buddy-clipboard.png',
+    buddy: 'buddy-clipboard.webp',
   },
   {
     id: 'launcher', eyebrow: 'Launcher', title: <>One bar for apps, files, <span className="gradient-text">maths and commands.</span></>,
@@ -274,12 +274,12 @@ const rows: Row[] = [
   {
     id: 'cleaner', eyebrow: 'Cleaner', title: <>Get your disk back, <span className="gradient-text">without the fear.</span></>,
     body: 'One scan shows what is taking up space and what is safe to remove. Every category is labelled Safe, Caution or Review, risky ones are never ticked for you, and everything goes to the Trash rather than being deleted.',
-    points: ['System junk, user files and developer caches', 'Uninstall apps with the files they leave behind', 'Duplicates, similar photos, large files and a folder-by-folder disk map', 'Browser caches, history and cookies', 'A security check-up for apps and background items', 'Every clean is recorded in an activity log'],
+    points: ['System junk, user files and developer caches', 'Uninstall apps with the files they leave behind', 'Duplicates, similar photos, large files and a folder-by-folder disk map', 'Browser caches, history and cookies', 'Caches and old versions left by the Claude and ChatGPT apps', 'A security check-up for apps and background items', 'Every clean is recorded in an activity log'],
     demo: <Carousel ratio="1700 / 1245" slides={[
-      { label: 'Overview', file: 'cleaner.png', alt: 'OneBuddy Cleaner overview with disk usage and Smart Care' },
-      { label: 'System junk', file: 'cleaner-junk.png', alt: 'OneBuddy Cleaner system junk list with Safe, Caution and Review labels' },
+      { label: 'Overview', file: 'cleaner.webp', alt: 'OneBuddy Cleaner overview with disk usage and Smart Care' },
+      { label: 'System junk', file: 'cleaner-junk.webp', alt: 'OneBuddy Cleaner system junk list with Safe, Caution and Review labels' },
     ]} />,
-    buddy: 'buddy-private.png',
+    buddy: 'buddy-private.webp',
   },
   {
     id: 'windows', eyebrow: 'Window snapping', title: <>Tidy windows <span className="gradient-text">from the keyboard.</span></>,
@@ -290,18 +290,48 @@ const rows: Row[] = [
 ];
 
 const tools: { title: string; body: string; tag: string; image?: string; ratio?: string; icon?: string; notch?: boolean }[] = [
-  { title: 'System monitor', body: 'CPU, memory, disk, network and battery, live in the notch.', tag: 'Real-time stats', image: 'notch-system.png', ratio: '1320 / 544', notch: true },
-  { title: 'AI usage', body: "Today's Claude Code and Codex tokens, and time spent in your AI apps.", tag: 'Read from local logs', image: 'notch-ai.png', ratio: '1320 / 544', notch: true },
-  { title: 'Stopwatch, timers, reminders', body: 'Quick timers and nudges that pop out of the notch when they are due.', tag: 'In the notch', image: 'notch-timer.png', ratio: '1320 / 544', notch: true },
-  { title: 'Battery health', body: 'Maximum capacity, charge cycles and temperature, with a reminder to unplug.', tag: 'On the System page', image: 'system.png', ratio: '1700 / 1245' },
-  { title: 'Task integrations', body: 'Each service you connect gets its own board.', tag: 'Tokens stay in the Keychain', image: 'integrations.png', ratio: '1700 / 1245' },
-  { title: 'A model that fits your Mac', body: 'Pick a speech model for dictation; the recommended one is marked.', tag: 'Downloads in the app', image: 'dictation-models.png', ratio: '1440 / 1264' },
+  { title: 'System monitor', body: 'CPU, memory, disk, network and battery, live in the notch.', tag: 'Real-time stats', image: 'notch-system.webp', ratio: '1320 / 544', notch: true },
+  { title: 'AI usage', body: "Today's Claude Code and Codex tokens, and time spent in your AI apps.", tag: 'Read from local logs', image: 'notch-ai.webp', ratio: '1320 / 544', notch: true },
+  { title: 'Stopwatch, timers, reminders', body: 'Quick timers and nudges that pop out of the notch when they are due.', tag: 'In the notch', image: 'notch-timer.webp', ratio: '1320 / 544', notch: true },
+  { title: 'Battery health', body: 'Maximum capacity, charge cycles and temperature, with a reminder to unplug.', tag: 'On the System page', image: 'system.webp', ratio: '1700 / 1245' },
+  { title: 'Task integrations', body: 'Each service you connect gets its own board.', tag: 'Tokens stay in the Keychain', image: 'integrations.webp', ratio: '1700 / 1245' },
+  { title: 'A model that fits your Mac', body: 'Pick a speech model for dictation; the recommended one is marked.', tag: 'Downloads in the app', image: 'dictation-models.webp', ratio: '1440 / 1264' },
   { title: 'Volume and brightness', body: 'Level changes show in the notch as you press the keys.', tag: 'Notch display', icon: '🔊' },
   { title: 'Works with Claude', body: 'A built-in MCP server lets Claude add, start and finish your tasks.', tag: 'MCP server included', icon: '🧩' },
   { title: 'Calendar', body: 'Your next events in the notch, from the calendars on your Mac.', tag: 'Works with Apple Calendar', icon: '📅' },
+  { title: 'Updates itself', body: 'New versions arrive in the app. It asks before installing, or installs quietly if you prefer.', tag: 'Signed updates', icon: '⬆️' },
 ];
 
-const replaced = ['Notch app', 'Clipboard manager', 'Launcher', 'Focus timer', 'Task board', 'Dictation app', 'Mac cleaner', 'Window snapper', 'System monitor'];
+const replaced: { name: string; job: string; icon?: string; emoji?: string }[] = [
+  { name: 'Paste', job: 'Clipboard history', icon: 'paste.png' },
+  { name: 'CleanMyMac', job: 'Cleaning and uninstalling', icon: 'cleanmymac.png' },
+  { name: 'Raycast', job: 'Launcher and calculator', icon: 'raycast.svg' },
+  { name: 'Magnet', job: 'Window snapping', icon: 'magnet.png' },
+  { name: 'iStat Menus', job: 'System stats', icon: 'istat-menus.png' },
+  { name: 'Session', job: 'Pomodoro timer', icon: 'session.png' },
+  { name: 'Dictation apps', job: 'Voice typing', emoji: '🎙️' },
+  { name: 'Notch apps', job: 'Music and calendar in the notch', emoji: '🏝️' },
+];
+
+const assurances = ['30 days free, no card', 'Apple Silicon and Intel', 'macOS 14 or later', 'Signed and notarized by Apple'];
+
+const highlights = ['Notch panel', 'Task boards', 'Pomodoro', 'Clipboard history', 'iCloud clipboard sync', 'Launcher', 'Calculator',
+  'On-device dictation', 'Mac cleaner', 'Claude and ChatGPT cleanup', 'Window snapping', 'System stats', 'Battery health', 'Claude MCP', 'Automatic updates'];
+
+const personas: [string, string, string][] = [
+  ['💻', 'Developers', "Claude Code and Codex usage in the notch, a launcher for everything, and a cleaner that clears Xcode, package caches and the Claude and ChatGPT apps' leftovers."],
+  ['🎨', 'Designers', 'Copied colours, images and snippets in a visual shelf, pinboards for brand assets, and windows snapped side by side.'],
+  ['🎓', 'Students', 'A Pomodoro timer that stays out of the way, task boards for every subject, and dictation for notes in about 100 languages.'],
+  ['✍️', 'Writers', 'Talk and it types in any app, with your snippets and research one shortcut away.'],
+  ['🚀', 'Founders', 'Tasks from Todoist, Asana, Linear and GitHub on one board, a timer on what you are doing now, and Claude able to add and finish tasks.'],
+  ['🏡', 'Everyone', 'A tidier, faster Mac: free up space safely, keep an eye on battery health, and see music and your calendar at a glance.'],
+];
+
+const plans = [
+  { name: 'Monthly', price: '$3.99', period: 'per month', note: 'Cancel any time' },
+  { name: 'Yearly', price: '$29.99', period: 'per year', note: 'Save 37%', best: true },
+  { name: 'Lifetime', price: '$49.99', period: 'once', note: 'Pay once, keep it' },
+];
 
 const trust = [
   ['🎙️ Speech stays here', 'Dictation uses a speech model stored on your Mac. Your voice is not uploaded.'],
@@ -318,6 +348,9 @@ const faqs = [
   ['Is dictation as polished as a cloud service?', 'It types what you say, on your Mac, without sending audio anywhere. It does not rewrite or tidy your sentences the way cloud tools that use a language model do.'],
   ['Will the cleaner delete something I need?', 'Items go to the Trash rather than being deleted, risky categories are never ticked for you, and each one is labelled Safe, Caution or Review.'],
   ['Do the task integrations sync both ways?', "Not yet. Today OneBuddy imports the open tasks assigned to you from Todoist, Asana, ClickUp, Trello, Notion, Linear and GitHub. Finishing a task in OneBuddy doesn't close it in the other service."],
+  ['How much does it cost?', 'Every feature is free for your first 30 days, no card needed. After that it is $3.99 a month, $29.99 a year, or $49.99 once for lifetime access.'],
+  ['Can I use it on more than one Mac?', 'Yes. Sign in with the same account on each Mac. Switch on iCloud sync and your clipboard and pinboards follow you between them.'],
+  ['Does it update itself?', 'Yes. OneBuddy checks for a new version once a day and asks before installing it. You can let it install updates on its own in Settings.'],
   ['I already use the OneBuddy extension. Is this the same thing?', 'Same Buddy, different home. The extension lives in your browser; the Mac app lives in the notch and works across every app.'],
 ];
 
@@ -335,28 +368,42 @@ export function MacLanding() {
       <section className="hero">
         <div className="blob b1" /><div className="blob b2" /><div className="blob b3" />
         <div className="wrap">
-          <img className="mascot" src={`${IMG}/buddy-hello.png`} alt="Buddy, the OneBuddy mascot" width={118} height={118} />
-          <div style={{ marginTop: 18 }}><span className="eyebrow">New · OneBuddy comes to the Mac</span></div>
-          <h1>Your Mac&apos;s buddy <span className="gradient-text">lives in the notch.</span></h1>
+          <img className="mascot" src={`${IMG}/buddy-hello.webp`} alt="Buddy, the OneBuddy mascot" width={118} height={118} />
+          <div style={{ marginTop: 18 }}><span className="eyebrow"> OneBuddy for Mac</span></div>
+          <h1>Your Mac&apos;s buddy.<br /><span className="serif-line">Lives in the notch.</span></h1>
           <p className="lead">Tasks, a Pomodoro timer, clipboard history, a launcher, voice dictation and a cleaner — one app, one hover away. No more drawer full of little utilities.</p>
           <div className="cta">
             <DownloadButton />
             <a className="btn ghost" href="#notch">See how it works</a>
           </div>
-          <p className="fine">macOS 14 or later · your data stays on your Mac</p>
+          <ul className="assurances">{assurances.map((item) => <li key={item}>{item}</li>)}</ul>
           <HeroStage />
+          <div className="feature-cloud reveal">{highlights.map((item) => <span key={item}>{item}</span>)}</div>
         </div>
       </section>
 
       <section className="center" style={{ paddingTop: 40 }}>
         <div className="wrap reveal">
-          <h2>One app <span className="gradient-text">instead of seven.</span></h2>
-          <p className="lead">Most Macs collect a utility for every small job. OneBuddy does those jobs in one place, with one look and one set of shortcuts.</p>
-          <div className="chips">{replaced.map((name) => <span className="chip" key={name}>{name}</span>)}</div>
-          <div className="arrow">↓ &nbsp;<img src={`${IMG}/icon.png`} alt="" width={40} height={40} /> OneBuddy</div>
+          <span className="eyebrow">One app instead of many</span>
+          <h2 style={{ marginTop: 16 }}>Eight apps&apos; everyday jobs. <span className="serif-line">One buddy.</span></h2>
+          <p className="lead">Most Macs collect a utility for every small job. OneBuddy covers the everyday part of each one, in one place, with one look and one set of shortcuts.</p>
+          <div className="logo-wall">
+            {replaced.map((app) => (
+              <div className="logo-card" key={app.name}>
+                {app.icon
+                  ? <img src={`${IMG}/apps/${app.icon}`} alt={`${app.name} icon`} width={56} height={56} loading="lazy" className={app.icon.endsWith('.svg') ? 'mark' : ''} />
+                  : <span className="emoji-icon" aria-hidden>{app.emoji}</span>}
+                <b>{app.name}</b>
+                <small>{app.job}</small>
+              </div>
+            ))}
+          </div>
+          <div className="arrow">↓ &nbsp;<img src={`${IMG}/icon.png`} alt="" width={40} height={40} /> All of it in OneBuddy</div>
+          <p className="disclaimer">App names and icons belong to their owners. OneBuddy is not affiliated with them, and each of those apps does more than the everyday job shown here.</p>
           <nav className="jump" aria-label="Features">
             {rows.map((row) => <a key={row.id} href={`#${row.id}`}>{row.eyebrow}</a>)}
             <a href="#tools">More tools</a>
+            <a href="#pricing">Pricing</a>
           </nav>
         </div>
       </section>
@@ -399,6 +446,47 @@ export function MacLanding() {
         </div>
       </section>
 
+      <section id="who" className="personas-section">
+        <div className="wrap">
+          <div className="center reveal">
+            <span className="eyebrow">Built for how you work</span>
+            <h2 style={{ marginTop: 16 }}>One buddy, <span className="serif-line small">whatever your day looks like.</span></h2>
+          </div>
+          <div className="personas">
+            {personas.map(([icon, title, body]) => (
+              <article key={title} className="persona reveal"><span aria-hidden>{icon}</span><h3>{title}</h3><p>{body}</p></article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing">
+        <div className="wrap">
+          <div className="center reveal">
+            <span className="eyebrow">Pricing</span>
+            <h2 style={{ marginTop: 16 }}>Try everything free <span className="serif-line small">for a month.</span></h2>
+            <p className="lead">Every feature, no card. Then pick the plan that suits you, or pay once and keep it.</p>
+          </div>
+          <div className="plans reveal">
+            {plans.map((plan) => (
+              <div key={plan.name} className={`plan ${plan.best ? 'best' : ''}`}>
+                {plan.best && <span className="ribbon">Best value</span>}
+                <h3>{plan.name}</h3>
+                <div className="price">{plan.price}<small> {plan.period}</small></div>
+                <p>{plan.note}</p>
+                <ul>
+                  <li>Every feature unlocked</li>
+                  <li>Updates included</li>
+                  <li>Your data stays on your Mac</li>
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="cta" style={{ marginTop: 28 }}><DownloadButton /></div>
+          <p className="fine center">Payments are handled by Stripe. Manage or cancel any time from the app.</p>
+        </div>
+      </section>
+
       <section id="privacy">
         <div className="wrap">
           <div className="center reveal">
@@ -423,7 +511,7 @@ export function MacLanding() {
       <section id="download" style={{ paddingTop: 30 }}>
         <div className="wrap">
           <div className="final reveal">
-            <img src={`${IMG}/buddy-hello.png`} alt="" width={92} height={92} style={{ width: 92, margin: '0 auto 14px', filter: 'drop-shadow(0 14px 24px rgba(124,58,237,.6))' }} />
+            <img src={`${IMG}/buddy-hello.webp`} alt="" width={92} height={92} style={{ width: 92, margin: '0 auto 14px', filter: 'drop-shadow(0 14px 24px rgba(124,58,237,.6))' }} />
             <h2>Give your notch <span style={{ color: '#C4B5FD' }}>a job.</span></h2>
             <p className="lead">OneBuddy for Mac — tasks, clipboard, launcher, dictation and a cleaner, one hover away.</p>
             <div className="cta">
