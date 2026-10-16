@@ -21,7 +21,7 @@ const replaced: { name: string; job: string; icon?: string; emoji?: string }[] =
   { name: 'Magnet', job: 'Window snapping', icon: 'magnet.png' },
   { name: 'iStat Menus', job: 'System stats', icon: 'istat-menus.png' },
   { name: 'Session', job: 'Pomodoro', icon: 'session.png' },
-  { name: 'Dictation apps', job: 'Voice typing', emoji: '🎙️' },
+  { name: 'Wispr Flow', job: 'Voice typing', icon: 'wispr-flow.png' },
   { name: 'Notch apps', job: 'Music and calendar', emoji: '🏝️' },
 ];
 
