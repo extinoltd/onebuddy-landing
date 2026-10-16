@@ -3,13 +3,13 @@
   <channel>
     <title>OneBuddy</title>
     <item>
-      <title>Version 1.0.2</title>
-      <pubDate>Tue, 13 Oct 2026 10:33:28 +0000</pubDate>
-      <sparkle:version>202610131931</sparkle:version>
-      <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+      <title>Version 1.0.3</title>
+      <pubDate>Fri, 16 Oct 2026 08:49:01 +0000</pubDate>
+      <sparkle:version>202610161747</sparkle:version>
+      <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-      <description><![CDATA[OneBuddy can now update itself: it checks for new versions and asks before installing.]]></description>
-      <enclosure url="https://onebuddy.io/mac/downloads/OneBuddy-1.0.2.dmg" type="application/octet-stream" sparkle:edSignature="PiAsVoMaUhii/ZrvjsHEoel6y4tp7Kf88HJA8p4GJT0nca59jOo+4y1Ogoihh5bPWjOLjUqAKqCigY4pkyD9Cg==" length="11074619" />
+      <description><![CDATA[Sign in to start a free month. New: clean up Claude and ChatGPT temporary files, sync your clipboard between Macs with iCloud, and scroll the clipboard shelf with your mouse.]]></description>
+      <enclosure url="https://onebuddy.io/mac/downloads/OneBuddy-1.0.3.dmg" type="application/octet-stream" sparkle:edSignature="rC0k4XJ0svsh0bvGo9WwxF0tyXWLsc8ZI/aeXQng1qCiTmdCEe2WXcu/0zaRBLluni+4P4QN95edT2+lm2/0AQ==" length="11471653" />
     </item>
   </channel>
 </rss>
