@@ -39,12 +39,18 @@
 .mac2 .hero h1 { font-size: clamp(46px, 8.4vw, 104px); line-height: 1; letter-spacing: -0.05em; font-weight: 700; margin: 14px 0 26px; }
 
 /* 3D MacBook: starts full screen, pulls back to the laptop */
-.mac2 .mb3d-track { height: 320vh; padding: 0; }
+.mac2 .mb3d-track { height: 640vh; padding: 0; }
 .mac2 .mb3d-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
 .mac2 .mb3d-canvas, .mac2 .mb3d-canvas canvas { width: 100%; height: 100%; display: block; }
 .mac2 .mb3d-canvas { position: relative; --glow: 0; }
 .mac2 .mb3d-canvas canvas { position: relative; z-index: 1; }
 .mac2 .mb3d-canvas::before { content: ""; position: absolute; left: 50%; top: 40%; width: min(1400px, 130vw); aspect-ratio: 1.9; transform: translate(-50%, -50%) scale(calc(.85 + var(--glow) * .15)); border-radius: 50%; background: radial-gradient(closest-side, rgba(124, 92, 255, .75), rgba(76, 140, 255, .5) 50%, rgba(255, 140, 220, .2) 75%, transparent); filter: blur(24px); opacity: var(--glow); pointer-events: none; }
+.mac2 .mb3d-cap { position: absolute; left: 50%; bottom: 4vh; transform: translateX(-50%); z-index: 2; width: min(680px, calc(100% - 32px)); text-align: center; opacity: 0; pointer-events: none; padding: 18px 24px 16px; border-radius: 22px; background: rgba(255, 255, 255, .78); -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4); box-shadow: 0 10px 40px rgba(20, 20, 40, .12); }
+.mac2 .mb3d-cap h3 { font-size: clamp(26px, 2.6vw, 36px); font-weight: 650; letter-spacing: -0.025em; margin: 0 0 6px; }
+.mac2 .mb3d-cap p { color: var(--muted); font-size: 17px; margin: 0; }
+.mac2 .mb3d-cap .dots { display: flex; gap: 7px; justify-content: center; margin-top: 16px; }
+.mac2 .mb3d-cap .dots i { width: 6px; height: 6px; border-radius: 3px; background: rgba(0, 0, 0, .18); transition: width .3s, background .3s; }
+.mac2 .mb3d-cap .dots i.on { width: 20px; background: var(--link); }
 .mac2 .mb3d-fallback { width: 100%; height: 100%; object-fit: cover; }
 
 /* statement */
@@ -153,7 +159,10 @@
   .mac2 .features .wide { grid-template-columns: 1fr; padding: 32px; }
   .mac2 .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .mac2 .people, .mac2 .plans, .mac2 .privacy { grid-template-columns: 1fr; }
-  .mac2 .mb3d-track { height: 240vh; }
+  .mac2 .mb3d-track { height: 520vh; }
+  .mac2 .mb3d-cap { bottom: 9vh; }
+  .mac2 .mb3d-cap h3 { font-size: 24px; }
+  .mac2 .mb3d-cap p { font-size: 15px; }
   .mac2 .card { padding: 26px; border-radius: 26px; }
   .mac2 .step { padding: 30px 26px; }
   .mac2 .step h3 { font-size: 27px; }

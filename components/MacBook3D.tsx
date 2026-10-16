@@ -7,8 +7,9 @@ import type * as THREE_NS from 'three';
  * An interactive MacBook Pro, rendered live with Three.js.
  *
  * Scroll: the laptop starts closed at an angle, the lid opens and the screen
- * lights up with OneBuddy, then the camera flies into the screen until it fills
- * the whole window. Pointer: the laptop turns gently towards the cursor.
+ * lights up, the camera comes square on to the display, and the screen then
+ * steps through OneBuddy's features with a caption under each.
+ * Pointer: the laptop turns gently towards the cursor.
  *
  * Model: "macbook-pro.glb", converted from macbookpro.fbx and Draco-compressed.
  * Lit by a studio of softboxes; a soft brand-coloured glow rises behind it as the screen comes on.
@@ -17,7 +18,42 @@ import type * as THREE_NS from 'three';
  */
 
 const FOV = 30;
-const WALLPAPER = '/images/mac/wallpaper.jpg';
+const UI = '/images/mac/ui';
+
+type Layer = { src: string; x: number; y: number; w: number }; // x is the centre, in a 1440 x 900 desktop
+type Slide = { title: string; sub: string; full?: string; layers?: Layer[] };
+const SLIDES: Slide[] = [
+  { title: 'Everything in one window', sub: 'Tasks, clipboard, dictation and cleanup, side by side.', full: 'desktop-home' },
+  { title: 'Tasks that keep up', sub: 'Plan the day, set reminders and tick things off.', full: 'desktop-tasks' },
+  { title: 'Your notch, put to work', sub: 'Music, calendar and timers drop down from the notch.', layers: [{ src: 'notch-home', x: 720, y: 0, w: 700 }] },
+  { title: 'A launcher that does the maths', sub: 'Open apps, run commands, convert 100 USD to LKR.', layers: [{ src: 'launcher', x: 720, y: 150, w: 720 }, { src: 'launcher-fx', x: 720, y: 640, w: 720 }] },
+  { title: 'Clipboard shelf', sub: 'Everything you copied, one scroll away.', layers: [{ src: 'shelf', x: 720, y: 540, w: 1440 }] },
+  { title: 'Focus timer', sub: 'A Pomodoro in the notch, your task list floating beside you.', layers: [{ src: 'notch-pomodoro', x: 720, y: 0, w: 640 }, { src: 'focus', x: 1190, y: 250, w: 300 }] },
+  { title: 'Dictation', sub: 'Talk, and it types in any app.', layers: [{ src: 'dictation', x: 720, y: 200, w: 900 }] },
+  { title: 'Cleaner', sub: 'Clear caches and big AI temp files in a click.', layers: [{ src: 'cleaner', x: 720, y: 80, w: 1100 }] },
+];
+const MENU_BAR = 30; // height of the macOS menu bar in the desktop screenshots
+
+const loadImage = (src: string) => new Promise<HTMLImageElement>((ok, fail) => { const i = new Image(); i.onload = () => ok(i); i.onerror = fail; i.src = src; });
+
+/** Paints one slide: a full screenshot, or panels floating over the blurred desktop. */
+function paintSlide(slide: Slide, img: (name: string) => HTMLImageElement) {
+  const c = document.createElement('canvas'); c.width = 1440; c.height = 900;
+  const g = c.getContext('2d')!;
+  if (slide.full) { g.drawImage(img(slide.full), 0, 0, 1440, 900); return c; }
+  const desk = img('desktop-home');
+  g.filter = 'blur(22px) brightness(0.5)'; g.drawImage(desk, -40, -40, 1520, 980); g.filter = 'none';
+  g.drawImage(desk, 0, 0, 1440, MENU_BAR, 0, 0, 1440, MENU_BAR);
+  for (const l of slide.layers ?? []) {
+    const im = img(l.src), h = l.w * im.height / im.width, x = l.x - l.w / 2, y = Math.max(l.y, l.y === 0 ? 0 : MENU_BAR);
+    g.save();
+    g.shadowColor = 'rgba(0,0,0,.55)'; g.shadowBlur = 40; g.shadowOffsetY = 16;
+    g.beginPath(); g.roundRect(x, y, l.w, h, l.y === 0 ? [0, 0, 22, 22] : 16); g.fillStyle = '#000'; g.fill();
+    g.shadowColor = 'transparent'; g.clip(); g.drawImage(im, x, y, l.w, h);
+    g.restore();
+  }
+  return c;
+}
 const LID_CLOSED = 0, LID_OPEN = -1.925; // rotation of the lid about its hinge, as in the model file
 const smooth = (a: number, b: number, x: number) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -34,6 +70,7 @@ function shadowTexture(THREE: typeof THREE_NS) {
 export function MacBook3D({ image, alt }: { image: string; alt: string }) {
   const track = useRef<HTMLDivElement>(null);
   const holder = useRef<HTMLDivElement>(null);
+  const cap = useRef<HTMLDivElement>(null);
   const [fallback, setFallback] = useState(false);
 
   useEffect(() => {
@@ -77,13 +114,18 @@ export function MacBook3D({ image, alt }: { image: string; alt: string }) {
       // --- model
       const draco = new DRACOLoader(); draco.setDecoderPath('/draco/');
       const loader = new GLTFLoader(); loader.setDRACOLoader(draco);
-      const texLoader = new THREE.TextureLoader();
-      const [gltf, uiTex, wallTex] = await Promise.all([
+      const names = Array.from(new Set(SLIDES.flatMap((sl) => [sl.full ?? 'desktop-home', ...(sl.layers ?? []).map((l) => l.src)])));
+      const [gltf, ...pics] = await Promise.all([
         loader.loadAsync('/models/macbook-pro.glb'),
-        texLoader.loadAsync(image),
-        texLoader.loadAsync(WALLPAPER),
+        ...names.map((n) => loadImage(`${UI}/${n}.webp`)),
       ]);
       if (disposed) return;
+      const byPic = new Map(names.map((n, i) => [n, pics[i] as HTMLImageElement]));
+      const slideTex = SLIDES.map((sl) => {
+        const t = new THREE.CanvasTexture(paintSlide(sl, (n) => byPic.get(n)!));
+        t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = renderer.capabilities.getMaxAnisotropy();
+        return t;
+      });
 
       const laptop = new THREE.Group(); scene.add(laptop);
       const model = gltf.scene; laptop.add(model);
@@ -106,31 +148,24 @@ export function MacBook3D({ image, alt }: { image: string; alt: string }) {
       const grilleMat = new THREE.MeshStandardMaterial({ color: 0x1c1d20, metalness: 0.5, roughness: 0.5 });
       const bezelMat = new THREE.MeshPhysicalMaterial({ color: 0x030304, metalness: 0, roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.04 });
 
-      // The display: the wallpaper wakes up and drifts, then OneBuddy zooms in over it.
+      // The display crossfades from one feature to the next; the incoming one settles from slightly larger.
       const screenUniforms = {
-        uWall: { value: wallTex }, uUi: { value: uiTex }, uMask: { value: null as THREE_NS.Texture | null },
+        uA: { value: slideTex[0] }, uB: { value: slideTex[1] }, uMix: { value: 0 }, uMask: { value: null as THREE_NS.Texture | null },
         uDisp: { value: new THREE.Vector4(0, 0, 1, 1) }, // display rectangle in uv: x, y, w, h
-        uWallFit: { value: new THREE.Vector2(1, 1) }, uUiFit: { value: new THREE.Vector2(1, 1) },
-        uBright: { value: 0 }, uApp: { value: 0 }, uTime: { value: 0 },
+        uFit: { value: new THREE.Vector2(1, 1) }, uBright: { value: 0 },
       };
-      for (const t of [uiTex, wallTex]) { t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = renderer.capabilities.getMaxAnisotropy(); }
       const screenMat = new THREE.ShaderMaterial({
         uniforms: screenUniforms, toneMapped: false,
         vertexShader: `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
         fragmentShader: `
-          uniform sampler2D uWall, uUi, uMask; uniform vec4 uDisp; uniform vec2 uWallFit, uUiFit;
-          uniform float uBright, uApp, uTime; varying vec2 vUv;
+          uniform sampler2D uA, uB, uMask; uniform vec4 uDisp; uniform vec2 uFit; uniform float uMix, uBright; varying vec2 vUv;
           void main() {
             vec2 d = (vUv - uDisp.xy) / uDisp.zw;                       // 0..1 across the display
-            float t = uTime * 0.035;
-            vec2 w = (d - 0.5) / (1.12 + 0.04 * sin(t * 2.0)) + 0.5 + vec2(sin(t), cos(t * 0.8)) * 0.035;
-            vec3 wall = texture2D(uWall, (w - 0.5) * uWallFit + 0.5).rgb;
-            float e = uApp * uApp * (3.0 - 2.0 * uApp);
-            vec2 a = (d - 0.5) / mix(0.86, 1.0, e) + 0.5;                // the app grows into place
-            float inside = step(0.0, a.x) * step(a.x, 1.0) * step(0.0, a.y) * step(a.y, 1.0);
-            vec3 app = texture2D(uUi, (a - 0.5) * uUiFit + 0.5).rgb;
-            vec3 col = mix(wall, app, e * inside);
-            col += vec3(0.55, 0.6, 1.0) * 0.35 * (1.0 - uBright) * uBright * 4.0 * (1.0 - e); // power-on flash
+            vec3 a = texture2D(uA, (d - 0.5) * uFit + 0.5).rgb;
+            vec2 db = (d - 0.5) / mix(1.06, 1.0, uMix) + 0.5;
+            vec3 b = texture2D(uB, (db - 0.5) * uFit + 0.5).rgb;
+            vec3 col = mix(a, b, uMix);
+            col += vec3(0.45, 0.5, 1.0) * (1.0 - uBright) * uBright * 1.6;  // power-on flash
             gl_FragColor = vec4(col * texture2D(uMask, vUv).r * uBright, 1.0);
             #include <colorspace_fragment>
           }`,
@@ -208,8 +243,7 @@ export function MacBook3D({ image, alt }: { image: string; alt: string }) {
         const ia = img.width / img.height, da = dispW / dispH; // cover the display
         return ia > da ? new THREE.Vector2(da / ia, 1) : new THREE.Vector2(1, ia / da);
       };
-      screenUniforms.uWallFit.value = fit(wallTex.image as HTMLImageElement);
-      screenUniforms.uUiFit.value = fit(uiTex.image as HTMLImageElement);
+      screenUniforms.uFit.value = fit({ width: 1440, height: 900 });
       lid.rotation.x = LID_CLOSED;
 
       // Soft contact shadow.
@@ -219,7 +253,9 @@ export function MacBook3D({ image, alt }: { image: string; alt: string }) {
       // --- camera
       const camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 200);
       const tan = Math.tan(THREE.MathUtils.degToRad(FOV / 2));
-      const overview = new THREE.Vector3(), overviewTarget = new THREE.Vector3(0, 2.5, -0.8), fullPos = new THREE.Vector3();
+      const overview = new THREE.Vector3(), overviewTarget = new THREE.Vector3(0, 2.5, -0.8), fitPos = new THREE.Vector3();
+      // square on to the display, sitting a little high to leave room for the caption
+      const fitTarget = screenCenter.clone().addScaledVector(screenUp, -dispH * 0.2);
       const closedView = new THREE.Vector3(), closedTarget = new THREE.Vector3(0, 0.2, 0.2);
       const resize = () => {
         const el = holder.current; if (!el) return;
@@ -231,15 +267,15 @@ export function MacBook3D({ image, alt }: { image: string; alt: string }) {
         // closed: a little closer and higher, looking down on the lid
         const dc = Math.max(12 / 2 / (tan * camera.aspect), 9 / 2 / tan);
         closedView.set(0, closedTarget.y + dc * 0.55, closedTarget.z + dc * 0.84);
-        // full screen: the display covers the whole window
-        const dCover = Math.min((dispH / 2) / tan, (dispW / 2) / (tan * camera.aspect));
-        fullPos.copy(screenCenter).addScaledVector(screenNormal, dCover * 0.985);
+        // features: the whole display in view, never cropped
+        const dFit = Math.max((dispH / 2) / tan / 0.52, (dispW / 2) / (tan * camera.aspect) / 0.8);
+        fitPos.copy(fitTarget).addScaledVector(screenNormal, dFit);
       };
       resize();
       const ro = new ResizeObserver(resize); ro.observe(holder.current!);
 
       // --- input
-      let target = 0, current = 0, visible = true, frame = 0;
+      let target = 0, current = 0, visible = true, frame = 0, lastShown = -1;
       const readScroll = () => {
         const el = track.current; if (!el) return;
         const rect = el.getBoundingClientRect();
@@ -260,28 +296,41 @@ export function MacBook3D({ image, alt }: { image: string; alt: string }) {
         if (!visible) return;
         const t = clock.getElapsedTime();
         current += (target - current) * 0.1;
-        const open = easeInOut(smooth(0.0, 0.42, current));   // lid opens
-        const zoom = easeInOut(smooth(0.5, 0.95, current));   // camera flies into the screen
+        const open = easeInOut(smooth(0.0, 0.16, current));   // lid opens
+        const fitT = easeInOut(smooth(0.13, 0.26, current));  // camera comes square on to the display
         lid.rotation.x = LID_CLOSED + (LID_OPEN - LID_CLOSED) * open;
         // the screen lights up as the lid passes upright
         const light = smooth(0.35, 0.85, open);
         screenUniforms.uBright.value = light;
-        screenUniforms.uApp.value = smooth(0.4, 0.52, current);
-        screenUniforms.uTime.value = t;
-        spill.intensity = light * 6 * (1 - zoom);
+
+        // step through the features: hold each one, then crossfade to the next
+        const f = smooth(0.27, 0.97, current) * (SLIDES.length - 1);
+        const i = Math.min(Math.floor(f), SLIDES.length - 2), mix = smooth(0.6, 1, f - i);
+        if (screenUniforms.uA.value !== slideTex[i]) { screenUniforms.uA.value = slideTex[i]; screenUniforms.uB.value = slideTex[i + 1]; }
+        screenUniforms.uMix.value = mix;
+        const shown = mix < 0.5 ? i : i + 1;
+        if (shown !== lastShown && cap.current) {
+          lastShown = shown;
+          cap.current.querySelector('h3')!.textContent = SLIDES[shown].title;
+          cap.current.querySelector('p')!.textContent = SLIDES[shown].sub;
+          cap.current.querySelectorAll('i').forEach((dot, k) => dot.classList.toggle('on', k === shown));
+        }
+        if (cap.current) cap.current.style.opacity = String(fitT * Math.abs(1 - 2 * mix));
+
+        spill.intensity = light * 6 * (1 - fitT * 0.7);
         spill.position.copy(screenCenter).addScaledVector(screenNormal, 2.2).applyMatrix4(laptop.matrixWorld);
-        holder.current?.style.setProperty('--glow', String(light * (1 - zoom * 0.6)));
+        holder.current?.style.setProperty('--glow', String(light * (1 - fitT * 0.35)));
 
         // the laptop turns from a three-quarter view to face you, and follows the pointer
         sx += (mx - sx) * 0.06; sy += (my - sy) * 0.06;
-        const free = 1 - zoom;
-        laptop.rotation.y = (-0.55 * (1 - open) + sx * 0.5) * free;
+        const free = 1 - fitT * 0.8;
+        laptop.rotation.y = -0.55 * (1 - open) * (1 - fitT) + sx * 0.5 * free;
         laptop.rotation.x = (sy * 0.18) * free;
         laptop.position.y = Math.sin(t * 1.2) * 0.06 * free;
 
-        camPos.lerpVectors(closedView, overview, open).lerp(fullPos, zoom);
-        look.lerpVectors(closedTarget, overviewTarget, open).lerp(screenCenter, zoom);
-        up.lerpVectors(worldUp, screenUp, zoom).normalize();
+        camPos.lerpVectors(closedView, overview, open).lerp(fitPos, fitT);
+        look.lerpVectors(closedTarget, overviewTarget, open).lerp(fitTarget, fitT);
+        up.lerpVectors(worldUp, screenUp, fitT).normalize();
         camera.position.copy(camPos); camera.up.copy(up); camera.lookAt(look);
         renderer.render(scene, camera);
       };
@@ -305,6 +354,13 @@ export function MacBook3D({ image, alt }: { image: string; alt: string }) {
         {fallback
           ? <img className="mb3d-fallback" src={image} alt={alt} width={1440} height={900} />
           : <div className="mb3d-canvas" ref={holder} role="img" aria-label={alt} />}
+        {!fallback && (
+          <div className="mb3d-cap" ref={cap} aria-live="polite">
+            <h3>{SLIDES[0].title}</h3>
+            <p>{SLIDES[0].sub}</p>
+            <div className="dots" aria-hidden="true">{SLIDES.map((sl, k) => <i key={sl.title} className={k === 0 ? 'on' : undefined} />)}</div>
+          </div>
+        )}
       </div>
     </section>
   );
