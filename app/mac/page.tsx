@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif } from 'next/font/google';
 import { MacLanding } from '@/components/MacLanding';
 import { siteConfig } from '@/lib/site-config';
 import './mac.css';
 
-const serif = Instrument_Serif({ subsets: ['latin'], weight: '400', style: ['italic'], variable: '--font-serif', display: 'swap' });
 
 const title = "OneBuddy for Mac — Your Mac's Buddy Lives in the Notch";
 const description =
@@ -64,7 +62,7 @@ const jsonLd = {
 
 export default function MacPage() {
   return (
-    <div className={serif.variable}>
+    <div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <MacLanding />
     </div>
