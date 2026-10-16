@@ -2,12 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { HambergerMenu, CloseSquare, Chrome } from 'iconsax-react';
+import { usePathname } from 'next/navigation';
+import { HambergerMenu, CloseSquare, Chrome, Apple } from 'iconsax-react';
 import { siteConfig, navLinks } from '@/lib/site-config';
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // On the Mac page the trial starts in the Mac app, so the button downloads it instead of opening the Chrome Web Store.
+  const onMacPage = (usePathname() ?? '').startsWith('/mac') && !!siteConfig.macDownloadUrl;
+  const cta = onMacPage
+    ? { href: siteConfig.macDownloadUrl, external: {}, Icon: Apple }
+    : { href: siteConfig.extensionUrl, external: { target: '_blank', rel: 'noopener noreferrer' }, Icon: Chrome };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -55,12 +61,11 @@ export function Navbar() {
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-3">
             <a
-              href={siteConfig.extensionUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={cta.href}
+              {...cta.external}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-dark text-white text-sm font-semibold rounded-full transition-colors"
             >
-              <Chrome size={16} color="currentColor" variant="Bold" />
+              <cta.Icon size={16} color="currentColor" variant="Bold" />
               Start Free Trial
             </a>
           </div>
@@ -92,13 +97,12 @@ export function Navbar() {
             ))}
             <div className="pt-4">
               <a
-                href={siteConfig.extensionUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={cta.href}
+                {...cta.external}
                 className="flex items-center justify-center gap-2 w-full px-5 py-3 bg-primary text-white font-semibold rounded-full"
                 onClick={() => setOpen(false)}
               >
-                <Chrome size={16} color="currentColor" variant="Bold" />
+                <cta.Icon size={16} color="currentColor" variant="Bold" />
                 Start Free Trial
               </a>
             </div>
